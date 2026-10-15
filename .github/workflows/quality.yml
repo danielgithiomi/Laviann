@@ -26,6 +26,9 @@ jobs:
       - name: Install workspace packages
         run: bun install --frozen-lockfile
 
+      - name: Test shared image copying
+        run: bun run test:assets
+
       - name: Lint and typecheck all workspaces
         run: bun run check
 

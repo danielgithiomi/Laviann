@@ -7,12 +7,13 @@
         "node": ">=22.0.0"
     },
     "workspaces": [
-        "apps/*"
+        "apps/*",
+        "packages/*"
     ],
     "scripts": {
         "dev": "turbo run dev",
-        "dev:customer": "bun --cwd apps/customer run dev",
-        "dev:vendor": "bun --cwd apps/vendor run dev",
+        "dev:customer": "bun run --filter @laviann/customer dev",
+        "dev:vendor": "bun run --filter @laviann/vendor dev",
         "build": "turbo run build",
         "lint": "turbo run lint",
         "typecheck": "turbo run typecheck",
@@ -20,7 +21,9 @@
         "format": "prettier --write .",
         "format:check": "prettier --check .",
         "prepare": "husky",
-        "test:commit-msg": "sh scripts/test-commit-msg.sh"
+        "test:commit-msg": "sh scripts/test-commit-msg.sh",
+        "sync:assets": "node scripts/sync-brand-assets.mjs",
+        "test:assets": "node --test scripts/test-sync-brand-assets.test.mjs"
     },
     "devDependencies": {
         "husky": "^9.1.7",

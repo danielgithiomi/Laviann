@@ -73,7 +73,8 @@ manually in the dashboard and share its confirmation link over WhatsApp.
 - Documentation: `docs/PRD.md` is the authoritative product requirement source;
   `docs/Laviann-PRD-v1.0.pdf` is the formatted presentation copy. If requirements
   change, update the Markdown first and regenerate the PDF.
-- Shared packages: introduce them under `packages/` **only when genuinely shared**;
+- Shared foundation: `packages/shared` is the `@laviann/shared` Bun workspace.
+  Both apps import its theme, shared UI and types. Add only genuinely shared code;
   do not duplicate contracts or create speculative abstraction layers.
 
 ### Important directories
@@ -85,7 +86,12 @@ Laviann/
   CONTRIBUTING.md           # Coding and commit rules
   apps/customer/            # Mobile-first customer Next.js app (port 3000)
   apps/vendor/              # Vendor admin Next.js app (port 3001)
-  packages/                 # Reserved for truly shared packages
+  packages/shared/          # @laviann/shared workspace
+    src/theme/              # Authoritative colors, typography and base CSS
+    src/ui/                 # Shared React components used by both apps
+    src/types/              # Shared contracts, added as implementation needs them
+    assets/images/branding/ # Static image source (nested folders allowed)
+  scripts/sync-brand-assets.mjs # One image copy script; no watcher
   docs/PRD.md               # Editable product requirements source
   docs/Laviann-PRD-v1.0.pdf # Pitch-friendly PRD
   docs/commit-conventions.md
@@ -94,6 +100,30 @@ Laviann/
   .husky/pre-commit         # Runs workspace lint and typecheck
   .husky/commit-msg         # Enforces Conventional Commits
 ```
+
+## Shared foundation rules
+
+- See `docs/decisions/0002-shared-foundation-and-assets.md`. The latest approved
+  image policy is **overwrite on every run**, superseding the planning draft's
+  missing-files-only / force-refresh proposal.
+- `packages/shared/src/theme/colors.ts` owns the runtime palette. `typography.ts`
+  owns font preferences; the package derives CSS variables used by both root layouts.
+  `docs/design/tokens.json` is a historical design reference, not a second runtime source.
+- Share React UI under `packages/shared/src/ui`, currently consumed through
+  `@laviann/shared/ui`. A separate `@laviann/ui` package is unnecessary at this size.
+- Shared types are compile-time contracts, not runtime validation. Detailed
+  customer/product/order/database models remain deferred until implementation planning.
+- Source static images only from `packages/shared/assets/images`. Preserve every
+  nested directory below that source in `apps/{customer,vendor}/public/assets/images`.
+- One script performs all copies. Each app's `predev` and `prebuild` invokes it for
+  that app. Overwrite matching files, never delete destination files, and never add
+  an asset watcher. Skip only `.gitkeep` and `.DS_Store` metadata.
+- Generated image copies are Git-ignored. Never edit them as the source of truth.
+  Files removed/renamed in the source leave old copies until explicitly removed.
+- Turbo's build depends on an uncached per-app `sync:assets` task, so cache hits
+  cannot skip copying. Keep shared code and source images in build-cache inputs.
+- Static branding belongs here; future vendor-uploaded product photos belong in
+  Supabase Storage. Do not invent a final logo or implement product flows in this work.
 
 ## Always follow this task workflow
 
@@ -154,6 +184,8 @@ Laviann/
 - `bun run check` - both checks, required before every commit (Husky pre-commit).
 - `bun run build` - build both apps.
 - `bun run test:commit-msg` - validate representative Conventional Commit messages.
+- `bun run sync:assets` - overwrite shared image copies in both apps, without deletion.
+- `bun run test:assets` - validate nesting, overwrites, preservation and CLI behaviour.
 - Never bypass hooks with `--no-verify` merely to make a commit pass.
 
 ### Git commit message policy
@@ -179,7 +211,7 @@ in an initialized local Git repository; it is not a remote branch policy.
 
 ## Stage gate / next steps
 
-**Current stage:** scaffolding + requirements recorded. The customer/vendor pages
+**Current stage:** scaffolding + requirements + shared foundation implemented. The customer/vendor pages
 are neutral placeholders, NOT a finished UX or production application.
 
 **Next:** user-flow mapping, screen inventories, wireframes, visual UI design,

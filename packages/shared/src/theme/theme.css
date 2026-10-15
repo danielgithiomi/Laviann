@@ -1,0 +1,25 @@
+:root {
+    color-scheme: light;
+    font-family: var(--laviann-font-body);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    background: var(--laviann-background);
+    color: var(--laviann-text);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--laviann-font-heading);
+}

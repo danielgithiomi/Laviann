@@ -1,3 +1,5 @@
+import { PageShell } from '@laviann/shared/ui';
+
 const features = [
     'Browse raw chicken and beef cuts',
     'Choose weights and packaging instructions',
@@ -7,11 +9,7 @@ const features = [
 
 export default function HomePage() {
     return (
-        <main className="shell">
-            <header className="masthead">
-                <strong>LAVIANN</strong>
-                <span>Customer storefront</span>
-            </header>
+        <PageShell label="Customer storefront" footer="Scaffold only - sample application, not a live ordering service.">
             <section className="intro">
                 <span className="eyebrow">A better way to order raw meat</span>
                 <h1>Fresh choices. Clear orders. Planned delivery.</h1>
@@ -28,7 +26,6 @@ export default function HomePage() {
                     ))}
                 </ul>
             </section>
-            <footer>Scaffold only - sample application, not a live ordering service.</footer>
-        </main>
+        </PageShell>
     );
 }

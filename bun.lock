@@ -15,6 +15,7 @@
       "name": "@laviann/customer",
       "version": "0.1.0",
       "dependencies": {
+        "@laviann/shared": "workspace:*",
         "@supabase/supabase-js": "^2.0.0",
         "next": "^16.4.0",
         "react": "^19.3.0",
@@ -32,6 +33,7 @@
       "name": "@laviann/vendor",
       "version": "0.1.0",
       "dependencies": {
+        "@laviann/shared": "workspace:*",
         "@supabase/supabase-js": "^2.0.0",
         "next": "^16.4.0",
         "react": "^19.3.0",
@@ -43,6 +45,19 @@
         "@types/react-dom": "^19.2.0",
         "eslint": "^9.39.0",
         "eslint-config-next": "^16.4.0",
+      },
+    },
+    "packages/shared": {
+      "name": "@laviann/shared",
+      "version": "0.1.0",
+      "devDependencies": {
+        "@types/react": "^19.3.0",
+        "eslint": "^9.39.0",
+        "eslint-config-next": "^16.4.0",
+        "typescript": "^6.0.3",
+      },
+      "peerDependencies": {
+        "react": "^19.3.0",
       },
     },
   },
@@ -178,6 +193,8 @@
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
 
     "@laviann/customer": ["@laviann/customer@workspace:apps/customer"],
+
+    "@laviann/shared": ["@laviann/shared@workspace:packages/shared"],
 
     "@laviann/vendor": ["@laviann/vendor@workspace:apps/vendor"],
 

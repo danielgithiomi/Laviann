@@ -19,6 +19,7 @@
 ## Required quality gates
 
 ```sh
+bun run test:assets
 bun run lint
 bun run typecheck
 bun run build
@@ -47,3 +48,14 @@ chore(repo): add workspace configuration
 ```
 
 GitHub repo creation and linking remain under the project owner's control.
+
+## Shared code and images
+
+Edit shared colors/fonts in `packages/shared/src/theme`, common React components in
+`src/ui`, and shared contracts in `src/types`. Both apps consume `@laviann/shared`.
+The approved structure and examples are in the README and ADR-0002.
+
+Add static images under `packages/shared/assets/images`, retaining any nested folders.
+App `predev` and `prebuild` scripts copy them to `public/assets/images`, overwriting
+same-name files. There is no watcher and no automatic deletion. Restart the server
+or run `bun run sync:assets` after an image change. Do not commit generated copies.

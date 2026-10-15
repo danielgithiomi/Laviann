@@ -16,7 +16,9 @@ Laviann/
 ├── apps/
 │   ├── customer/        # Next.js mobile-first storefront; localhost:3000
 │   └── vendor/          # Next.js dashboard; localhost:3001
-├── packages/            # Reserved for genuinely shared packages
+├── packages/shared/     # @laviann/shared: theme, UI, types and static images
+│   ├── src/{theme,ui,types}/
+│   └── assets/images/branding/
 ├── docs/
 │   ├── PRD.md
 │   ├── Laviann-PRD-v1.0.pdf
@@ -52,13 +54,8 @@ bun run test:commit-msg
 bun run check
 ```
 
-`bun install` creates a `bun.lock` file. **Commit that lockfile** to make dependency
-resolution repeatable for future installs. This archive deliberately does not contain
-unverified node_modules or a hand-written lockfile.
-
-Bun dependencies have to be installed on your machine. The starter files were
-assembled in an isolated environment without registry access, so no install/build
-success is claimed until the commands above complete locally.
+`bun install` restores the workspace dependencies from `bun.lock`. Commit lockfile
+updates when changing dependencies; CI installs with `--frozen-lockfile`.
 
 ## Development
 
@@ -69,7 +66,9 @@ bun run dev:vendor     # vendor only
 bun run lint           # lint all workspaces
 bun run typecheck      # check TypeScript all workspaces
 bun run check          # lint + typecheck in both apps (pre-commit)
-bun run build          # production builds
+bun run build          # refresh shared images, then production builds
+bun run sync:assets    # manually refresh shared images in both apps
+bun run test:assets    # asset-copy regression tests
 bun run format:check   # optional formatting check
 ```
 
@@ -80,9 +79,59 @@ Husky is configured with:
 - `.husky/pre-commit`: blocks commits unless **both** workspace lint and typecheck pass.
 - `.husky/commit-msg`: checks Conventional Commits via the POSIX shell script in `scripts/`.
 
-Hooks are local safeguards; they may be bypassed and do not replace CI. Consider a
-GitHub Actions workflow using `bun install --frozen-lockfile && bun run check && bun run build`
-once you create the GitHub repository.
+Hooks are local safeguards and do not replace CI. The GitHub Actions workflow runs
+asset-copy tests, lint, TypeScript checks and both production builds.
+
+## Shared foundation
+
+Both applications import `@laviann/shared` from the local Bun workspace:
+
+- `@laviann/shared/theme`: colors, font preferences and CSS variables.
+- `@laviann/shared/theme.css`: shared base styles.
+- `@laviann/shared/ui`: the common page shell used by both scaffold pages.
+- `@laviann/shared/types`: shared theme and component contracts. Product/database
+  contracts will be added when their implementation is agreed.
+
+Change the forest-green palette in `packages/shared/src/theme/colors.ts` or font
+preferences in `typography.ts`. Each root layout uses the same derived CSS variables.
+Inter and Manrope are preferences with local fallbacks; web-font loading is not yet
+configured. App-specific content and layouts remain in the applications.
+
+### Static images
+
+Put source images under `packages/shared/assets/images/`, nested as needed:
+
+```text
+packages/shared/assets/images/branding/authentication/logo.svg
+    -> apps/customer/public/assets/images/branding/authentication/logo.svg
+    -> apps/vendor/public/assets/images/branding/authentication/logo.svg
+```
+
+Both apps can reference this image as `/assets/images/branding/authentication/logo.svg`.
+The `branding` directory is initially empty; a final logo has not been designed.
+
+One script, `scripts/sync-brand-assets.mjs`, copies the entire directory tree:
+
+- Runs before each app's `dev` and `build` commands through `predev` / `prebuild`.
+- Overwrites matching files every run, including an updated logo with the same name.
+- Never deletes destination files, including files removed from the shared source.
+- Does not watch images. Restart development or run `bun run sync:assets` to refresh.
+- Skips `.gitkeep` and `.DS_Store`; all other regular files are copied unchanged.
+- Fails the command if copying fails, instead of starting with incomplete assets.
+
+Generated `public/assets/images/` copies are ignored by Git. Edit the shared source;
+keep app-specific public assets outside that directory to avoid name collisions.
+Deleting/renaming a source does not remove its old copies: remove those explicitly if
+needed. Product photographs uploaded by a vendor will eventually use Supabase Storage.
+
+`bun run dev:customer` and `bun run dev:vendor` refresh only that app. Running the
+root `dev` or `build` handles both. Turbo also runs each app's uncached `sync:assets`
+task before checking its build cache, so a cache hit still refreshes images. On a
+cache miss the app's lifecycle hook may repeat the same safe copy. Shared theme/code
+and image changes are included in the build cache inputs.
+
+Use the Bun package scripts; invoking `next dev` or `next build` directly bypasses
+package lifecycle hooks.
 
 ## Supabase (not connected yet)
 
@@ -99,3 +148,5 @@ role key in any `NEXT_PUBLIC_` variable or commit `.env.local`.
 - [Commit conventions](docs/commit-conventions.md) - commit grammar and examples.
 - [Architecture decision](docs/decisions/0001-monorepo-and-backend.md) - why Bun,
   Turbo, Next.js and Supabase were chosen.
+
+- [Shared foundation decision](docs/decisions/0002-shared-foundation-and-assets.md) - shared code and image copying.

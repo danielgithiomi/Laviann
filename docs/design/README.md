@@ -1,7 +1,9 @@
 # Laviann UX concept assets
 
 - `brand-concept.md`: exploratory identity and palette reasoning.
-- `tokens.json`: proposed design tokens, for later implementation review.
+- `tokens.json`: historical design snapshot. The approved forest-green runtime
+  palette now lives in `packages/shared/src/theme/colors.ts`, with font preferences
+  in `typography.ts`. Change runtime tokens there.
 - `FIGMA-IMPORT.md`: Figma Starter (free) import instructions.
 - `figma-import/*.svg`: vector-first, editable mockups.
 - `previews/*.png`: screenshots for browsing, including a contact sheet.

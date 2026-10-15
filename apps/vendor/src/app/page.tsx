@@ -1,12 +1,10 @@
+import { PageShell } from '@laviann/shared/ui';
+
 const modules = ['Orders and quotations', 'Products and stock', 'Delivery zones and schedules', 'Payment records'];
 
 export default function HomePage() {
     return (
-        <main className="shell">
-            <header className="masthead">
-                <strong>LAVIANN</strong>
-                <span>Vendor workspace</span>
-            </header>
+        <PageShell label="Vendor workspace" footer="Scaffold only - protected vendor routes must be implemented before launch.">
             <section className="intro">
                 <span className="eyebrow">One place for the vendor&apos;s day-to-day work</span>
                 <h1>Orders, inventory and delivery - organized.</h1>
@@ -23,7 +21,6 @@ export default function HomePage() {
                     ))}
                 </ul>
             </section>
-            <footer>Scaffold only - protected vendor routes must be implemented before launch.</footer>
-        </main>
+        </PageShell>
     );
 }
