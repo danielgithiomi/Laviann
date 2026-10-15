@@ -22,21 +22,21 @@ esac
 
 # The scope is mandatory because it describes the feature/code area.
 # Example: feat(packaging): support custom 500g portions
-allowed_types='feat|fix|docs|refactor|test|chore|build|ci|perf|style|revert'
+allowed_types='init|feat|fix|docs|refactor|test|chore|build|ci|perf|style|revert'
 pattern="^(${allowed_types})\\([a-z0-9][a-z0-9/_-]*\\)!?: [^[:space:]].*$"
 if ! printf '%s\n' "$subject" | grep -Eq "$pattern"; then
   cat >&2 <<'HELP'
 Commit rejected: invalid subject.
 Required: <type>(<feature-scope>): <lowercase imperative description>
-Types: feat, fix, docs, refactor, test, chore, build, ci, perf, style, revert
+Types: init, feat, fix, docs, refactor, test, chore, build, ci, perf, style, revert
 Example: feat(packaging): support custom 500g portions
 HELP
   exit 1
 fi
 
 length=${#subject}
-if [ "$length" -gt 72 ]; then
-  echo "Commit rejected: subject length ${length}; maximum 72 characters." >&2
+if [ "$length" -gt 100 ]; then
+  echo "Commit rejected: subject length ${length}; maximum 100 characters." >&2
   exit 1
 fi
 case "$subject" in

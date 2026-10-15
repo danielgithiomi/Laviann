@@ -16,8 +16,8 @@ export default function HomePage() {
                 <span className="eyebrow">A better way to order raw meat</span>
                 <h1>Fresh choices. Clear orders. Planned delivery.</h1>
                 <p>
-                    This is the foundation for Laviann's mobile-first customer ordering experience. The catalogue and checkout
-                    workflows will be built during the implementation phase.
+                    This is the foundation for Laviann&apos;s mobile-first customer ordering experience. The catalogue and
+                    checkout workflows will be built during the implementation phase.
                 </p>
             </section>
             <section className="panel" aria-labelledby="planned-features">

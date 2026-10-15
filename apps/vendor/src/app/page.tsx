@@ -8,7 +8,7 @@ export default function HomePage() {
                 <span>Vendor workspace</span>
             </header>
             <section className="intro">
-                <span className="eyebrow">One place for the vendor's day-to-day work</span>
+                <span className="eyebrow">One place for the vendor&apos;s day-to-day work</span>
                 <h1>Orders, inventory and delivery - organized.</h1>
                 <p>
                     The vendor application has been scaffolded. Authentication and operational screens will be implemented after
