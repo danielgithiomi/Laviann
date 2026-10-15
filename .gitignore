@@ -1,0 +1,40 @@
+# Dependencies and generated package state
+node_modules/
+.pnp.*
+*.tsbuildinfo
+
+# Next.js / Turborepo
+.next/
+out/
+build/
+dist/
+.turbo/
+
+# Local credentials - never commit
+.env
+.env.*
+!.env.example
+!**/.env.example
+*.pem
+*.key
+
+# Local tools / editor
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Husky v9 generated hook shims
+.husky/_/
+
+# Logs
+*.log
+
+# Database and local dev scratch
+.supabase/
+supabase/.branches/
+supabase/.profiles/
+
+# Generated Next.js type declarations
+next-env.d.ts

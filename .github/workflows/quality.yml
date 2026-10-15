@@ -1,0 +1,33 @@
+name: Laviann quality checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint-typecheck-build:
+    runs-on: ubuntu-latest
+    env:
+      HUSKY: '0'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.4.3'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install workspace packages
+        run: bun install --frozen-lockfile
+
+      - name: Lint and typecheck all workspaces
+        run: bun run check
+
+      - name: Build both Next.js apps
+        run: bun run build

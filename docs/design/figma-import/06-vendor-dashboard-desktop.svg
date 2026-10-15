@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="960" viewBox="0 0 1440 960" role="img" aria-label="Laviann - Vendor dashboard desktop concept">
+<title>Laviann - Vendor dashboard desktop concept</title>
+<defs>
+  <linearGradient id="plate" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E6EAE3"/></linearGradient>
+  <linearGradient id="meat" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#F1C4B6"/><stop offset="1" stop-color="#D68C7C"/></linearGradient>
+  <linearGradient id="hero" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#174639"/><stop offset="1" stop-color="#0C2F27"/></linearGradient>
+  </defs>
+<rect x="0" y="0" width="1440" height="960" rx="0" fill="#F6F8F4" />
+<rect x="0" y="0" width="248" height="960" rx="0" fill="#12382F" />
+<circle cx="44" cy="47" r="15" fill="#FFFFFF"/>
+<text x="44" y="53" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="750" text-anchor="middle" >L</text>
+<text x="69" y="56" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="760" text-anchor="start" letter-spacing="-0.8" >laviann.</text>
+<text x="31" y="107" fill="#88AA97" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="750" text-anchor="start" letter-spacing="1.4" >VENDOR WORKSPACE</text>
+<rect x="17" y="134" width="213" height="45" rx="12" fill="#315D4D" />
+<g transform="translate(33,146) scale(0.85)" fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="3" y="3" width="7" height="7" rx="1.5"/>
+<rect x="14" y="3" width="7" height="7" rx="1.5"/>
+<rect x="3" y="14" width="7" height="7" rx="1.5"/>
+<rect x="14" y="14" width="7" height="7" rx="1.5"/>
+</g>
+<text x="72" y="163" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="690" text-anchor="start" >Overview</text>
+<g transform="translate(33,203) scale(0.85)" fill="none" stroke="#92B3A0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M3 7l9-4 9 4-9 4-9-4ZM3 7v10l9 4 9-4V7M12 11v10"/>
+</g>
+<text x="72" y="220" fill="#AFCCBA" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500" text-anchor="start" >Orders</text>
+<g transform="translate(33,260) scale(0.85)" fill="none" stroke="#92B3A0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="3" y="3" width="7" height="7" rx="1.5"/>
+<rect x="14" y="3" width="7" height="7" rx="1.5"/>
+<rect x="3" y="14" width="7" height="7" rx="1.5"/>
+<rect x="14" y="14" width="7" height="7" rx="1.5"/>
+</g>
+<text x="72" y="277" fill="#AFCCBA" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500" text-anchor="start" >Products</text>
+<g transform="translate(33,317) scale(0.85)" fill="none" stroke="#92B3A0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M3 7l9-4 9 4-9 4-9-4ZM3 7v10l9 4 9-4V7M12 11v10"/>
+</g>
+<text x="72" y="334" fill="#AFCCBA" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500" text-anchor="start" >Inventory</text>
+<g transform="translate(33,374) scale(0.85)" fill="none" stroke="#92B3A0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="2" y="6" width="12" height="12" rx="2"/>
+<path d="M14 10h4l4 4v4h-8"/>
+<circle cx="7" cy="18" r="2"/>
+<circle cx="18" cy="18" r="2"/>
+</g>
+<text x="72" y="391" fill="#AFCCBA" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500" text-anchor="start" >Deliveries</text>
+<g transform="translate(33,431) scale(0.85)" fill="none" stroke="#92B3A0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="3" y="5" width="18" height="16" rx="2"/>
+<path d="M7 2v5M17 2v5M3 11h18"/>
+</g>
+<text x="72" y="448" fill="#AFCCBA" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500" text-anchor="start" >Schedule</text>
+<line x1="25" y1="806" x2="223" y2="806" stroke="#386154" stroke-width="1" stroke-linecap="round" />
+<g transform="translate(29,832) scale(0.95)" fill="none" stroke="#B2CEBC" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<circle cx="12" cy="8" r="4"/>
+<path d="M4 21c.2-4.8 3.3-7 8-7s7.8 2.2 8 7"/>
+</g>
+<text x="65" y="850" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="12.5" font-weight="690" text-anchor="start" >Laviann Vendor</text>
+<text x="65" y="868" fill="#A7C1B0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="470" text-anchor="start" >Administrator</text>
+<g transform="translate(210,838) scale(0.7)" fill="none" stroke="#B2CEBC" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="m7 10 5 5 5-5"/>
+</g>
+<text x="286" y="54" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="790" text-anchor="start" >Overview</text>
+<text x="287" y="81" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="500" text-anchor="start" >Wednesday, 14 October 2026  •  Business at a glance</text>
+<rect x="1181" y="26" width="205" height="48" rx="13" fill="#12382F" />
+<text x="1277" y="55" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" text-anchor="middle" >New order</text>
+<text x="1207" y="57" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="680" text-anchor="middle" >+</text>
+<rect x="1115" y="26" width="48" height="48" rx="13" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1" />
+<g transform="translate(1126,37) scale(1)" fill="none" stroke="#12382F" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M5 17h14l-2-3V9a5 5 0 0 0-10 0v5l-2 3ZM10 21h4"/>
+</g>
+<circle cx="1150" cy="38" r="4" fill="#C76B50"/>
+<rect x="286" y="119" width="260" height="143" rx="18" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1" />
+<text x="306" y="151" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="650" text-anchor="start" >New order requests</text>
+<text x="306" y="212" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="39" font-weight="800" text-anchor="start" >08</text>
+<circle cx="508" cy="167" r="18" fill="#EBF1E8"/>
+<g transform="translate(497,156) scale(0.9)" fill="none" stroke="#6A957F" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M2 19l7-7 4 4 9-9M15 7h7v7"/>
+</g>
+<text x="306" y="240" fill="#6A957F" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="650" text-anchor="start" >Needs review</text>
+<rect x="565" y="119" width="260" height="143" rx="18" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1" />
+<text x="585" y="151" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="650" text-anchor="start" >Awaiting approval</text>
+<text x="585" y="212" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="39" font-weight="800" text-anchor="start" >05</text>
+<circle cx="787" cy="167" r="18" fill="#EBF1E8"/>
+<g transform="translate(776,156) scale(0.9)" fill="none" stroke="#C18C39" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M2 19l7-7 4 4 9-9M15 7h7v7"/>
+</g>
+<text x="585" y="240" fill="#C18C39" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="650" text-anchor="start" >Customer action</text>
+<rect x="844" y="119" width="260" height="143" rx="18" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1" />
+<text x="864" y="151" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="650" text-anchor="start" >Preparing today</text>
+<text x="864" y="212" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="39" font-weight="800" text-anchor="start" >12</text>
+<circle cx="1066" cy="167" r="18" fill="#EBF1E8"/>
+<g transform="translate(1055,156) scale(0.9)" fill="none" stroke="#6A957F" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M2 19l7-7 4 4 9-9M15 7h7v7"/>
+</g>
+<text x="864" y="240" fill="#6A957F" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="650" text-anchor="start" >For upcoming routes</text>
+<rect x="1123" y="119" width="260" height="143" rx="18" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1" />
+<text x="1143" y="151" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="650" text-anchor="start" >Pending payments</text>
+<text x="1143" y="212" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="39" font-weight="800" text-anchor="start" >03</text>
+<circle cx="1345" cy="167" r="18" fill="#F9EBE4"/>
+<g transform="translate(1334,156) scale(0.9)" fill="none" stroke="#C76B50" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<circle cx="12" cy="12" r="9"/>
+<path d="M12 6v6l4 3"/>
+</g>
+<text x="1143" y="240" fill="#C76B50" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="650" text-anchor="start" >Manual verification</text>
+<rect x="286" y="291" width="739" height="553" rx="19" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1" />
+<text x="311" y="331" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="780" text-anchor="start" >Recent orders</text>
+<text x="999" y="329" fill="#6A957F" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="680" text-anchor="end" >View all  →</text>
+<rect x="308" y="353" width="695" height="47" rx="10" fill="#F0F4EE" />
+<text x="325" y="382" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="720" text-anchor="start" letter-spacing="0.6" >ORDER</text>
+<text x="455" y="382" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="720" text-anchor="start" letter-spacing="0.6" >CUSTOMER</text>
+<text x="646" y="382" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="720" text-anchor="start" letter-spacing="0.6" >DELIVERY</text>
+<text x="810" y="382" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="720" text-anchor="start" letter-spacing="0.6" >TOTAL</text>
+<text x="922" y="382" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="720" text-anchor="start" letter-spacing="0.6" >STATUS</text>
+<text x="325" y="427" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="740" text-anchor="start" >#LV-1052</text>
+<text x="455" y="427" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="670" text-anchor="start" >Marie L.</text>
+<text x="646" y="427" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="550" text-anchor="start" >North • Thu 15 Oct</text>
+<text x="810" y="427" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="730" text-anchor="start" >Rs 2,095</text>
+<rect x="913" y="407" width="96" height="29" rx="14" fill="#FFF4DB" />
+<text x="961" y="425" fill="#C18C39" font-family="Inter, Arial, sans-serif" font-size="9.8" font-weight="740" text-anchor="middle" >Pending review</text>
+<line x1="310" y1="457" x2="1003" y2="457" stroke="#DCE5DE" stroke-width="1" stroke-linecap="round" />
+<text x="325" y="504" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="740" text-anchor="start" >#LV-1051</text>
+<text x="455" y="504" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="670" text-anchor="start" >Kevin R.</text>
+<text x="646" y="504" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="550" text-anchor="start" >Central • Thu 15 Oct</text>
+<text x="810" y="504" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="730" text-anchor="start" >Rs 1,390</text>
+<rect x="913" y="484" width="96" height="29" rx="14" fill="#EBF1E8" />
+<text x="961" y="502" fill="#6A957F" font-family="Inter, Arial, sans-serif" font-size="9.8" font-weight="740" text-anchor="middle" >Confirmed</text>
+<line x1="310" y1="534" x2="1003" y2="534" stroke="#DCE5DE" stroke-width="1" stroke-linecap="round" />
+<text x="325" y="581" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="740" text-anchor="start" >#LV-1050</text>
+<text x="455" y="581" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="670" text-anchor="start" >Nadia P.</text>
+<text x="646" y="581" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="550" text-anchor="start" >West • Fri 16 Oct</text>
+<text x="810" y="581" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="730" text-anchor="start" >Rs 3,110</text>
+<rect x="913" y="561" width="96" height="29" rx="14" fill="#EBF1E8" />
+<text x="961" y="579" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="9.8" font-weight="740" text-anchor="middle" >Preparing</text>
+<line x1="310" y1="611" x2="1003" y2="611" stroke="#DCE5DE" stroke-width="1" stroke-linecap="round" />
+<text x="325" y="658" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="740" text-anchor="start" >#LV-1049</text>
+<text x="455" y="658" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="670" text-anchor="start" >Elodie G.</text>
+<text x="646" y="658" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="550" text-anchor="start" >North • Thu 15 Oct</text>
+<text x="810" y="658" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="730" text-anchor="start" >Rs 785</text>
+<rect x="913" y="638" width="96" height="29" rx="14" fill="#FFF4DB" />
+<text x="961" y="656" fill="#C18C39" font-family="Inter, Arial, sans-serif" font-size="9.8" font-weight="740" text-anchor="middle" >Awaiting approval</text>
+<line x1="310" y1="688" x2="1003" y2="688" stroke="#DCE5DE" stroke-width="1" stroke-linecap="round" />
+<text x="325" y="735" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="740" text-anchor="start" >#LV-1048</text>
+<text x="455" y="735" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="670" text-anchor="start" >Sami A.</text>
+<text x="646" y="735" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="550" text-anchor="start" >East • Sat 17 Oct</text>
+<text x="810" y="735" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="730" text-anchor="start" >Rs 1,940</text>
+<rect x="913" y="715" width="96" height="29" rx="14" fill="#EBF1E8" />
+<text x="961" y="733" fill="#6A957F" font-family="Inter, Arial, sans-serif" font-size="9.8" font-weight="740" text-anchor="middle" >Ready</text>
+<line x1="310" y1="765" x2="1003" y2="765" stroke="#DCE5DE" stroke-width="1" stroke-linecap="round" />
+<rect x="1050" y="291" width="336" height="243" rx="19" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1" />
+<text x="1074" y="326" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="770" text-anchor="start" >Next delivery route</text>
+<rect x="1074" y="346" width="106" height="26" rx="13.0" fill="#EBF1E8" />
+<text x="1127.0" y="362.6" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="650" text-anchor="middle" >NORTH ZONE</text>
+<text x="1074" y="402" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="770" text-anchor="start" >Thursday, 15 October</text>
+<g transform="translate(1074,421) scale(0.9)" fill="none" stroke="#6A957F" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="2" y="6" width="12" height="12" rx="2"/>
+<path d="M14 10h4l4 4v4h-8"/>
+<circle cx="7" cy="18" r="2"/>
+<circle cx="18" cy="18" r="2"/>
+</g>
+<text x="1107" y="440" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="550" text-anchor="start" >8 orders  •  6 locations</text>
+<rect x="1074" y="465" width="288" height="44" rx="12" fill="#EBF1E8" />
+<text x="1217" y="492" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="12.5" font-weight="730" text-anchor="middle" >View delivery list  →</text>
+<rect x="1050" y="554" width="336" height="290" rx="19" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1" />
+<text x="1074" y="591" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="780" text-anchor="start" >Inventory attention</text>
+<rect x="1266" y="569" width="90" height="24" rx="12.0" fill="#F9EBE4" />
+<text x="1311.0" y="584.6" fill="#C76B50" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="650" text-anchor="middle" >2 LOW</text>
+<text x="1075" y="630" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="730" text-anchor="start" >Chicken wings</text>
+<text x="1075" y="650" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="480" text-anchor="start" >2kg left of 30kg target</text>
+<rect x="1075" y="664" width="287" height="7" rx="3" fill="#DCE5DE" />
+<rect x="1075" y="664" width="19.229000000000003" height="7" rx="3" fill="#C76B50" />
+<text x="1075" y="729" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="730" text-anchor="start" >Beef mince</text>
+<text x="1075" y="749" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="480" text-anchor="start" >1.5kg left of 25kg target</text>
+<rect x="1075" y="763" width="287" height="7" rx="3" fill="#DCE5DE" />
+<rect x="1075" y="763" width="17.22" height="7" rx="3" fill="#C76B50" />
+</svg>

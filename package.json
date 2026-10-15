@@ -1,0 +1,31 @@
+{
+    "name": "laviann",
+    "version": "0.1.0",
+    "private": true,
+    "packageManager": "bun@1.4.3",
+    "engines": {
+        "node": ">=22.0.0"
+    },
+    "workspaces": [
+        "apps/*"
+    ],
+    "scripts": {
+        "dev": "turbo run dev",
+        "dev:customer": "bun --cwd apps/customer run dev",
+        "dev:vendor": "bun --cwd apps/vendor run dev",
+        "build": "turbo run build",
+        "lint": "turbo run lint",
+        "typecheck": "turbo run typecheck",
+        "check": "turbo run lint typecheck",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "prepare": "husky",
+        "test:commit-msg": "sh scripts/test-commit-msg.sh"
+    },
+    "devDependencies": {
+        "husky": "^9.1.7",
+        "prettier": "^3.6.2",
+        "turbo": "^2.11.7",
+        "typescript": "^6.0.3"
+    }
+}

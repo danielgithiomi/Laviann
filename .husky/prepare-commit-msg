@@ -1,0 +1,26 @@
+#!/bin/sh
+# Insert the current Git branch into each new hand-written commit message.
+# Git invokes this hook before opening an editor and before commit-msg validation.
+set -eu
+
+file=${1:?Expected Git message file}
+source=${2:-}
+case "$source" in
+  merge|squash|commit) exit 0 ;;
+esac
+
+subject=$(sed '/^#/d' "$file" | sed -n '1p')
+case "$subject" in
+  'Merge '*|'Revert "'*'"') exit 0 ;;
+esac
+
+# Do not duplicate an explicitly supplied trailer: validator checks its value.
+if grep -q '^Branch:' "$file"; then
+  exit 0
+fi
+branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null || true)
+if [ -z "$branch" ]; then
+  echo 'Laviann: cannot determine Git branch for commit message.' >&2
+  exit 1
+fi
+printf '\nBranch: %s\n' "$branch" >> "$file"

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Laviann - Brand exploration palette and UI primitives">
+<title>Laviann - Brand exploration palette and UI primitives</title>
+<defs>
+  <linearGradient id="plate" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E6EAE3"/></linearGradient>
+  <linearGradient id="meat" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#F1C4B6"/><stop offset="1" stop-color="#D68C7C"/></linearGradient>
+  <linearGradient id="hero" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#174639"/><stop offset="1" stop-color="#0C2F27"/></linearGradient>
+  </defs>
+<rect x="0" y="0" width="1200" height="630" rx="0" fill="#F6F8F4" />
+<text x="58" y="78" fill="#6A957F" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="760" text-anchor="start" letter-spacing="2.2" >LAVIANN / CONCEPT A</text>
+<text x="58" y="142" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="43" font-weight="800" text-anchor="start" >Modern Fresh Market</text>
+<text x="59" y="183" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="500" text-anchor="start" >Approachable. Fresh. Carefully prepared.</text>
+<rect x="58" y="225" width="163" height="161" rx="20" fill="#12382F" stroke="#DCE5DE" stroke-width="1" />
+<text x="58" y="417" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="730" text-anchor="start" >Deep Forest</text>
+<text x="58" y="441" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="550" text-anchor="start" >#12382F</text>
+<rect x="240" y="225" width="163" height="161" rx="20" fill="#AFC799" stroke="#DCE5DE" stroke-width="1" />
+<text x="240" y="417" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="730" text-anchor="start" >Soft Sage</text>
+<text x="240" y="441" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="550" text-anchor="start" >#AFC799</text>
+<rect x="422" y="225" width="163" height="161" rx="20" fill="#F4F7F3" stroke="#DCE5DE" stroke-width="1" />
+<text x="422" y="417" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="730" text-anchor="start" >Warm Ivory</text>
+<text x="422" y="441" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="550" text-anchor="start" >#F4F7F3</text>
+<rect x="604" y="225" width="163" height="161" rx="20" fill="#263D35" stroke="#DCE5DE" stroke-width="1" />
+<text x="604" y="417" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="730" text-anchor="start" >Ink</text>
+<text x="604" y="441" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="550" text-anchor="start" >#263D35</text>
+<rect x="786" y="225" width="163" height="161" rx="20" fill="#C76B50" stroke="#DCE5DE" stroke-width="1" />
+<text x="786" y="417" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="730" text-anchor="start" >Terracotta</text>
+<text x="786" y="441" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="550" text-anchor="start" >#C76B50</text>
+<rect x="968" y="225" width="163" height="161" rx="20" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1" />
+<text x="968" y="417" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="730" text-anchor="start" >White</text>
+<text x="968" y="441" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="550" text-anchor="start" >#FFFFFF</text>
+<line x1="58" y1="480" x2="1141" y2="480" stroke="#DCE5DE" stroke-width="1" stroke-linecap="round" />
+<text x="58" y="522" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="740" text-anchor="start" >Buttons</text>
+<rect x="58" y="543" width="196" height="51" rx="13" fill="#12382F" />
+<text x="156" y="575" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="710" text-anchor="middle" >Primary action</text>
+<rect x="275" y="543" width="202" height="51" rx="13" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1" />
+<text x="376" y="575" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="710" text-anchor="middle" >Secondary action</text>
+<rect x="505" y="551" width="133" height="34" rx="17.0" fill="#EBF1E8" />
+<text x="571.5" y="571.96" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="650" text-anchor="middle" >CONFIRMED</text>
+<text x="750" y="524" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="740" text-anchor="start" >Typography</text>
+<text x="750" y="567" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="720" text-anchor="start" >Aa  Inter / UI</text>
+<text x="976" y="567" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" text-anchor="start" >Aa  Manrope / titles</text>
+</svg>

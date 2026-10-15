@@ -1,0 +1,9 @@
+# Run BOTH checks across all Bun workspaces on every regular Git commit.
+# Run hooks from the repository root (Husky v9 does this by default).
+set -eu
+if ! command -v bun >/dev/null 2>&1; then
+  echo 'Laviann: Bun is required for pre-commit checks. Install Bun and retry.' >&2
+  exit 1
+fi
+printf '%s\n' 'Laviann: running workspace lint and TypeScript checks...'
+bun run check

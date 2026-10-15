@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844" role="img" aria-label="Laviann - Mobile product customization concept">
+<title>Laviann - Mobile product customization concept</title>
+<defs>
+  <linearGradient id="plate" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E6EAE3"/></linearGradient>
+  <linearGradient id="meat" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#F1C4B6"/><stop offset="1" stop-color="#D68C7C"/></linearGradient>
+  <linearGradient id="hero" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#174639"/><stop offset="1" stop-color="#0C2F27"/></linearGradient>
+  </defs>
+<rect x="0" y="0" width="390" height="844" rx="0" fill="#F6F8F4" />
+<text x="27" y="27" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="690" text-anchor="start" >9:41</text>
+<rect x="311" y="16" width="3" height="7" rx="1" fill="#263D35" />
+<rect x="317" y="13" width="3" height="10" rx="1" fill="#263D35" />
+<rect x="323" y="10" width="3" height="13" rx="1" fill="#263D35" />
+<path d="M337 16q5-6 10 0 M340 19q2-3 4 0" fill="none" stroke="#263D35" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" />
+<rect x="355" y="12" width="23" height="11" rx="3" fill="none" stroke="#263D35" stroke-width="1.2" />
+<rect x="379" y="15" width="2" height="5" rx="1" fill="#263D35" />
+<rect x="357" y="14" width="17" height="7" rx="2" fill="#263D35" />
+<g transform="translate(17,56) scale(0.94)" fill="none" stroke="#12382F" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M14 4l-8 8 8 8M6 12h15"/>
+</g>
+<text x="195" y="73" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle" >Product details</text>
+<g transform="translate(349,56) scale(0.9)" fill="none" stroke="#12382F" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M20.5 8.8C20.5 14 12 20 12 20S3.5 14 3.5 8.8C3.5 3 10 3 12 7c2-4 8.5-4 8.5 1.8Z"/>
+</g>
+<rect x="16" y="103" width="358" height="217" rx="20" fill="#EBF1E8" />
+<circle cx="315" cy="136" r="30" fill="#DFEADD"/>
+<circle cx="85" cy="281" r="46" fill="#DFEADD"/>
+<g transform="translate(194,205) scale(1.17)">
+<ellipse cx="0" cy="62" rx="92" ry="15" fill="#CFDBCD" opacity="0.5"/>
+<circle cx="0" cy="0" r="82" fill="url(#plate)"/>
+<circle cx="0" cy="0" r="67" fill="#F4F6F0" stroke="#E7EBE5" stroke-width="1.6"/>
+<path d="M-47 -3C-52 -29 -26 -53 2 -51C28 -50 52 -27 49 0C45 33 12 50 -18 36C-35 28 -43 14 -47 -3Z" fill="url(#meat)" stroke="#C98375" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M-28 -21C-10 -38 13 -33 30 -13M-26 5C-10 21 12 27 29 14" fill="none" stroke="#F9DED4" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M-18 -33C-2 -44 20 -29 32 -9" fill="none" stroke="#F5CCBE" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+</g>
+<text x="16" y="355" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="780" text-anchor="start" >Chicken breast</text>
+<rect x="273" y="337" width="101" height="30" rx="15.0" fill="#EBF1E8" />
+<text x="323.5" y="355.6" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="650" text-anchor="middle" >RAW  •  FRESH</text>
+<text x="16" y="385" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="450" text-anchor="start" >Premium raw chicken, prepared to your preference.</text>
+<text x="16" y="424" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="800" text-anchor="start" >Rs 475</text>
+<text x="101" y="422" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="550" text-anchor="start" >/ kg</text>
+<line x1="16" y1="441" x2="374" y2="441" stroke="#DCE5DE" stroke-width="1" stroke-linecap="round" />
+<text x="16" y="466" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="720" text-anchor="start" >Choose quantity</text>
+<text x="374" y="466" fill="#6A957F" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="680" text-anchor="end" >Total: 2 kg</text>
+<rect x="16" y="482" width="110" height="43" rx="12" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1" />
+<text x="71" y="509" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="720" text-anchor="middle" >0.5 kg</text>
+<rect x="140" y="482" width="110" height="43" rx="12" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1" />
+<text x="195" y="509" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="720" text-anchor="middle" >1 kg</text>
+<rect x="264" y="482" width="110" height="43" rx="12" fill="#12382F" stroke="#12382F" stroke-width="1" />
+<text x="319" y="509" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="720" text-anchor="middle" >2 kg</text>
+<text x="16" y="557" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="720" text-anchor="start" >Cutting preference</text>
+<rect x="16" y="572" width="96" height="39" rx="11" fill="#EBF1E8" stroke="#AFC799" stroke-width="1" />
+<text x="64.0" y="597" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="720" text-anchor="middle" >Whole</text>
+<rect x="121" y="572" width="112" height="39" rx="11" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1" />
+<text x="177.0" y="597" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="720" text-anchor="middle" >Cubed</text>
+<rect x="242" y="572" width="132" height="39" rx="11" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1" />
+<text x="308.0" y="597" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="720" text-anchor="middle" >Strips</text>
+<text x="16" y="645" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="720" text-anchor="start" >How should we package it?</text>
+<rect x="16" y="660" width="170" height="69" rx="14" fill="#FFFFFF" stroke="#AFC799" stroke-width="1.8" />
+<circle cx="38" cy="683" r="7" fill="#AFC799" stroke="#AFC799" stroke-width="1"/>
+<g transform="translate(33,678) scale(0.46)" fill="none" stroke="#12382F" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M4 12l5 5L20 5"/>
+</g>
+<text x="53" y="686" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="720" text-anchor="start" >500g packs</text>
+<text x="53" y="709" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="480" text-anchor="start" >4 separate packs</text>
+<rect x="201" y="660" width="173" height="69" rx="14" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1" />
+<circle cx="222" cy="683" r="7" fill="none" stroke="#B9C5BC" stroke-width="1.3"/>
+<text x="238" y="686" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="680" text-anchor="start" >1kg packs</text>
+<text x="238" y="709" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="480" text-anchor="start" >2 separate packs</text>
+<rect x="0" y="749" width="390" height="95" rx="0" fill="#FFFFFF" />
+<line x1="0" y1="749" x2="390" y2="749" stroke="#DCE5DE" stroke-width="1" stroke-linecap="round" />
+<text x="16" y="778" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="520" text-anchor="start" >Estimated total</text>
+<text x="16" y="806" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="790" text-anchor="start" >Rs 950</text>
+<rect x="167" y="767" width="207" height="56" rx="16" fill="#12382F" />
+<text x="261" y="800" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="730" text-anchor="middle" >Add to cart</text>
+<g transform="translate(331,786) scale(0.75)" fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M4 12h16m-7-7 7 7-7 7"/>
+</g>
+</svg>
