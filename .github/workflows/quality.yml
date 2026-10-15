@@ -1,4 +1,4 @@
-name: Laviann quality checks
+name: Laviann Code Quality Check Workflow
 
 on:
   push:
@@ -13,15 +13,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Bun
+      - name: Set up Bun v1.4.3
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: '1.4.3'
 
-      - name: Set up Node.js
+      - name: Set up Node.js v24
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
 
       - name: Install workspace packages
         run: bun install --frozen-lockfile
