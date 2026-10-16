@@ -1,0 +1,228 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844" role="img"
+     aria-label="Laviann - Mobile customer home concept">
+    <title>Laviann - Mobile customer home concept</title>
+    <defs>
+        <linearGradient id="plate" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#FFFFFF"/>
+            <stop offset="1" stop-color="#E6EAE3"/>
+        </linearGradient>
+        <linearGradient id="meat" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#F1C4B6"/>
+            <stop offset="1" stop-color="#D68C7C"/>
+        </linearGradient>
+        <linearGradient id="hero" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#174639"/>
+            <stop offset="1" stop-color="#0C2F27"/>
+        </linearGradient>
+    </defs>
+    <rect x="0" y="0" width="390" height="844" rx="0" fill="#F6F8F4"/>
+    <text x="27" y="27" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="690"
+          text-anchor="start">9:41
+    </text>
+    <rect x="311" y="16" width="3" height="7" rx="1" fill="#263D35"/>
+    <rect x="317" y="13" width="3" height="10" rx="1" fill="#263D35"/>
+    <rect x="323" y="10" width="3" height="13" rx="1" fill="#263D35"/>
+    <path d="M337 16q5-6 10 0 M340 19q2-3 4 0" fill="none" stroke="#263D35" stroke-width="1.4" stroke-linejoin="round"
+          stroke-linecap="round"/>
+    <rect x="355" y="12" width="23" height="11" rx="3" fill="none" stroke="#263D35" stroke-width="1.2"/>
+    <rect x="379" y="15" width="2" height="5" rx="1" fill="#263D35"/>
+    <rect x="357" y="14" width="17" height="7" rx="2" fill="#263D35"/>
+    <g id="brand-header">
+        <circle cx="31" cy="62" r="15" fill="#12382F"/>
+        <text x="31" y="68" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="750"
+              text-anchor="middle">L
+        </text>
+        <text x="56" y="71" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="760"
+              text-anchor="start" letter-spacing="-0.8">laviann.
+        </text>
+        <rect x="333" y="48" width="42" height="43" rx="13" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1"/>
+        <g transform="translate(344,58) scale(1)" fill="none" stroke="#12382F" stroke-width="1.9" stroke-linecap="round"
+           stroke-linejoin="round" aria-hidden="true">
+            <rect x="4" y="8" width="16" height="13" rx="3"/>
+            <path d="M8 9V7a4 4 0 0 1 8 0v2"/>
+        </g>
+        <circle cx="366" cy="60" r="7" fill="#C76B50"/>
+        <text x="366" y="63" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700"
+              text-anchor="middle">2
+        </text>
+    </g>
+    <g id="location">
+        <g transform="translate(16,106) scale(0.7)" fill="none" stroke="#6A957F" stroke-width="1.9"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s-7-6.5-7-12a7 7 0 1 1 14 0c0 5.5-7 12-7 12Z"/>
+            <circle cx="12" cy="10" r="2.4"/>
+        </g>
+        <text x="35" y="118" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="670"
+              text-anchor="start">Delivering to North
+        </text>
+        <g transform="translate(161,103) scale(0.65)" fill="none" stroke="#687A73" stroke-width="1.9"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m7 10 5 5 5-5"/>
+        </g>
+    </g>
+    <g id="hero-banner">
+        <rect x="16" y="145" width="358" height="179" rx="22" fill="url(#hero)"/>
+        <circle cx="292" cy="233" r="84" fill="none" stroke="#477866" stroke-width="1.2" opacity="0.75"/>
+        <circle cx="299" cy="233" r="64" fill="none" stroke="#719381" stroke-width="0.9" opacity="0.55"/>
+        <text x="33" y="181" fill="#AFC799" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="780"
+              text-anchor="start" letter-spacing="1.2">FRESH FROM THE VENDOR
+        </text>
+        <text x="33" y="218.0" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="760"
+              text-anchor="start">Good cuts.
+        </text>
+        <text x="33" y="249.05" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="760"
+              text-anchor="start">Better meals.
+        </text>
+        <text x="34" y="285" fill="#CEE0D2" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="460"
+              text-anchor="start">Shop raw meat, packed your way.
+        </text>
+        <g transform="translate(306,239) scale(0.55)">
+            <ellipse cx="0" cy="62" rx="92" ry="15" fill="#CFDBCD" opacity="0.5"/>
+            <circle cx="0" cy="0" r="82" fill="url(#plate)"/>
+            <circle cx="0" cy="0" r="67" fill="#F4F6F0" stroke="#E7EBE5" stroke-width="1.6"/>
+            <path
+                d="M-57 -4C-60 -29 -26 -51 4 -43C26 -39 30 -16 55 -9C71 -4 64 29 38 42C18 52 -21 38 -38 31C-52 25 -56 10 -57 -4Z"
+                fill="#C98275" stroke="#A45A53" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M-43 -4C-30 -30 -11 -20 -1 -17C13 -14 21 -2 27 8C34 20 48 18 48 27M-18 24C-10 12 6 11 14 27"
+                  fill="none" stroke="#F6CBC1" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M-33 -12C-19 -28 8 -27 22 -9" fill="none" stroke="#F2B0A4" stroke-width="2" stroke-linejoin="round"
+                  stroke-linecap="round"/>
+        </g>
+    </g>
+    <g id="search">
+        <rect x="16" y="339" width="358" height="49" rx="14" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1"/>
+        <g transform="translate(31,352) scale(0.9)" fill="none" stroke="#687A73" stroke-width="1.9"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="10" cy="10" r="6.5"/>
+            <path d="M15 15L21 21"/>
+        </g>
+        <text x="66" y="368" fill="#82928A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="450"
+              text-anchor="start">Search chicken, beef, cuts...
+        </text>
+    </g>
+    <text x="16" y="426" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="760"
+          text-anchor="start">Explore categories
+    </text>
+    <text x="373" y="425" fill="#6A957F" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="650"
+          text-anchor="end">View all
+    </text>
+    <rect x="16" y="441" width="114" height="64" rx="14" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1"/>
+    <circle cx="45" cy="473" r="20" fill="#EBF1E8"/>
+    <text x="45" y="477" fill="#1A493B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="780"
+          text-anchor="middle">CH
+    </text>
+    <text x="72" y="478" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="11.5" font-weight="680"
+          text-anchor="start">Chicken
+    </text>
+    <rect x="138" y="441" width="114" height="64" rx="14" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1"/>
+    <circle cx="167" cy="473" r="20" fill="#EBF1E8"/>
+    <text x="167" y="477" fill="#1A493B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="780"
+          text-anchor="middle">BF
+    </text>
+    <text x="194" y="478" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="11.5" font-weight="680"
+          text-anchor="start">Beef
+    </text>
+    <rect x="260" y="441" width="114" height="64" rx="14" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="1"/>
+    <circle cx="289" cy="473" r="20" fill="#EBF1E8"/>
+    <text x="289" y="477" fill="#1A493B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="780"
+          text-anchor="middle">AC
+    </text>
+    <text x="316" y="478" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="11.5" font-weight="680"
+          text-anchor="start">All cuts
+    </text>
+    <text x="16" y="545" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760"
+          text-anchor="start">Popular cuts
+    </text>
+    <text x="373" y="546" fill="#6A957F" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="650"
+          text-anchor="end">See all
+    </text>
+    <rect x="16" y="559" width="171" height="218" rx="18" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="0.75"/>
+    <rect x="24" y="567" width="155" height="122" rx="14" fill="#EBF1E8"/>
+    <g transform="translate(101.5,627) scale(0.64)">
+        <ellipse cx="0" cy="62" rx="92" ry="15" fill="#CFDBCD" opacity="0.5"/>
+        <circle cx="0" cy="0" r="82" fill="url(#plate)"/>
+        <circle cx="0" cy="0" r="67" fill="#F4F6F0" stroke="#E7EBE5" stroke-width="1.6"/>
+        <path d="M-47 -3C-52 -29 -26 -53 2 -51C28 -50 52 -27 49 0C45 33 12 50 -18 36C-35 28 -43 14 -47 -3Z"
+              fill="url(#meat)" stroke="#C98375" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M-28 -21C-10 -38 13 -33 30 -13M-26 5C-10 21 12 27 29 14" fill="none" stroke="#F9DED4" stroke-width="4"
+              stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M-18 -33C-2 -44 20 -29 32 -9" fill="none" stroke="#F5CCBE" stroke-width="2" stroke-linejoin="round"
+              stroke-linecap="round"/>
+    </g>
+    <text x="30" y="710" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700"
+          text-anchor="start">Chicken breast
+    </text>
+    <text x="30" y="735" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="750"
+          text-anchor="start">Rs 475
+    </text>
+    <text x="30" y="751" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="500"
+          text-anchor="start">per kg
+    </text>
+    <circle cx="160" cy="739" r="15" fill="#12382F"/>
+    <text x="160" y="744" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="500"
+          text-anchor="middle">+
+    </text>
+    <rect x="202" y="559" width="172" height="218" rx="18" fill="#FFFFFF" stroke="#DCE5DE" stroke-width="0.75"/>
+    <rect x="210" y="567" width="156" height="122" rx="14" fill="#EBF1E8"/>
+    <g transform="translate(288.0,627) scale(0.64)">
+        <ellipse cx="0" cy="62" rx="92" ry="15" fill="#CFDBCD" opacity="0.5"/>
+        <circle cx="0" cy="0" r="82" fill="url(#plate)"/>
+        <circle cx="0" cy="0" r="67" fill="#F4F6F0" stroke="#E7EBE5" stroke-width="1.6"/>
+        <path
+            d="M-57 -4C-60 -29 -26 -51 4 -43C26 -39 30 -16 55 -9C71 -4 64 29 38 42C18 52 -21 38 -38 31C-52 25 -56 10 -57 -4Z"
+            fill="#C98275" stroke="#A45A53" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M-43 -4C-30 -30 -11 -20 -1 -17C13 -14 21 -2 27 8C34 20 48 18 48 27M-18 24C-10 12 6 11 14 27"
+              fill="none" stroke="#F6CBC1" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M-33 -12C-19 -28 8 -27 22 -9" fill="none" stroke="#F2B0A4" stroke-width="2" stroke-linejoin="round"
+              stroke-linecap="round"/>
+    </g>
+    <text x="216" y="710" fill="#263D35" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700"
+          text-anchor="start">Rump steak
+    </text>
+    <text x="216" y="735" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="750"
+          text-anchor="start">Rs 1,100
+    </text>
+    <text x="216" y="751" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="500"
+          text-anchor="start">per kg
+    </text>
+    <circle cx="347" cy="739" r="15" fill="#12382F"/>
+    <text x="347" y="744" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="500"
+          text-anchor="middle">+
+    </text>
+    <rect x="0" y="777" width="390" height="67" rx="0" fill="#FFFFFF"/>
+    <line x1="0" y1="777" x2="390" y2="777" stroke="#DCE5DE" stroke-width="1" stroke-linecap="round"/>
+    <rect x="14" y="783" width="59" height="30" rx="15" fill="#EBF1E8"/>
+    <g transform="translate(32,788) scale(1)" fill="none" stroke="#12382F" stroke-width="1.9" stroke-linecap="round"
+       stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 10.5L12 3l9 7.5V20H4v-9.5"/>
+        <path d="M9 20v-7h6v7"/>
+    </g>
+    <text x="43" y="832" fill="#12382F" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700"
+          text-anchor="middle">Home
+    </text>
+    <g transform="translate(132,788) scale(1)" fill="none" stroke="#80928A" stroke-width="1.9" stroke-linecap="round"
+       stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+        <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+        <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+        <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+    </g>
+    <text x="143" y="832" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500"
+          text-anchor="middle">Shop
+    </text>
+    <g transform="translate(232,788) scale(1)" fill="none" stroke="#80928A" stroke-width="1.9" stroke-linecap="round"
+       stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 7l9-4 9 4-9 4-9-4ZM3 7v10l9 4 9-4V7M12 11v10"/>
+    </g>
+    <text x="243" y="832" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500"
+          text-anchor="middle">Orders
+    </text>
+    <g transform="translate(332,788) scale(1)" fill="none" stroke="#80928A" stroke-width="1.9" stroke-linecap="round"
+       stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4 21c.2-4.8 3.3-7 8-7s7.8 2.2 8 7"/>
+    </g>
+    <text x="343" y="832" fill="#687A73" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500"
+          text-anchor="middle">Account
+    </text>
+</svg>
