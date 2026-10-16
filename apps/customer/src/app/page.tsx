@@ -12,7 +12,7 @@ export default function HomePage() {
         <PageShell label="Customer storefront" footer="Scaffold only - sample application, not a live ordering service.">
             <section className="intro">
                 <span className="eyebrow">A better way to order raw meat</span>
-                <h1>Fresh choices. Clear orders. Planned delivery.</h1>
+                <h1 className="font-display text-brand">Fresh choices. Clear orders. Planned delivery.</h1>
                 <p>
                     This is the foundation for Laviann&apos;s mobile-first customer ordering experience. The catalogue and
                     checkout workflows will be built during the implementation phase.

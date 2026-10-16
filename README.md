@@ -69,6 +69,7 @@ bun run check          # lint + typecheck in both apps (pre-commit)
 bun run build          # refresh shared images, then production builds
 bun run sync:assets    # manually refresh shared images in both apps
 bun run test:assets    # asset-copy regression tests
+bun run test:theme     # compile both stylesheets and verify shared utilities
 bun run format:check   # optional formatting check
 ```
 
@@ -80,22 +81,51 @@ Husky is configured with:
 - `.husky/commit-msg`: checks Conventional Commits via the POSIX shell script in `scripts/`.
 
 Hooks are local safeguards and do not replace CI. The GitHub Actions workflow runs
-asset-copy tests, lint, TypeScript checks and both production builds.
+asset-copy and shared-theme tests, lint, TypeScript checks and both production builds.
 
 ## Shared foundation
 
 Both applications import `@laviann/shared` from the local Bun workspace:
 
 - `@laviann/shared/theme`: colors, font preferences and CSS variables.
-- `@laviann/shared/theme.css`: shared base styles.
+- `@laviann/shared/theme.css`: Tailwind v4 inline theme mappings and shared base styles.
+- `@laviann/shared/fonts`: one Next.js font definition for both application layouts.
 - `@laviann/shared/ui`: the common page shell used by both scaffold pages.
 - `@laviann/shared/types`: shared theme and component contracts. Product/database
   contracts will be added when their implementation is agreed.
 
-Change the forest-green palette in `packages/shared/src/theme/colors.ts` or font
-preferences in `typography.ts`. Each root layout uses the same derived CSS variables.
-Inter and Manrope are preferences with local fallbacks; web-font loading is not yet
-configured. App-specific content and layouts remain in the applications.
+Change the forest-green palette in `packages/shared/src/theme/colors.ts`. Each root
+layout applies the derived `--laviann-*` CSS variables. The `@theme inline` block in
+`theme.css` connects those variables to Tailwind utilities, keeping values centralized:
+
+```tsx
+<section className="rounded-card border border-outline bg-surface p-6 text-ink">
+    <h1 className="font-display text-brand">Laviann</h1>
+    <p className="font-body text-subtle">Fresh meat, delivered on your regional day.</p>
+</section>
+```
+
+`text-brand`, `bg-brand` and `border-brand` all use the same primary colour. Other
+semantic names are `brand-strong`, `sage`, `sage-pale`, `canvas`, `surface`, `ink`,
+`subtle`, `outline`, `accent` and `warning`. Shared radii provide `rounded-control`,
+`rounded-card` and `rounded-pill`.
+
+Headings use **Big Shoulders** and body text uses **Inter**. Change the loaders in
+`packages/shared/src/theme/fonts.ts` to replace fonts for both apps; `typography.ts`
+connects their CSS variables to the heading/body roles and fallback families.
+Next.js 16 exposes the variable Big Shoulders family as `Big_Shoulders`; optical
+sizing is enabled. `next/font` downloads the fonts at build time and serves them
+from the application, so the browser does not request Google Fonts. A fresh build
+needs access to Google Fonts. The heading loader uses an explicit Arial Narrow
+fallback because Next.js has no automatic fallback metrics for this family; general
+fallbacks in `typography.ts` remain available.
+
+Each app's PostCSS config compiles Tailwind. Its `globals.css` imports Tailwind and
+the shared theme, explicitly scans that app's `src` and `packages/shared/src`, and
+keeps existing layout CSS in `@layer components`. Shared defaults use `@layer base`.
+This allows utilities to override defaults when needed, while ordinary CSS still
+handles app-specific styles. Use complete class names such as `text-brand`, not
+constructed fragments such as `text-${colour}`, so Tailwind can discover them.
 
 ### Static images
 
@@ -150,3 +180,4 @@ role key in any `NEXT_PUBLIC_` variable or commit `.env.local`.
   Turbo, Next.js and Supabase were chosen.
 
 - [Shared foundation decision](docs/decisions/0002-shared-foundation-and-assets.md) - shared code and image copying.
+- [Tailwind and fonts decision](docs/decisions/0003-tailwind-and-shared-fonts.md) - shared utilities and font loading.

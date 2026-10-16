@@ -1,5 +1,5 @@
-// Font preferences only: use local fallbacks until font assets/loading are approved.
+// The font variables are supplied by the shared next/font loaders in fonts.ts.
 export const typography = {
-    body: 'Inter, Arial, Helvetica, sans-serif',
-    heading: 'Manrope, Arial, Helvetica, sans-serif',
+    body: 'var(--font-laviann-body), Arial, Helvetica, sans-serif',
+    heading: 'var(--font-laviann-display), Arial, Helvetica, sans-serif',
 } as const;

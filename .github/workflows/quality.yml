@@ -29,6 +29,9 @@ jobs:
       - name: Test shared image copying
         run: bun run test:assets
 
+      - name: Test shared Tailwind theme
+        run: bun run test:theme
+
       - name: Lint and typecheck all workspaces
         run: bun run check
 

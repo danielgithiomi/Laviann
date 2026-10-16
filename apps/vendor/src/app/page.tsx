@@ -7,7 +7,7 @@ export default function HomePage() {
         <PageShell label="Vendor workspace" footer="Scaffold only - protected vendor routes must be implemented before launch.">
             <section className="intro">
                 <span className="eyebrow">One place for the vendor&apos;s day-to-day work</span>
-                <h1>Orders, inventory and delivery - organized.</h1>
+                <h1 className="font-display text-brand">Orders, inventory and delivery - organized.</h1>
                 <p>
                     The vendor application has been scaffolded. Authentication and operational screens will be implemented after
                     UX planning. No order or customer data is connected yet.

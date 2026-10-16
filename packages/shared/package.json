@@ -7,14 +7,16 @@
         "./theme": "./src/theme/index.ts",
         "./theme.css": "./src/theme/theme.css",
         "./types": "./src/types/index.ts",
-        "./ui": "./src/ui/index.ts"
+        "./ui": "./src/ui/index.ts",
+        "./fonts": "./src/theme/fonts.ts"
     },
     "scripts": {
         "lint": "eslint .",
         "typecheck": "tsc --noEmit"
     },
     "peerDependencies": {
-        "react": "^19.3.0"
+        "react": "^19.3.0",
+        "next": "^16.4.0"
     },
     "devDependencies": {
         "@types/react": "^19.3.0",

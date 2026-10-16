@@ -1,25 +1,51 @@
-:root {
-    color-scheme: light;
-    font-family: var(--laviann-font-body);
+/* Map Tailwind utilities to the shared runtime tokens; keep color values in colors.ts. */
+@theme inline {
+    --color-brand: var(--laviann-primary);
+    --color-brand-strong: var(--laviann-primary-strong);
+    --color-sage: var(--laviann-secondary);
+    --color-sage-pale: var(--laviann-secondary-pale);
+    --color-canvas: var(--laviann-background);
+    --color-surface: var(--laviann-surface);
+    --color-ink: var(--laviann-text);
+    --color-subtle: var(--laviann-muted);
+    --color-outline: var(--laviann-border);
+    --color-accent: var(--laviann-accent);
+    --color-warning: var(--laviann-warning-background);
+
+    --font-display: var(--laviann-font-heading);
+    --font-body: var(--laviann-font-body);
+    --font-sans: var(--laviann-font-body);
+
+    --radius-control: var(--laviann-radius-control);
+    --radius-card: var(--laviann-radius-card);
+    --radius-pill: var(--laviann-radius-pill);
 }
 
-* {
-    box-sizing: border-box;
-}
+/* Keep defaults below utility precedence so font-body/text-brand can override them. */
+@layer base {
+    :root {
+        color-scheme: light;
+        font-family: var(--laviann-font-body);
+        font-optical-sizing: auto;
+    }
 
-html,
-body {
-    min-height: 100%;
-    margin: 0;
-}
+    html,
+    body {
+        min-height: 100%;
+    }
 
-body {
-    background: var(--laviann-background);
-    color: var(--laviann-text);
-}
+    body {
+        background: var(--laviann-background);
+        color: var(--laviann-text);
+    }
 
-h1,
-h2,
-h3 {
-    font-family: var(--laviann-font-heading);
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--laviann-font-heading);
+        font-weight: 700;
+    }
 }

@@ -107,8 +107,14 @@ Laviann/
   image policy is **overwrite on every run**, superseding the planning draft's
   missing-files-only / force-refresh proposal.
 - `packages/shared/src/theme/colors.ts` owns the runtime palette. `typography.ts`
-  owns font preferences; the package derives CSS variables used by both root layouts.
+  maps heading/body roles and fallbacks; `fonts.ts` loads Big Shoulders and Inter
+  once in shared source for both layouts. `theme.css` maps the derived CSS variables
+  into Tailwind v4 utilities with `@theme inline`; do not duplicate colour values.
   `docs/design/tokens.json` is a historical design reference, not a second runtime source.
+- Both apps compile Tailwind through PostCSS and explicitly scan shared source.
+  Put shared defaults in `@layer base` and app styles in `@layer components` so
+  utilities can override them. Keep class names statically discoverable.
+  See `docs/decisions/0003-tailwind-and-shared-fonts.md`.
 - Share React UI under `packages/shared/src/ui`, currently consumed through
   `@laviann/shared/ui`. A separate `@laviann/ui` package is unnecessary at this size.
 - Shared types are compile-time contracts, not runtime validation. Detailed
@@ -186,6 +192,7 @@ Laviann/
 - `bun run test:commit-msg` - validate representative Conventional Commit messages.
 - `bun run sync:assets` - overwrite shared image copies in both apps, without deletion.
 - `bun run test:assets` - validate nesting, overwrites, preservation and CLI behaviour.
+- `bun run test:theme` - compile both stylesheets and verify shared Tailwind utility generation.
 - Never bypass hooks with `--no-verify` merely to make a commit pass.
 
 ### Git commit message policy
