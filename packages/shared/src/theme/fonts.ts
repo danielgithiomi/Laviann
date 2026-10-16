@@ -1,4 +1,4 @@
-import { Big_Shoulders, Inter } from 'next/font/google';
+import { Big_Shoulders, Inter, Montserrat } from 'next/font/google';
 
 // Next.js 16 exposes the variable Big Shoulders family (including optical sizing).
 // Change font loaders here once; both application layouts consume these variables.
@@ -18,4 +18,10 @@ export const bodyFont = Inter({
     display: 'swap',
 });
 
-export const fontVariables = `${displayFont.variable} ${bodyFont.variable}`;
+export const altFont = Montserrat({
+    subsets: ['latin'],
+    variable: '--font-laviann-alt',
+    display: 'swap',
+});
+
+export const fontVariables = `${displayFont.variable} ${bodyFont.variable} ${altFont.variable}`;

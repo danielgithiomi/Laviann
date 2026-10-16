@@ -1,9 +1,9 @@
-import type { ThemeVariables } from '../types';
 import { colors } from './colors';
 import { typography } from './typography';
+import type { ThemeVariables } from '../types';
 
-export { colors, type ColorToken } from './colors';
 export { typography } from './typography';
+export { colors, type ColorToken } from './colors';
 
 export const themeVariables: ThemeVariables = {
     '--laviann-primary': colors.primary,
