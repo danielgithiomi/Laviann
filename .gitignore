@@ -43,3 +43,7 @@ next-env.d.ts
 # Generated shared images; edit packages/shared/assets/images instead
 /apps/customer/public/assets/images/
 /apps/vendor/public/assets/images/
+
+.env.test.local
+playwright-report/
+test-results/

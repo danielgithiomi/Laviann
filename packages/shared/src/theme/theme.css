@@ -26,7 +26,7 @@
     :root {
         color-scheme: light;
         font-optical-sizing: auto;
-        font-family: var(--font-body), serif;
+        font-family: var(--laviann-font-body);
     }
 
     html,
@@ -46,6 +46,6 @@
     h5,
     h6 {
         font-weight: 700;
-        font-family: var(--font-display) serif;
+        font-family: var(--laviann-font-heading);
     }
 }

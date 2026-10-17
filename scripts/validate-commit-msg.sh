@@ -35,8 +35,8 @@ HELP
 fi
 
 length=${#subject}
-if [ "$length" -gt 100 ]; then
-  echo "Commit rejected: subject length ${length}; maximum 100 characters." >&2
+if [ "$length" -gt 72 ]; then
+  echo "Commit rejected: subject length ${length}; maximum 72 characters." >&2
   exit 1
 fi
 case "$subject" in

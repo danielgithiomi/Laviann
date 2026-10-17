@@ -1,39 +1,91 @@
 name: Laviann Code Quality Check Workflow
 
 on:
-  push:
-  pull_request:
+    push:
+    pull_request:
 
 jobs:
-  lint-typecheck-build:
-    runs-on: ubuntu-latest
-    env:
-      HUSKY: '0'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    lint-typecheck-build:
+        runs-on: ubuntu-latest
+        env:
+            HUSKY: '0'
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
 
-      - name: Set up Bun v1.4.3
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: '1.4.3'
+            - name: Set up Bun v1.4.3
+              uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: '1.4.3'
 
-      - name: Set up Node.js v24
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
+            - name: Set up Node.js v24
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '24'
 
-      - name: Install workspace packages
-        run: bun install --frozen-lockfile
+            - name: Install workspace packages
+              run: bun install --frozen-lockfile
 
-      - name: Test shared image copying
-        run: bun run test:assets
+            - name: Test shared image copying
+              run: bun run test:assets
 
-      - name: Test shared Tailwind theme
-        run: bun run test:theme
+            - name: Test shared Tailwind theme
+              run: bun run test:theme
 
-      - name: Lint and typecheck all workspaces
-        run: bun run check
+            - name: Test domain rules and commit policy
+              run: |
+                  bun run test:unit
+                  bun run test:commit-msg
 
-      - name: Build both Next.js apps
-        run: bun run build
+            - name: Lint and typecheck all workspaces
+              run: bun run check
+
+            - name: Build both Next.js apps
+              run: bun run build
+
+    database-and-browser:
+        runs-on: ubuntu-latest
+        timeout-minutes: 25
+        env:
+            HUSKY: '0'
+        steps:
+            - uses: actions/checkout@v4
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: '1.4.3'
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: '24'
+            - name: Install packages and database client
+              run: |
+                  bun install --frozen-lockfile
+                  sudo apt-get update
+                  sudo apt-get install -y postgresql-client
+            - name: Start isolated Supabase and provision demo owner
+              run: |
+                  bunx supabase start -x studio,imgproxy,realtime,storage-api,edge-runtime,logflare,vector,supavisor > /tmp/laviann-db-start.log 2>&1
+                  bun scripts/setup-local.ts
+            - name: Test transactions, concurrent approvals and RLS
+              run: bun run test:integration
+            - name: Reset fake test data for browser scenarios
+              run: |
+                  bunx supabase db reset --local --yes
+                  bun scripts/setup-local.ts
+            - name: Install Chromium
+              run: bunx playwright install --with-deps chromium
+            - name: Start both apps and exercise the full workflow
+              run: |
+                  bun run dev > /tmp/laviann-apps.log 2>&1 &
+                  node scripts/wait-http.mjs http://localhost:3000 http://localhost:3001/login
+                  bun run test:browser
+            - name: Save browser evidence
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: laviann-local-browser-evidence
+                  path: |
+                      playwright-report/
+                      docs/screenshots/
+            - name: Stop this job's local database
+              if: always()
+              run: bunx supabase stop

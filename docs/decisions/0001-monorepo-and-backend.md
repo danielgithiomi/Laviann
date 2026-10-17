@@ -4,6 +4,11 @@
 - **Date:** 2026-10-14
 - **Product:** Laviann
 
+> Implementation update (2026-10-16): the owner's full-P0 mandate and
+> [ADR-0004](0004-transactional-poc.md) supersede the original scaffold-only stage
+> restriction. The stack, shared theme/font source and overwrite-without-deletion
+> asset policy remain in force.
+
 ## Context
 
 The product is a proof of concept for one Mauritius-based raw meat vendor. Customer

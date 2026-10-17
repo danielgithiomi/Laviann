@@ -8,6 +8,11 @@ sources in `../../packages/shared/assets/images`, never the generated copies und
 `public/assets/images`. `predev` and `prebuild` refresh this app's images, overwriting
 same-name files without deleting files or watching the source directory.
 
+Guest tokens stay in URL fragments and are sent only in same-origin JSON POSTs.
+Never place service keys or token secrets in client imports. Requests do not reserve
+stock; only approval of the latest issued quotation can do so. Cart data is local,
+contact drafts are session-only, and both have expiry.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know
