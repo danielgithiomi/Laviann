@@ -19,6 +19,7 @@ dist/
 *.key
 
 # Local tools / editor
+.ai
 .DS_Store
 .idea/
 .vscode/*
