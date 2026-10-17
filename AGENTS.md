@@ -8,9 +8,9 @@
 
 Laviann is a **single-vendor raw-meat ordering and delivery management product** for
 Mauritius. The initial deliverable is a demonstrable proof of concept for one actual
-vendor. The user asked to start by scaffolding the project, then move into UX planning; **do not assume the screens,
-flows, integrations, or backend schemas are approved for
-implementation solely because this scaffold exists.**
+vendor. The owner subsequently authorized the complete P0 implementation in October 2026.
+The current branch implements that scope; this is a local demonstration, not a
+merchant launch or approval of real prices, yields, delivery days or payment details.
 
 **Customer value:** Browse raw meat, choose quantity, cuts and packaging, provide
 contact/delivery details, submit an order request, and approve a reviewed quotation. **Vendor value:** Centralize orders
@@ -117,8 +117,9 @@ Laviann/
   See `docs/decisions/0003-tailwind-and-shared-fonts.md`.
 - Share React UI under `packages/shared/src/ui`, currently consumed through
   `@laviann/shared/ui`. A separate `@laviann/ui` package is unnecessary at this size.
-- Shared types are compile-time contracts, not runtime validation. Detailed
-  customer/product/order/database models remain deferred until implementation planning.
+- Runtime contracts live in `src/domain` (Zod); generated database types live in
+  `src/types/database.ts`. Validate transport values and enforce transactions in SQL.
+  Import `@laviann/shared/server` only in server components and route handlers.
 - Source static images only from `packages/shared/assets/images`. Preserve every
   nested directory below that source in `apps/{customer,vendor}/public/assets/images`.
 - One script performs all copies. Each app's `predev` and `prebuild` invokes it for
@@ -129,7 +130,8 @@ Laviann/
 - Turbo's build depends on an uncached per-app `sync:assets` task, so cache hits
   cannot skip copying. Keep shared code and source images in build-cache inputs.
 - Static branding belongs here; future vendor-uploaded product photos belong in
-  Supabase Storage. Do not invent a final logo or implement product flows in this work.
+  Supabase Storage in a later photo-upload task. P0 uses original labelled illustrations
+  and the approved one-color Laviann wordmark with a very small steak above the I.
 
 ## Always follow this task workflow
 
@@ -193,6 +195,10 @@ Laviann/
 - `bun run sync:assets` - overwrite shared image copies in both apps, without deletion.
 - `bun run test:assets` - validate nesting, overwrites, preservation and CLI behaviour.
 - `bun run test:theme` - compile both stylesheets and verify shared Tailwind utility generation.
+- `bun run test:unit` - domain calculations and validation.
+- `bun run test:integration` - local Supabase auth, RLS, transaction and race tests.
+- `bun run test:browser` - real guest/vendor journey, responsive and accessibility checks.
+- `bun run db:types` - regenerate the database contract after applying migrations.
 - Never bypass hooks with `--no-verify` merely to make a commit pass.
 
 ### Git commit message policy
@@ -218,13 +224,16 @@ in an initialized local Git repository; it is not a remote branch policy.
 
 ## Stage gate / next steps
 
-**Current stage:** scaffolding + requirements + shared foundation implemented. The customer/vendor pages
-are neutral placeholders, NOT a finished UX or production application.
+**Current stage:** complete local P0 implementation and verification. The shared
+foundation, two existing apps and startup asset policy are preserved. See
+`docs/verification.md` for executed checks and their limits, and ADR-0004 for the
+transaction/auth design. Supabase Auth signup is disabled; provision the single
+owner explicitly. Unconfigured previews cannot persist mutations.
 
-**Next:** user-flow mapping, screen inventories, wireframes, visual UI design,
-then technical implementation decisions and feature development. Ask before
-making large product/architecture deviations. User handles GitHub creation and
-remote linking; do not create/push a GitHub repository without an explicit request.
+Keep the original checkout and other projects' Docker containers untouched. Run
+destructive database resets only against the isolated Laviann local stack. Never
+merge the implementation PR, deploy a merchant site, send WhatsApp messages or
+process real payments without the owner's specific authorization.
 
 ## Source-of-truth hierarchy
 

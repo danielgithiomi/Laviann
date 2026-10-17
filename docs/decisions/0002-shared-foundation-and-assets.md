@@ -4,6 +4,11 @@
 - **Date:** 2026-10-15
 - **Scope:** Shared scaffolding for customer and vendor; no new product workflows
 
+> Implementation update (2026-10-16): the owner's full-P0 mandate and
+> [ADR-0004](0004-transactional-poc.md) supersede the original scaffold-only stage
+> restriction. The stack, shared theme/font source and overwrite-without-deletion
+> asset policy remain in force.
+
 ## Context
 
 Both Next.js applications need one place for Laviann's palette, typography, shared

@@ -14,15 +14,20 @@
 - Avoid committing credentials, real customer details or production inventory data.
 - Recompute authoritative prices and inventory reservations on trusted server operations.
 - Keep the customer app mobile-first and guest-accessible for catalogue browsing.
-- Treat both starter apps as scaffolds until designs and core flows are agreed.
+- Preserve the implemented P0 contracts in ADR-0004; keep fixtures visibly labelled.
 
 ## Required quality gates
 
 ```sh
 bun run test:assets
-bun run lint
-bun run typecheck
+bun run test:theme
+bun run test:commit-msg
+bun run test:unit
+bun run check
 bun run build
+# With isolated local Supabase and both local app servers:
+bun run test:integration
+bun run test:browser
 ```
 
 Both lint and typecheck also run automatically for each ordinary local commit through
@@ -52,7 +57,7 @@ GitHub repo creation and linking remain under the project owner's control.
 ## Shared code and images
 
 Edit shared colors/fonts in `packages/shared/src/theme`, common React components in
-`src/ui`, and shared contracts in `src/types`. Both apps consume `@laviann/shared`.
+`src/ui`, and runtime contracts in `src/domain`, and generated database types in `src/types`. Both apps consume `@laviann/shared`.
 The approved structure and examples are in the README and ADR-0002.
 
 Add static images under `packages/shared/assets/images`, retaining any nested folders.
