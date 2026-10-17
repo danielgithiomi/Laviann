@@ -5,6 +5,11 @@
 - **Scope:** Complete customer/vendor styling scaffolding; no product screens
 - **Updates:** ADR-0002's temporary local-font preference; image policy is unchanged
 
+> Implementation update (2026-10-16): the owner's full-P0 mandate and
+> [ADR-0004](0004-transactional-poc.md) supersede the original scaffold-only stage
+> restriction. The stack, shared theme/font source and overwrite-without-deletion
+> asset policy remain in force.
+
 ## Context
 
 The planning chat selected Tailwind utilities alongside ordinary CSS, with centrally

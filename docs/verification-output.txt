@@ -1,0 +1,89 @@
+Laviann local verification output — 17 October 2026
+Recorded from completed local commands. Remote CI is reported separately.
+
+Frozen dependency install
+bun install v1.3.6 (d530ed99)
+
+$ husky
+
+Checked 387 installs across 477 packages (no changes) [182.00ms]
+
+Shared assets
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 388.6815
+
+Shared theme
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 215.867166
+
+Commit conventions
+$ sh scripts/test-commit-msg.sh
+Laviann commit policy: all acceptance, rejection, and auto-footer checks passed.
+
+Domain unit tests
+(pass) quotation comparison preserves duplicate lines and highlights exact changed terms
+
+ 9 pass
+ 0 fail
+ 28 expect() calls
+Ran 9 tests across 1 file. [108.00ms]
+
+Workspace lint and types
+@laviann/customer:typecheck: $ tsc --noEmit
+@laviann/vendor:typecheck: $ tsc --noEmit
+
+ Tasks:    6 successful, 6 total
+Cached:    0 cached, 6 total
+  Time:    2.849s
+
+Configured production builds
+@laviann/vendor:build: ƒ  (Dynamic)  server-rendered on demand
+@laviann/vendor:build:
+
+ Tasks:    4 successful, 4 total
+Cached:    0 cached, 4 total
+  Time:    4.482s
+
+Unconfigured production builds
+@laviann/vendor:build: ƒ  (Dynamic)  server-rendered on demand
+@laviann/vendor:build:
+
+ Tasks:    4 successful, 4 total
+Cached:    0 cached, 4 total
+  Time:    4.5s
+
+Local Supabase integration
+(pass) actual Supabase transactions, access rules and the eight PRD scenarios > price, product availability and payment-instruction edits preserve the approved snapshot [17.92ms]
+
+ 17 pass
+ 0 fail
+ 97 expect() calls
+Ran 17 tests across 1 file. [950.00ms]
+
+Production browser journeys
+$ playwright test
+
+Running 3 tests using 1 worker
+
+(node:24699) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/browser/journey.spec.ts:65:5 › customer and vendor complete the six-kilo order and manual workflow across all screen sizes (28.5s)
+  ✓  2 tests/browser/journey.spec.ts:225:5 › HTTP boundaries reject cross-origin, unauthenticated, malformed and oversized operations (60ms)
+  ✓  3 tests/browser/vendor-settings.spec.ts:19:5 › vendor pack, fee and payment settings persist and reach the customer estimate (4.3s)
+
+  3 passed (33.6s)
+
+Private credential bundle scan
+Checked 41 production browser JavaScript files: neither private key is present.

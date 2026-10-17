@@ -1,0 +1,10 @@
+{
+  "measuredAt": "2026-10-17T13:26:25.169Z",
+  "viewport": "390x844",
+  "profile": "Local production server; 80 ms simulated latency, 200 KiB/s download, 4x CPU slowdown; single cold browser context",
+  "ttfbMs": 4,
+  "domContentLoadedMs": 367,
+  "loadMs": 2026,
+  "observedLcpMs": 516,
+  "resourceCount": 25
+}

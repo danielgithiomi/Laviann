@@ -1,0 +1,367 @@
+[
+  {
+    "screen": "customer-home",
+    "width": 320,
+    "violations": 0
+  },
+  {
+    "screen": "customer-home",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "customer-home",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "customer-home",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "customer-catalogue",
+    "width": 320,
+    "violations": 0
+  },
+  {
+    "screen": "customer-catalogue",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "customer-catalogue",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "customer-catalogue",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "customer-category",
+    "width": 320,
+    "violations": 0
+  },
+  {
+    "screen": "customer-category",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "customer-category",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "customer-category",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "customer-product",
+    "width": 320,
+    "violations": 0
+  },
+  {
+    "screen": "customer-product",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "customer-product",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "customer-product",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "customer-cart",
+    "width": 320,
+    "violations": 0
+  },
+  {
+    "screen": "customer-cart",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "customer-cart",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "customer-cart",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "customer-checkout",
+    "width": 320,
+    "violations": 0
+  },
+  {
+    "screen": "customer-checkout",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "customer-checkout",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "customer-checkout",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "customer-review",
+    "width": 320,
+    "violations": 0
+  },
+  {
+    "screen": "customer-review",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "customer-review",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "customer-review",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "customer-submitted",
+    "width": 320,
+    "violations": 0
+  },
+  {
+    "screen": "customer-submitted",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "customer-submitted",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "customer-submitted",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-login",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-login",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-login",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-overview",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-overview",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-overview",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-orders",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-orders",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-orders",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-order-detail",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-order-detail",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-order-detail",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "customer-quotation",
+    "width": 320,
+    "violations": 0
+  },
+  {
+    "screen": "customer-quotation",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "customer-quotation",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "customer-quotation",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-deliveries",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-deliveries",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-deliveries",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "customer-status",
+    "width": 320,
+    "violations": 0
+  },
+  {
+    "screen": "customer-status",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "customer-status",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "customer-status",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-manual-order",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-manual-order",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-manual-order",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-products",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-products",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-products",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-inventory",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-inventory",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-inventory",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-delivery-settings",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-delivery-settings",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-delivery-settings",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-payment-settings",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-payment-settings",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-payment-settings",
+    "width": 1440,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-inventory-editor",
+    "width": 390,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-inventory-editor",
+    "width": 768,
+    "violations": 0
+  },
+  {
+    "screen": "vendor-inventory-editor",
+    "width": 1440,
+    "violations": 0
+  }
+]
