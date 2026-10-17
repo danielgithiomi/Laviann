@@ -8,6 +8,11 @@ sources in `../../packages/shared/assets/images`, never the generated copies und
 `public/assets/images`. `predev` and `prebuild` refresh this app's images, overwriting
 same-name files without deleting files or watching the source directory.
 
+Every private page verifies Auth with getUser and the explicit vendor_admins binding.
+Every mutation also checks owner authorization in PostgreSQL. Use the session client
+for vendor actions; never substitute the service role to bypass owner checks. Keep
+payment recording separate from fulfillment, and WhatsApp sharing manual.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know
