@@ -24,12 +24,21 @@
         "test:commit-msg": "sh scripts/test-commit-msg.sh",
         "sync:assets": "node scripts/sync-brand-assets.mjs",
         "test:assets": "node --test scripts/test-sync-brand-assets.test.mjs",
-        "test:theme": "node --test scripts/test-theme.test.mjs"
+        "test:theme": "node --test scripts/test-theme.test.mjs",
+        "test:unit": "bun test tests/unit",
+        "test:integration": "bun test tests/integration",
+        "test:browser": "playwright test",
+        "db:start": "supabase start",
+        "db:reset": "supabase db reset",
+        "db:types": "supabase gen types typescript --local > packages/shared/src/types/database.ts"
     },
     "devDependencies": {
         "husky": "^9.1.7",
         "prettier": "^3.6.2",
         "turbo": "^2.11.7",
-        "typescript": "^6.0.3"
+        "typescript": "^6.0.3",
+        "@playwright/test": "^1.56.0",
+        "@axe-core/playwright": "^4.10.2",
+        "supabase": "^2.0.0"
     }
 }

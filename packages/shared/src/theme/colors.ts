@@ -7,7 +7,8 @@ export const colors = {
     background: '#F4F7F3',
     surface: '#FFFFFF',
     text: '#263D35',
-    muted: '#687A73',
+    // Darkened after WCAG checks on ivory and pale sage surfaces.
+    muted: '#52675D',
     border: '#DCE5DE',
     accent: '#C76B50',
     warningBackground: '#F9EBE4',
