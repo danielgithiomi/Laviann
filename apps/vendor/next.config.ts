@@ -1,5 +1,21 @@
 import type { NextConfig } from 'next';
 
-const nextConfig: NextConfig = {};
+const nextConfig: NextConfig = {
+    transpilePackages: ['@laviann/shared'],
+    devIndicators: false,
+    async headers() {
+        return [
+            {
+                source: '/(.*)',
+                headers: [
+                    { key: 'X-Frame-Options', value: 'DENY' },
+                    { key: 'Referrer-Policy', value: 'no-referrer' },
+                    { key: 'X-Content-Type-Options', value: 'nosniff' },
+                    { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+                ],
+            },
+        ];
+    },
+};
 
 export default nextConfig;

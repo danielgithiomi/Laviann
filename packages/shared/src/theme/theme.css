@@ -1,0 +1,51 @@
+/* Map Tailwind utilities to the shared runtime tokens; keep color values in colors.ts. */
+@theme inline {
+    --color-brand: var(--laviann-primary);
+    --color-brand-strong: var(--laviann-primary-strong);
+    --color-sage: var(--laviann-secondary);
+    --color-sage-pale: var(--laviann-secondary-pale);
+    --color-canvas: var(--laviann-background);
+    --color-surface: var(--laviann-surface);
+    --color-ink: var(--laviann-text);
+    --color-subtle: var(--laviann-muted);
+    --color-outline: var(--laviann-border);
+    --color-accent: var(--laviann-accent);
+    --color-warning: var(--laviann-warning-background);
+
+    --font-display: var(--laviann-font-heading);
+    --font-body: var(--laviann-font-body);
+    --font-sans: var(--laviann-font-body);
+
+    --radius-control: var(--laviann-radius-control);
+    --radius-card: var(--laviann-radius-card);
+    --radius-pill: var(--laviann-radius-pill);
+}
+
+/* Keep defaults below utility precedence so font-body/text-brand can override them. */
+@layer base {
+    :root {
+        color-scheme: light;
+        font-optical-sizing: auto;
+        font-family: var(--laviann-font-body);
+    }
+
+    html,
+    body {
+        min-height: 100%;
+    }
+
+    body {
+        color: var(--color-ink);
+        background: var(--color-canvas);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 700;
+        font-family: var(--laviann-font-heading);
+    }
+}

@@ -7,15 +7,22 @@
             "persistent": true
         },
         "build": {
-            "dependsOn": ["^build"],
+            "dependsOn": ["^build", "sync:assets"],
             "outputs": [".next/**", "!.next/cache/**"],
-            "env": ["NEXT_PUBLIC_SUPABASE_URL", "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"]
+            "env": ["NEXT_PUBLIC_SUPABASE_URL", "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"],
+            "inputs": ["$TURBO_DEFAULT$", "$TURBO_ROOT$/packages/shared/src/**"]
         },
         "lint": {
-            "outputs": []
+            "outputs": [],
+            "dependsOn": ["^lint"]
         },
         "typecheck": {
-            "outputs": []
+            "outputs": [],
+            "dependsOn": ["^typecheck"]
+        },
+        "sync:assets": {
+            "cache": false,
+            "inputs": ["$TURBO_ROOT$/packages/shared/assets/images/**", "$TURBO_ROOT$/scripts/sync-brand-assets.mjs"]
         }
     }
 }
