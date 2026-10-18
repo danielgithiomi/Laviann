@@ -10,4 +10,6 @@
 - `previews/*.png`: screenshots for browsing, including a contact sheet.
 - `../ux/Laviann-UX-Plan-v0.1.md`: functional interaction plan.
 
-**Status:** Exploratory. Product behavior remains governed by `docs/PRD.md`.
+**Status:** Historical exploration. The implemented brand follows
+`Laviann-Codex-Handoff-v2/BRAND-AND-UX-SPEC.md`, with logos in
+`packages/shared/assets/images/branding`. Product behavior remains governed by `docs/PRD.md`.

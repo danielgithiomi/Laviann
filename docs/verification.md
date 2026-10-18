@@ -1,9 +1,14 @@
 # POC verification and review handover
 
-Verified locally on **17 October 2026** in the existing Laviann monorepo, on
-`feat/complete-poc`, based on `chore/shared-foundation` at `466f169`. That base
-contains the shared package, Tailwind and fonts absent from `main`; its earlier
-work still requires the owner's review. This change does not merge or deploy it.
+Verified locally on **17 October 2026** on `feat/complete-poc` (commit `63bdc76`),
+based on `chore/shared-foundation` at `466f169`. Both branches have since been
+reviewed and merged to `main` (PRs #1–#3). Nothing was deployed.
+
+**Since this run (18 October 2026):** PR #4 reformatted
+`supabase/migrations/202610160001_poc.sql` and `supabase/seed.sql` for readability.
+On `main`, `bun run check` and `bun run test:unit` (9 passed) were re-run and pass.
+`test:integration` and `test:browser` have **not** been re-run against the
+reformatted SQL; repeat them (see [setup](setup.md)) before relying on this evidence.
 
 ## Executed checks
 

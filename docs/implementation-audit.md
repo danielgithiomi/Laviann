@@ -1,5 +1,8 @@
 # POC starting audit — 16 October 2026
 
+> Historical record of the repository state before P0 work began. That work is now
+> merged to `main`; see [verification.md](verification.md) for current status.
+
 Original checkout: `/Users/daniel/Desktop/Projects/Personal/Laviann`, branch
 `chore/shared-foundation`, HEAD `466f169`. Only untracked material was the owner's
 handoff folder. `main` was `8af96d1`. Remote inspection found both branches and no

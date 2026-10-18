@@ -1,6 +1,8 @@
 # Laviann - Visual Identity Exploration, Concept A
 
-**Status:** Exploratory, v0.1. These are not approved production brand guidelines.
+**Status:** Exploratory, v0.1, superseded. The approved brand is in
+`Laviann-Codex-Handoff-v2/BRAND-AND-UX-SPEC.md`; runtime colours live in
+`packages/shared/src/theme/colors.ts`.
 
 ## Concept name: Modern Fresh Market
 

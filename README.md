@@ -16,6 +16,15 @@ no real payments, automated WhatsApp messages or merchant deployment.
 - [Verification and screenshots](docs/verification.md)
 - [Security boundaries and operating assumptions](docs/security.md)
 
+## Status (18 October 2026)
+
+All P0 scope in [the PRD](docs/PRD.md) is implemented and merged to `main`: nine
+customer views, ten vendor views and the eight demo acceptance scenarios, verified
+against a local Supabase stack. Next: vendor demonstration and validation of real
+prices, zones, schedules and policies (PRD §16.2), then an approved hosted staging
+setup. Product-photo upload, Realtime, customer accounts, payment-provider and
+WhatsApp API integrations remain outside the POC.
+
 ## Repository map
 
 ```text
@@ -28,14 +37,8 @@ Laviann/
 │   └── assets/images/branding/
 ├── supabase/            # Versioned migration, demo seed, local config
 ├── tests/               # Unit, actual-database and browser checks
-├── docs/
-│   ├── PRD.md
-│   ├── Laviann-PRD-v1.0.pdf
-│   ├── commit-conventions.md
-│   └── decisions/
-├── scripts/
-│   ├── validate-commit-msg.sh
-│   └── test-commit-msg.sh
+├── docs/                # PRD, ADRs, setup/demo/verification/security, design and UX
+├── scripts/             # asset sync, local setup, commit-msg and audit scripts
 ├── .husky/
 │   ├── pre-commit
 │   └── commit-msg
@@ -199,6 +202,8 @@ Never commit `.env.local`, `.env.test.local`, token secrets or real customer dat
 - [Commit conventions](docs/commit-conventions.md) - commit grammar and examples.
 - [Architecture decision](docs/decisions/0001-monorepo-and-backend.md) - why Bun,
   Turbo, Next.js and Supabase were chosen.
-
 - [Shared foundation decision](docs/decisions/0002-shared-foundation-and-assets.md) - shared code and image copying.
 - [Tailwind and fonts decision](docs/decisions/0003-tailwind-and-shared-fonts.md) - shared utilities and font loading.
+- [Transactional POC decision](docs/decisions/0004-transactional-poc.md) - schema, auth, guest links and stock
+  transactions.
+- [Documentation index](docs/README.md) - every document and its purpose.

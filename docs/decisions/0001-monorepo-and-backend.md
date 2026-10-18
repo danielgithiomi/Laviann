@@ -1,6 +1,6 @@
 # ADR-0001: Bun + Turborepo + two Next.js apps + Supabase
 
-- **Status:** Accepted for initial scaffold; implementation details open
+- **Status:** Accepted; implementation details recorded in ADR-0002 to ADR-0004
 - **Date:** 2026-10-14
 - **Product:** Laviann
 
@@ -50,8 +50,9 @@ maintaining a full standalone backend would add unnecessary launch complexity.
 - Business logic should not be buried in UI components or duplicated across apps.
 - Manual WhatsApp links and manual payment reconciliation are explicitly simulated
   or human-driven in the POC, not claimed to be fully automated integrations.
-- The initial scaffold is not yet tested against a real Supabase project or
-  production environment. Versioned install requires Bun registry access.
+- The P0 implementation is tested against local Supabase only (see
+  `docs/verification.md`); no hosted project or production environment exists yet.
+  Versioned install requires Bun registry access.
 
 ## Revisit if
 

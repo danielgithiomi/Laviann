@@ -2,7 +2,7 @@
 
 **Stage:** UX planning, exploratory UI concept  
 **Scope:** Single raw-meat vendor in Mauritius  
-**Status:** For review; not implementation approval  
+**Status:** Implemented in the P0 customer and vendor apps (October 2026); retained as planning history  
 **Source of truth:** `docs/PRD.md`
 
 ## Experience principles

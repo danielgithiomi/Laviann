@@ -2,7 +2,8 @@
 
 **Version:** 1.0  
 **Date:** 14 October 2026  
-**Status:** Initial planning baseline - vendor assumptions require validation  
+**Status:** Baseline; P0 implemented as a local POC (October 2026) - vendor assumptions require validation  
+**Last updated:** 18 October 2026 (progress sections 12, 18 and 19 only)  
 **Audience:** Product owner, prospective meat vendor, designers, implementation agents  
 **Market:** Mauritius  
 **Project type:** Single-vendor proof of concept
@@ -550,7 +551,7 @@ selects products, quantities, packaging, customer contact and zone, issues the
 quote and sends the link. After confirmation, the manual order flows through the
 same pipeline. Its origin is recorded to assess adoption of the storefront.
 
-## 12. Screen Inventory (No Visual Designs Yet)
+## 12. Screen Inventory
 
 ### 12.1 Customer screens
 
@@ -581,8 +582,8 @@ same pipeline. Its origin is recorded to assess adoption of the storefront.
 | V-S09 | Delivery settings  | Zone fees, days, cutoffs and exceptions                    |
 | V-S10 | Payment settings   | Accepted methods and vendor payment instructions           |
 
-Design treatment, navigation patterns, fonts, palettes and layout details are
-explicitly reserved for UX/UI planning.
+All 19 screens are implemented in the P0 apps. Visual identity follows the approved
+brand specification; responsive screenshots are listed in `docs/verification.md`.
 
 ## 13. Conceptual Data and Business Rules
 
@@ -748,18 +749,18 @@ live map tracking are **not** required for these scenarios.
 
 ## 18. Product Roadmap and Project Stages
 
-| Stage                    | Focus                                                           | Output                                        |
-|--------------------------|-----------------------------------------------------------------|-----------------------------------------------|
-| 1 - Ideation             | Identify current WhatsApp workflow and opportunity              | Completed vision and assumptions              |
-| 2 - Requirements         | Record functional rules and demo scenarios                      | This PRD v1.0                                 |
-| 3 - UX planning          | Journeys, navigation, screen details and error states           | User flows and wireframes                     |
-| 4 - Visual design        | Brand direction, palette, typography and components             | High-fidelity UI designs                      |
-| 5 - Technical planning   | Supabase schema, Next.js boundaries, auth and service contracts | Architecture document and implementation plan |
-| 6 - POC development      | Incremental core workflows and tests                            | Working customer + vendor web apps            |
-| 7 - Vendor demonstration | Show real flow using dummy data                                 | Feedback and approval decision                |
-| 8 - Production readiness | Validated real prices, legal and payment/WhatsApp processes     | Launch plan for approved business             |
+| Stage                    | Focus                                                           | Output                                        | Status                |
+|--------------------------|-----------------------------------------------------------------|-----------------------------------------------|-----------------------|
+| 1 - Ideation             | Identify current WhatsApp workflow and opportunity              | Completed vision and assumptions              | Done                  |
+| 2 - Requirements         | Record functional rules and demo scenarios                      | This PRD v1.0                                 | Done                  |
+| 3 - UX planning          | Journeys, navigation, screen details and error states           | User flows and wireframes                     | Done                  |
+| 4 - Visual design        | Brand direction, palette, typography and components             | High-fidelity UI designs                      | Done                  |
+| 5 - Technical planning   | Supabase schema, Next.js boundaries, auth and service contracts | Architecture document and implementation plan | Done (ADRs 0001-0004) |
+| 6 - POC development      | Incremental core workflows and tests                            | Working customer + vendor web apps            | Done (local)          |
+| 7 - Vendor demonstration | Show real flow using dummy data                                 | Feedback and approval decision                | Next                  |
+| 8 - Production readiness | Validated real prices, legal and payment/WhatsApp processes     | Launch plan for approved business             | Not started           |
 
-### Delivery milestones once implementation begins
+### Delivery milestones (all complete in the local POC)
 
 1. Catalogue and customizable product selection.
 2. Cart and customer order request.
@@ -767,7 +768,8 @@ live map tracking are **not** required for these scenarios.
 4. Secure versioned quotations and customer approvals.
 5. Physical inventory, reservations, replenishment and alerts.
 6. Vendor-controlled zone/date delivery grouping.
-7. Payment tracking, quotations and order document output.
+7. Payment tracking, quotations and order document output (printable quotation/status
+   page; formal tax invoices remain out of scope).
 8. End-to-end QA against eight acceptance scenarios.
 
 ## 19. Outstanding Decisions and Change Control
@@ -778,10 +780,11 @@ payment methods, real prices, tax obligations and address granularity. Changes
 to those choices should be documented, reviewed for effects on orders and
 inventory, and reflected in UX and test criteria.
 
-**Next working session:** Map the mobile-first customer journey from opening a
-shareable link to confirming an order; then map the vendor dashboard journey.
-Only after these interaction flows are settled should we design visual styles
-and choose detailed technical implementation patterns.
+**Current position (18 October 2026):** All P0 milestones are implemented and
+verified against a local Supabase stack (`docs/verification.md`). Next: demonstrate
+the POC to the vendor and validate the assumptions in section 16.2, then plan an
+approved hosted staging setup. Photo upload, Realtime, customer accounts, payment
+provider and WhatsApp API integrations remain outside the POC.
 
 ---
 

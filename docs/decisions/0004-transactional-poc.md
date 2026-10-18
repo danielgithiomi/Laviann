@@ -1,8 +1,9 @@
 # ADR-0004: Transactional single-vendor POC
 
 - Date: 2026-10-16
-- Status: Implemented under the owner's full-P0 mandate; proposed implementation for PR review, not merchant-policy approval.
-- Base: `chore/shared-foundation` at `466f169`.
+- Status: Accepted and implemented under the owner's full-P0 mandate; merged to `main` (PRs #1–#4). Not merchant-policy
+  approval.
+- Base: `chore/shared-foundation` at `466f169`; implemented on `feat/complete-poc`.
 
 ## Decision
 
