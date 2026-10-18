@@ -25,6 +25,6 @@ explicit `@source` for shared components. See
 for the customization path and available class names.
 
 Keep Supabase-generated database types separate from the Zod domain contracts, and
-import `@laviann/shared/server` only from server components and route handlers. A separate `@laviann/ui` workspace can
-be
-introduced later if the component library needs an independent boundary.
+import `@laviann/shared/server` only from server components and route handlers. A
+separate `@laviann/ui` workspace can be introduced later if the component library
+needs an independent boundary.
