@@ -16,6 +16,26 @@ no real payments, automated WhatsApp messages or merchant deployment.
 - [Verification and screenshots](docs/verification.md)
 - [Security boundaries and operating assumptions](docs/security.md)
 
+## Preview
+
+**Customer storefront** - mobile-first guest ordering at `localhost:3000`.
+
+<p align="center">
+    <img src="docs/screenshots/readme/customer-desktop-home.png" alt="Laviann customer storefront home page on desktop" width="72%" />
+    &nbsp;
+    <img src="docs/screenshots/readme/customer-mobile-home.png" alt="Laviann customer storefront home page on mobile" width="22%" />
+</p>
+
+**Vendor workspace** - the owner's order, quotation, inventory and delivery dashboard at `localhost:3001`.
+
+<p align="center">
+    <img src="docs/screenshots/readme/vendor-desktop-overview.png" alt="Laviann vendor workspace overview on desktop" width="96%" />
+</p>
+
+All screenshots show demo data from the local stack. See the [customer](apps/customer/README.md) and
+[vendor](apps/vendor/README.md) READMEs for more views, and [verification](docs/verification.md) for every
+captured page.
+
 ## Status (18 October 2026)
 
 All P0 scope in [the PRD](docs/PRD.md) is implemented and merged to `main`: nine
@@ -30,8 +50,8 @@ WhatsApp API integrations remain outside the POC.
 ```text
 Laviann/
 ├── apps/
-│   ├── customer/        # Next.js mobile-first storefront; localhost:3000
-│   └── vendor/          # Next.js dashboard; localhost:3001
+│   ├── customer/        # Next.js mobile-first storefront; localhost:3000 (README)
+│   └── vendor/          # Next.js dashboard; localhost:3001 (README)
 ├── packages/shared/     # @laviann/shared: theme, UI, types and static images
 │   ├── src/{theme,ui,domain,server,types}/
 │   └── assets/images/branding/
