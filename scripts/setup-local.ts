@@ -3,6 +3,7 @@ import { randomBytes } from 'node:crypto';
 import { writeFileSync, chmodSync, existsSync, readFileSync } from 'node:fs';
 import { createClient } from '../apps/customer/node_modules/@supabase/supabase-js';
 import { z } from '../packages/shared/node_modules/zod';
+
 const run = Bun.spawnSync(['bunx', 'supabase', 'status', '-o', 'json']);
 if (run.exitCode) throw new Error('Start local Supabase first.');
 const status = z
@@ -20,7 +21,7 @@ const existing = existsSync('.env.test.local')
     : {};
 const secret = existing.SERVER_TOKEN_SECRET || randomBytes(32).toString('hex');
 const password = existing.TEST_VENDOR_PASSWORD || randomBytes(18).toString('hex');
-const email = 'owner@laviann.example.test';
+const email = 'owner@laviann.test';
 const client = createClient(status.API_URL, status.SERVICE_ROLE_KEY);
 const { data: list, error: listError } = await client.auth.admin.listUsers();
 if (listError) throw new Error('Local Auth is not ready.');
