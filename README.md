@@ -171,8 +171,9 @@ packages/shared/assets/images/branding/authentication/logo.svg
 ```
 
 Both apps can reference this image as `/assets/images/branding/authentication/logo.svg`.
-The `branding` directory contains the original Laviann wordmark, lockup, icon and
-favicon, including white variants. The small steak accent sits above the I.
+The `branding` directory contains the original Laviann wordmark, lockup and icon,
+including white variants. The small steak accent sits above the I. Both apps use
+`icon.svg` as the favicon in light mode and `icon-white.svg` in dark mode.
 
 One script, `scripts/sync-brand-assets.mjs`, copies the entire directory tree:
 
