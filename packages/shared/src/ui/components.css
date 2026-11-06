@@ -198,6 +198,41 @@
         font-weight: 400;
         color: var(--laviann-muted);
     }
+    .password-control {
+        position: relative;
+    }
+    .password-control input {
+        padding-right: 52px;
+    }
+    .password-control input::-ms-reveal,
+    .password-control input::-ms-clear {
+        display: none;
+    }
+    .password-toggle {
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%);
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        border: 0;
+        border-radius: 10px;
+        background: transparent;
+        color: var(--laviann-muted);
+        transition:
+            color 0.15s ease,
+            background-color 0.15s ease;
+    }
+    .password-toggle:hover,
+    .password-toggle[aria-pressed='true'] {
+        color: var(--laviann-primary);
+        background: var(--laviann-secondary-pale);
+    }
+    .password-toggle:focus-visible {
+        outline-offset: 1px;
+    }
     .form-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;

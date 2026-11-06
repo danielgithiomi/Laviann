@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Link from 'next/link';
-import { BrandLogo, Button, Field, Notice, postJson } from '@laviann/shared/ui';
+import { BrandLogo, Button, Field, Notice, PasswordField, postJson } from '@laviann/shared/ui';
 export function Login({ connected }: { connected: boolean }) {
     const [error, setError] = useState('');
     const [busy, setBusy] = useState(false);
@@ -13,10 +13,8 @@ export function Login({ connected }: { connected: boolean }) {
                 <BrandLogo inverse />
                 <span className="eyebrow">THE LAVIANN VENDOR WORKSPACE</span>
                 <h1>
-                    A GOOD DAY
-                    <br />
-                    STARTS AT
-                    <br />
+                    A GOOD DAY <br />
+                    STARTS AT <br />
                     YOUR COUNTER.
                 </h1>
                 <p>One place for your orders, quotations, stock and regional deliveries.</p>
@@ -56,9 +54,7 @@ export function Login({ connected }: { connected: boolean }) {
                         <Field label="Email address">
                             <input name="email" type="email" autoComplete="username" required />
                         </Field>
-                        <Field label="Password">
-                            <input name="password" type="password" autoComplete="current-password" minLength={8} required />
-                        </Field>
+                        <PasswordField label="Password" name="password" autoComplete="current-password" minLength={8} required />
                         {error && <Notice error>{error}</Notice>}
                         <Button type="submit" disabled={busy}>
                             {busy ? 'Signing in…' : 'Sign in to workspace →'}
