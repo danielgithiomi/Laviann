@@ -7,10 +7,22 @@ import { BrandLogo } from '@laviann/shared/ui';
 import { configured } from '@laviann/shared/server';
 import { Header } from '../components/header';
 import './globals.css';
+
 export const metadata: Metadata = {
     title: 'LAVIANN · Quality Meats, Greater Meals.',
     description: 'Raw chicken and beef, cut and portioned your way. Request an order for your regional delivery day.',
-    icons: { icon: '/assets/images/branding/favicon.svg' },
+    icons: {
+        icon: [
+            {
+                url: '/assets/images/branding/icon.svg',
+                media: '(prefers-color-scheme:light)',
+            },
+            {
+                url: '/assets/images/branding/icon-white.svg',
+                media: '(prefers-color-scheme:dark)',
+            },
+        ],
+    },
     referrer: 'no-referrer',
     robots: { index: false, follow: false },
 };
