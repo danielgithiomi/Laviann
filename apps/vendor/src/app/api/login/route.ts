@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { ApiError, body, endpoint, json, limit, sessionClient } from '@laviann/shared/server';
+
 export async function POST(req: Request) {
     return endpoint(async () => {
         const input = await body(req, z.object({ email: z.email(), password: z.string().min(8).max(200) }));

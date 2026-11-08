@@ -1,11 +1,14 @@
 import type { ReactNode } from 'react';
+import { loadVendor } from '@lib/data';
 import { configured } from '@laviann/shared/server';
-import { loadVendor } from '../../lib/data';
-import { Sidebar, Topbar } from '../../components/shell';
+import { Sidebar, Topbar } from '@components/shell';
+
 export const dynamic = 'force-dynamic';
+
 export default async function WorkspaceLayout({ children }: { children: ReactNode }) {
     const data = await loadVendor();
     const connected = configured();
+
     return (
         <div className="vendor-shell">
             <Sidebar pending={data.orders.filter(o => o.status === 'pending_review').length} />

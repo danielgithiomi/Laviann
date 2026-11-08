@@ -198,16 +198,20 @@
         font-weight: 400;
         color: var(--laviann-muted);
     }
+
     .password-control {
         position: relative;
     }
+
     .password-control input {
         padding-right: 52px;
     }
+
     .password-control input::-ms-reveal,
     .password-control input::-ms-clear {
         display: none;
     }
+
     .password-toggle {
         position: absolute;
         top: 50%;
@@ -225,11 +229,13 @@
             color 0.15s ease,
             background-color 0.15s ease;
     }
+
     .password-toggle:hover,
     .password-toggle[aria-pressed='true'] {
         color: var(--laviann-primary);
         background: var(--laviann-secondary-pale);
     }
+
     .password-toggle:focus-visible {
         outline-offset: 1px;
     }

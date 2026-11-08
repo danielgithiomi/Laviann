@@ -97,6 +97,7 @@ export async function endpoint(work: () => Promise<Response>): Promise<Response>
 }
 export async function body<T>(req: Request, schema: z.ZodType<T>): Promise<T> {
     const expected = new URL(process.env.APP_ORIGIN || 'http://localhost:3000').origin;
+
     if (req.headers.get('origin') !== expected) throw new ApiError('This request must come from the Laviann application.', 403);
     if (!req.headers.get('content-type')?.startsWith('application/json')) throw new ApiError('Send a JSON request.', 415);
     if (Number(req.headers.get('content-length')) > 48000) throw new ApiError('This request is too large.', 413);
