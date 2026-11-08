@@ -1,7 +1,11 @@
 # POC security review and operating assumptions
 
 This records implementation boundaries and local evidence, not an independent
-penetration test or production approval.
+penetration test or production approval. The P0 is merged into `main` as of
+18 October 2026; the supporting local tests are dated 17 October. See
+[architecture.md](architecture.md) for source/table boundaries and
+[verification.md](verification.md) for results and limits. Recheck these guarantees
+when changing the schema, server helpers or app mutation routes.
 
 ## Identity and capabilities
 

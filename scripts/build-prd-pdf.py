@@ -7,6 +7,8 @@ runtime dependency. This is a document-generation utility for future updates.
 from __future__ import annotations
 
 import html
+import json
+from datetime import datetime
 import re
 import subprocess
 import sys
@@ -20,6 +22,20 @@ except ImportError:
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'docs' / 'PRD.md'
 OUTPUT = ROOT / 'docs' / 'Laviann-PRD-v1.0.pdf'
+
+
+def metadata(label: str) -> str:
+    match = re.search(rf'^\*\*{re.escape(label)}:\*\*\s*(.+)$', SOURCE.read_text(), re.MULTILINE)
+    if not match:
+        raise SystemExit(f'Missing PRD metadata: {label}')
+    return match.group(1).strip()
+
+
+version = metadata('Version')
+baseline_date = metadata('Date')
+context_date = metadata('Context updated')
+status = metadata('Status')
+footer_date = datetime.strptime(context_date, '%d %B %Y').strftime('%d %b %Y').upper()
 
 
 result = subprocess.run(
@@ -188,6 +204,8 @@ body { margin: 0; }
   font-size: 9pt;
   line-height: 1.65;
 }
+.cover .metadata > div:first-child { max-width: 90mm; }
+.cover .metadata > div:last-child { max-width: 62mm; }
 .cover .metadata b { color: white; font-weight: 600; }
 .toc {
   break-after: page;
@@ -277,7 +295,10 @@ body { margin: 0; }
 .doc section.level2:first-child h2 { margin-top: 0; }
 '''
 
-page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Laviann - Product Requirements Document v1.0</title><style>{css}</style></head><body>
+css = css.replace('"PRD V1.0"', json.dumps(f'PRD V{version}'))
+css = css.replace('"14 OCT 2026   |   PLANNING BASELINE"', json.dumps(f'{footer_date}   |   CONTEXT UPDATED'))
+
+page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Laviann - Product Requirements Document v{html.escape(version)}</title><style>{css}</style></head><body>
 <div class="cover">
   <div class="brand">LAVIANN</div>
   <div class="overline">Single vendor / Mauritius / Proof of concept</div>
@@ -286,19 +307,20 @@ page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Lav
   <div class="line"></div>
   <p class="tagline">A mobile-first raw meat ordering experience and a focused vendor workspace for quotations, inventory and region-based deliveries.</p>
   <div class="metadata">
-    <div><b>DOCUMENT</b><br/>Product Requirements / PRD v1.0<br/>Initial product planning baseline</div>
-    <div><b>PREPARED</b><br/>14 October 2026<br/>Mauritius</div>
+    <div><b>DOCUMENT</b><br/>Product Requirements / PRD v{html.escape(version)}<br/>{html.escape(status)}</div>
+    <div><b>CONTEXT UPDATED</b><br/>{html.escape(context_date)}<br/>Baseline: {html.escape(baseline_date)}</div>
   </div>
 </div>
 <div class="toc">
   <div class="eyebrow">DOCUMENT GUIDE</div>
   <h2>Contents</h2>
   <ol>{links}</ol>
-  <p class="note">Working baseline for a vendor pitch. All product prices, delivery fees, scheduled days and inventory figures are illustrative until validated with the vendor.</p>
+  <p class="note">Implemented local P0, with dated verification and remaining vendor decisions. All prices, delivery fees, scheduled days and inventory figures are illustrative until validated with the vendor.</p>
 </div>
 <article class="doc">{body}</article>
 </body></html>'''
 
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-HTML(string=page, base_url=str(ROOT)).write_pdf(str(OUTPUT))
+# Repository-relative links should remain usable when the PDF is shared.
+HTML(string=page, base_url='https://github.com/danielgithiomi/Laviann/blob/main/docs/').write_pdf(str(OUTPUT))
 print(f'Wrote {OUTPUT} ({OUTPUT.stat().st_size:,} bytes; {len(headings)} sections)')

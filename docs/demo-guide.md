@@ -3,6 +3,13 @@
 Use fake names/addresses and the local demo owner. The banner deliberately states
 that prices and schedules are samples and no real payments are taken.
 
+Before the walkthrough, follow [setup.md](setup.md) for a configured local backend
+and both apps. Check that the active worktree and origins match the intended demo;
+preview mode cannot submit or approve. Do not reset an existing demo unless its data
+is disposable. App READMEs show the [customer](../apps/customer/README.md) and
+[vendor](../apps/vendor/README.md) interfaces. For the exact values below, use the
+unchanged demo seed; edited vendor settings intentionally change estimates.
+
 ## Customer and vendor journey
 
 1. Browse `/shop` or `/category/chicken`. Configure **2 kg Chicken Breast**, **2 kg

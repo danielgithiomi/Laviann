@@ -1,7 +1,9 @@
 # POC starting audit — 16 October 2026
 
-> Historical record of the repository state before P0 work began. That work is now
-> merged to `main`; see [verification.md](verification.md) for current status.
+> **Historical starting-point audit.** The observations below describe 16 October
+> 2026, before implementation. The P0 is now complete and merged into `main`; see
+> [architecture](architecture.md), [verification](verification.md) and the
+> [current Git policy](../AGENTS.md#git-workflow). Preserve this record as history.
 
 Original checkout: `/Users/daniel/Desktop/Projects/Personal/Laviann`, branch
 `chore/shared-foundation`, HEAD `466f169`. Only untracked material was the owner's

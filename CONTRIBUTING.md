@@ -7,6 +7,44 @@
 3. Consider effects on the customer storefront, vendor dashboard and Supabase business rules.
 4. Update requirements/ADRs if the change modifies agreed behavior or architecture.
 
+## Git worktrees and pull requests
+
+Follow the [root Git policy](AGENTS.md#git-workflow). Start by inspecting `git status`,
+`git branch --show-current` and `git worktree list`. Preserve existing local changes.
+For a new task, fetch the remote and create an isolated worktree from current `main`:
+
+```sh
+git fetch origin
+# Replace the example directory and branch with names for your task.
+git worktree add -b feat/your-change ../Laviann-your-change origin/main
+cd ../Laviann-your-change
+bun install --frozen-lockfile
+```
+
+When resuming, use the existing task branch/worktree instead of duplicating it.
+Worktrees share Git history, but their files, dependencies and ignored environment
+files are separate. They do not automatically isolate Docker containers or ports;
+read [setup.md](docs/setup.md#working-in-another-worktree) before running a backend.
+
+After the required checks, commit normally, push with
+`git push -u origin HEAD`, and open a PR with **base `main`**. Explain the behavior,
+validation and any limitations. Never merge automatically without owner approval.
+Do not force-push, rewrite history or disable hooks to make the workflow pass.
+
+Once the owner has merged the PR, inspect the primary checkout. If it is clean and
+on `main`, synchronize it with:
+
+```sh
+git pull --ff-only origin main
+```
+
+If pulling fails because of local changes or divergent history, preserve and inspect
+that work; do not reset it. Before removing a temporary worktree, confirm the PR is
+merged and every needed change is committed and preserved, including any ignored
+local files worth keeping. A squash merge may have a different commit ID, so also
+check the merged PR's actual content. Remove only the verified inactive task worktree
+with `git worktree remove <task-worktree-path>`; do not force removal.
+
 ## Coding standards
 
 - Use Bun for dependency changes, scripts and the workspace lockfile.
@@ -33,6 +71,16 @@ bun run test:browser
 Both lint and typecheck also run automatically for each ordinary local commit through
 `.husky/pre-commit`. Fix errors instead of skipping validation.
 
+See [tests/README.md](tests/README.md) for setup and safe test isolation. For
+documentation-only work, check links, images and any regenerated PDFs, run the
+non-database gates above, and report that the existing database/browser results
+are dated evidence. Let PR CI exercise its disposable stack; do not reset an active
+demo merely to repeat unchanged application tests.
+
+When product rules or PRD context change, edit `docs/PRD.md` and regenerate its PDF
+using [the documented builder](docs/README.md#regenerate-the-prd-pdf). Keep historical
+audit output dated; add new evidence rather than rewriting old results as a new run.
+
 ## Commit messages
 
 Commit messages use **Conventional Commits 1.0.0** and project additions described in
@@ -52,13 +100,14 @@ docs(prd): clarify price snapshot rules
 chore(repo): add workspace configuration
 ```
 
-GitHub repo creation and linking remain under the project owner's control.
+The repository is already linked to GitHub; new work is reviewed through PRs to `main`.
 
 ## Shared code and images
 
 Edit shared colors/fonts in `packages/shared/src/theme`, common React components in
 `src/ui`, and runtime contracts in `src/domain`, and generated database types in `src/types`. Both apps consume `@laviann/shared`.
-The approved structure and examples are in the README and ADR-0002.
+The approved structure and export map are in [packages/README.md](packages/README.md)
+and ADR-0002. Database types are generated with `bun run db:types`, not hand-edited.
 
 Add static images under `packages/shared/assets/images`, retaining any nested folders.
 App `predev` and `prebuild` scripts copy them to `public/assets/images`, overwriting

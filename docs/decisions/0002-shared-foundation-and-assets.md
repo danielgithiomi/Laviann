@@ -1,5 +1,11 @@
 # ADR-0002: Shared foundation and startup image copying
 
+> **Current context — 18 October 2026:** this decision is implemented in `main`.
+> The original rationale below is retained; scaffold-only restrictions and pending
+> domain/font work describe its historical starting point. [ADR-0003](0003-tailwind-and-shared-fonts.md)
+> and [ADR-0004](0004-transactional-poc.md) record the implemented follow-up decisions.
+> See [architecture](../architecture.md) and [verification](../verification.md) for current context.
+
 - **Status:** Accepted
 - **Date:** 2026-10-15
 - **Scope:** Shared scaffolding for customer and vendor; no new product workflows

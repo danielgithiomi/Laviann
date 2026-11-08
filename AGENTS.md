@@ -9,7 +9,7 @@
 Laviann is a **single-vendor raw-meat ordering and delivery management product** for
 Mauritius. The initial deliverable is a demonstrable proof of concept for one actual
 vendor. The owner subsequently authorized the complete P0 implementation in October 2026.
-The current branch implements that scope; this is a local demonstration, not a
+The P0 implementation and shared foundation are now merged into `main`. This is a local demonstration, not a
 merchant launch or approval of real prices, yields, delivery days or payment details.
 
 **Customer value:** Browse raw meat, choose quantity, cuts and packaging, provide
@@ -67,8 +67,9 @@ manually in the dashboard and share its confirmation link over WhatsApp.
 - Monorepo task runner: **Turborepo** (`turbo.json`).
 - Customer app: **Next.js App Router + React + strict TypeScript**, under `apps/customer`.
 - Vendor admin: **Next.js App Router + React + strict TypeScript**, under `apps/vendor`.
-- Backend direction: **Supabase** (PostgreSQL, Auth, Storage, Realtime and secure
-  server-side/database functions). Do not create a separate NestJS service unless
+- Implemented backend: **Supabase PostgreSQL and Auth**, with secure Next.js
+  server operations and database functions. Storage uploads and Realtime push are
+  future work, not active integrations. Do not create a separate NestJS service unless
   a later approved architecture decision requires one.
 - Documentation: `docs/PRD.md` is the authoritative product requirement source;
   `docs/Laviann-PRD-v1.0.pdf` is the formatted presentation copy. If requirements
@@ -89,13 +90,20 @@ Laviann/
   packages/shared/          # @laviann/shared workspace
     src/theme/              # Authoritative colors, typography and base CSS
     src/ui/                 # Shared React components used by both apps
-    src/types/              # Shared contracts, added as implementation needs them
+    src/domain/             # Runtime validation, calculations and demo fixtures
+    src/server/             # Server-only clients, capabilities and HTTP safeguards
+    src/types/              # Shared types and generated database contract
     assets/images/branding/ # Static image source (nested folders allowed)
   scripts/sync-brand-assets.mjs # One image copy script; no watcher
   docs/PRD.md               # Editable product requirements source
   docs/Laviann-PRD-v1.0.pdf # Pitch-friendly PRD
   docs/commit-conventions.md
   docs/decisions/           # ADRs for architecture choices
+  docs/architecture.md      # Implemented boundaries, state changes and data map
+  docs/setup.md             # Preview, local database and verification setup
+  docs/verification.md      # Dated evidence and remaining limitations
+  supabase/                # Local config, migration and reproducible seed
+  tests/                   # Domain, database and browser suites
   scripts/validate-commit-msg.sh
   .husky/pre-commit         # Runs workspace lint and typecheck
   .husky/commit-msg         # Enforces Conventional Commits
@@ -135,7 +143,10 @@ Laviann/
 
 ## Always follow this task workflow
 
-1. **Read context:** `AGENTS.md` and the relevant sections of `docs/PRD.md`.
+1. **Read context:** `AGENTS.md`, the relevant sections of `docs/PRD.md`,
+   `docs/architecture.md`, and the affected app's README and nested `AGENTS.md`.
+   Use `docs/README.md` as the documentation index. The handoff bundle contains
+   archived build prompts, not a new instruction to rebuild the completed POC.
 2. **Check scope:** State whether requested work is POC-required or a future idea.
    Do not build speculative features without approval.
 3. **Outline affected areas:** Customer, vendor, Supabase, docs, shared packages.
@@ -149,6 +160,23 @@ Laviann/
    and runtime behavior silently diverge.
 7. **Summarize accurately:** State what changed, tests run, and any blockers.
    Do not claim packages, integrations, builds or tests succeeded if they did not.
+
+## Git workflow
+
+**Git worktree and branch management:** Develop features in isolated Git worktrees and dedicated feature branches. After completing implementation and passing all required checks, push the feature branch and open a pull request targeting `main`. Never merge automatically without owner approval. Once a pull request is merged, ensure the changes can be synchronized with the primary local worktree through a standard Git pull. Temporary worktrees should only be removed after confirming all necessary changes are committed and preserved.
+
+- Inspect the working directory, branch, worktree list and uncommitted changes first.
+  Fetch `origin` and start new work from current `origin/main`; reuse a suitable
+  existing task worktree when resuming. Do not reset or overwrite someone else's work.
+- Keep changes scoped, commit with normal hooks, and include validation and any
+  limitations in the PR. A passing check does not grant permission to merge.
+- After the owner merges the PR, a clean primary checkout on `main` can synchronize
+  with `git pull --ff-only origin main`. If it is dirty or diverged, inspect and
+  preserve the local work before proceeding; never force-reset it to make pulling work.
+- Before cleanup, confirm the merged PR and preservation of every necessary commit,
+  uncommitted file and ignored local file. Do not delete an active or unmerged worktree
+  merely because a PR exists. Follow [CONTRIBUTING.md](CONTRIBUTING.md#git-worktrees-and-pull-requests)
+  for the command sequence. Never force-push or bypass hooks to finish a task.
 
 ## Correctness and safety invariants
 
@@ -204,7 +232,8 @@ Laviann/
 ### Git commit message policy
 
 Use [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/)
-with lowercase types and optional lowercase scopes. Subject at most 72 characters,
+with lowercase types, mandatory lowercase feature scopes and a matching `Branch:`
+trailer (inserted by `prepare-commit-msg`). Subject at most 72 characters,
 no trailing period, begin summary with lowercase action verb.
 
 Examples:
@@ -224,15 +253,18 @@ in an initialized local Git repository; it is not a remote branch policy.
 
 ## Stage gate / next steps
 
-**Current stage:** complete local P0 implementation and verification. The shared
+**Current stage (18 October 2026):** complete local P0 implementation, merged into
+`main`; vendor validation and production readiness remain future work. The shared
 foundation, two existing apps and startup asset policy are preserved. See
 `docs/verification.md` for executed checks and their limits, and ADR-0004 for the
 transaction/auth design. Supabase Auth signup is disabled; provision the single
 owner explicitly. Unconfigured previews cannot persist mutations.
 
-Keep the original checkout and other projects' Docker containers untouched. Run
-destructive database resets only against the isolated Laviann local stack. Never
-merge the implementation PR, deploy a merchant site, send WhatsApp messages or
+Develop in the task worktree; preserve the primary checkout's local changes and
+other projects' Docker containers. Existing Laviann worktrees share the default
+Supabase project/ports; do not reset a running demo to validate unrelated work. Run
+destructive database resets only against the intended disposable Laviann local stack.
+Never merge a PR, deploy a merchant site, send WhatsApp messages or
 process real payments without the owner's specific authorization.
 
 ## Source-of-truth hierarchy

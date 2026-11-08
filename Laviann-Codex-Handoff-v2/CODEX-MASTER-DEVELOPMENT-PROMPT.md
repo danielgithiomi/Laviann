@@ -1,5 +1,14 @@
 # CODEX MASTER BRIEF - LAVIANN CUSTOMER + VENDOR PLATFORM
 
+> **Archived build instructions — completed P0, context updated 18 October 2026.**
+> The text below records the original development request, not a new task or current
+> implementation status. The foundation and complete P0 are now merged into `main`.
+> Follow the current [root AGENTS.md](../AGENTS.md), [architecture](../docs/architecture.md),
+> [PRD](../docs/PRD.md) and [milestone evidence](MILESTONE-ACCEPTANCE-TRACKER.md).
+> The root Git policy supersedes older branch-base advice below: new task worktrees
+> and branches start from current `origin/main`, PRs target `main`, and merging needs
+> owner approval. Do not rebuild the POC or stop at Phase A because of this archive.
+
 **Instructions to the coding agent - FULL PRODUCT IMPLEMENTATION**
 
 You are a senior full-stack product engineer, UX engineer, and technical architect contributing to the **existing**
