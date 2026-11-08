@@ -26,7 +26,7 @@ containers and databases alone.
 ```sh
 bun run db:start
 # Destructive to this local stack's demo data only:
-bunx supabase db reset --local --yes
+bunx supabase db reset --yes
 bun scripts/setup-local.ts
 bun run db:types
 bun run dev
@@ -69,7 +69,7 @@ bun run check
 bun run build
 bun run test:integration
 # Database tests intentionally create fake products/orders. Start the browser demo clean:
-bunx supabase db reset --local --yes
+bunx supabase db reset --yes
 bun scripts/setup-local.ts
 bunx playwright install chromium
 # Start both app servers in another terminal before this command:

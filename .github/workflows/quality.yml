@@ -69,7 +69,7 @@ jobs:
               run: bun run test:integration
             - name: Reset fake test data for browser scenarios
               run: |
-                  bunx supabase db reset --local --yes
+                  bunx supabase db reset --yes
                   bun scripts/setup-local.ts
             - name: Install Chromium
               run: bunx playwright install --with-deps chromium
