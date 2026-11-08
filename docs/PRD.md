@@ -1,11 +1,17 @@
 # Laviann - Product Requirements Document
 
-**Version:** 1.0  
-**Date:** 14 October 2026  
-**Status:** Baseline; P0 implemented as a local POC (October 2026) - vendor assumptions require validation  
-**Last updated:** 18 October 2026 (progress sections 12, 18 and 19 only)  
-**Audience:** Product owner, prospective meat vendor, designers, implementation agents  
-**Market:** Mauritius  
+**Version:** 1.0
+
+**Date:** 14 October 2026
+
+**Status:** Local P0 implemented; vendor assumptions still require validation
+
+**Context updated:** 8 November 2026
+
+**Audience:** Product owner, prospective meat vendor, designers, implementation agents
+
+**Market:** Mauritius
+
 **Project type:** Single-vendor proof of concept
 
 > **Product vision.** Make it easier for consumers to order raw meat with specific
@@ -20,7 +26,7 @@ financial integrations must be separately validated before commercial launch.
 
 ## 1. Executive Summary
 
-### 1.1 What we are building
+### 1.1 Product and implemented POC
 
 Laviann is a digital raw-meat ordering and delivery-management platform for **one
 independent vendor** based in Mauritius. It consists of two distinct Next.js
@@ -36,10 +42,10 @@ applications sharing a Supabase-backed data platform:
    requests, versioned quotations, customer approvals, preparation status,
    zone-based deliveries, and payment records.
 
-**Back-end direction:** Supabase PostgreSQL, authentication, storage, realtime
-updates and secure server-side/database operations. The repository uses Bun
-workspaces and Turborepo. These are initial technology decisions, not a promise
-of existing, functioning external integrations.
+**Implemented backend:** Supabase PostgreSQL and Auth, with trusted Next.js
+server operations and transactional database functions. The repository uses Bun
+workspaces and Turborepo. Storage uploads and Realtime push remain future work;
+manual payment recording and WhatsApp sharing do not imply provider integrations.
 
 ### 1.2 Current process and problem
 
@@ -56,7 +62,7 @@ into stock and deliveries.
 ### 1.3 Laviann's proposed value
 
 | Existing friction                                              | Intended Laviann improvement                                     |
-|----------------------------------------------------------------|------------------------------------------------------------------|
+| -------------------------------------------------------------- | ---------------------------------------------------------------- |
 | Orders described in free-form WhatsApp chats                   | Structured catalogue, weight, cut and packaging selections       |
 | Handwritten notes and photographed order summaries             | Digital, itemized quotations with explicit approval              |
 | Website customers and WhatsApp customers in separate workflows | Same vendor dashboard; vendor can enter WhatsApp orders manually |
@@ -73,12 +79,27 @@ stock; and the vendor must be able to mark the meat prepared and delivered while
 recording the selected payment method/status. The vendor must be able to create
 an equivalent order manually for a customer who contacted them via WhatsApp.
 
+### 1.5 Implementation status and evidence
+
+The complete local P0 and shared foundation are merged into `main` as of
+18 October 2026. This updates implementation context while retaining the v1.0
+requirements baseline. Local verification on 17 October exercised all eight demo
+scenarios: 9 domain tests, 17 database tests and 3 Chromium browser tests passed,
+alongside lint, typecheck, production builds, assets and theme checks. Later
+maintenance PRs (#5–#10) kept those checks passing in CI on `main`, most recently on
+8 November 2026.
+
+See [verification.md](verification.md) for exact results, dated screenshots and
+limits, [setup.md](setup.md) for reproduction, and [architecture.md](architecture.md)
+for the implemented boundaries. Vendor agreement on sample business policies,
+production deployment and broader browser/accessibility testing remain outstanding.
+
 ## 2. Goals, Non-Goals, and Scope
 
 ### 2.1 Product goals
 
 | ID   | Goal                         | Observable outcome                                                           |
-|------|------------------------------|------------------------------------------------------------------------------|
+| ---- | ---------------------------- | ---------------------------------------------------------------------------- |
 | G-01 | Simplify ordering            | Customers submit precise raw-meat requests without lengthy message exchanges |
 | G-02 | Digitize confirmation        | Accepted order details, prices, and instructions are recorded electronically |
 | G-03 | Centralize operations        | Website and manually entered orders share a single pipeline                  |
@@ -120,7 +141,7 @@ recorded, not implemented by default.
 
 ### 3.1 Customer
 
-A customer can browse before registering, configure products, submit an order
+A customer can browse without registering, configure products, submit an order
 request with their name and phone number, provide delivery details, choose an
 available date and payment preference, and securely approve a vendor-reviewed
 quotation. They can subsequently review their own order status.
@@ -159,7 +180,7 @@ should appear in the initial catalogue.
 ### 4.2 Requirements
 
 | ID     | Requirement             | Priority | Acceptance criterion                                     |
-|--------|-------------------------|----------|----------------------------------------------------------|
+| ------ | ----------------------- | -------- | -------------------------------------------------------- |
 | CAT-01 | Browse categories       | P0       | Customer can open Chicken and Beef listings              |
 | CAT-02 | Display products        | P0       | Name, price/unit and availability appear for each        |
 | CAT-03 | View product detail     | P0       | Allowed cuts, quantities and packs are visible           |
@@ -192,7 +213,7 @@ claiming that 6 kg of whole chicken can produce any arbitrary cut combination.
 ### 4.4 Packaging examples
 
 | Product request                     | Packaging result                                  |
-|-------------------------------------|---------------------------------------------------|
+| ----------------------------------- | ------------------------------------------------- |
 | 2 kg chicken breast; 500 g per pack | Four 500 g packages                               |
 | 2 kg chicken thighs; 1 kg per pack  | Two 1 kg packages                                 |
 | 6 kg whole chicken; 1 kg per pack   | Six 1 kg packages, subject to cutting instruction |
@@ -220,7 +241,7 @@ shareable URL. An application installation is not required.
 ### 5.2 Requirements
 
 | ID     | Requirement               | Priority | Acceptance criterion                                    |
-|--------|---------------------------|----------|---------------------------------------------------------|
+| ------ | ------------------------- | -------- | ------------------------------------------------------- |
 | CHK-01 | Manage cart               | P0       | Customer adds, edits and removes configured items       |
 | CHK-02 | Show full item summary    | P0       | Cuts, weights, package counts and notes are visible     |
 | CHK-03 | Collect contact           | P0       | Name and phone number are required                      |
@@ -258,7 +279,7 @@ be prepared and delivered.
 ### 6.2 Requirements
 
 | ID     | Requirement              | Priority | Acceptance criterion                                   |
-|--------|--------------------------|----------|--------------------------------------------------------|
+| ------ | ------------------------ | -------- | ------------------------------------------------------ |
 | ORD-01 | Receive website requests | P0       | New request appears in vendor order queue              |
 | ORD-02 | Review request           | P0       | Vendor sees all items, cuts, packs, fees and contacts  |
 | ORD-03 | Revise before approval   | P0       | Vendor can issue a corrected quotation                 |
@@ -279,9 +300,9 @@ be prepared and delivered.
 - **Final invoice / receipt:** finalized transaction and payment record; exact
   production compliance/format to be validated with the vendor and local rules.
 
-The quotation is required for the proof of concept. A simple receipt can be
-generated after fulfillment; legal fiscal invoicing is a separate production
-readiness exercise.
+The implemented POC provides printable quotation and order-status summaries.
+These are not production invoices or fiscal receipts. Final invoice/receipt
+requirements remain a separate vendor-validation and production-readiness exercise.
 
 ### 6.4 Quotation versioning
 
@@ -289,12 +310,14 @@ Each vendor revision creates a new quotation version, for example Order #1048,
 Quote v2. The customer can only approve the **current** version. Older links must
 not approve changed prices or instructions. Confirmation must revalidate the
 relevant stock and delivery availability. An approval is only complete when the
-reservation succeeds atomically.
+reservation succeeds atomically. In P0, revisions are allowed before approval.
+Once approved, changing commercial terms requires cancellation/review and a new
+request with fresh customer approval; accepted snapshots are never edited in place.
 
 ### 6.5 Order states
 
 | State                          | Meaning                                            |
-|--------------------------------|----------------------------------------------------|
+| ------------------------------ | -------------------------------------------------- |
 | Pending Review                 | Request received, vendor has not finalized a quote |
 | Awaiting Customer Confirmation | Vendor quote issued; approval outstanding          |
 | Confirmed                      | Current quotation approved and stock reserved      |
@@ -305,8 +328,8 @@ reservation succeeds atomically.
 | Cancelled                      | Request/order cancelled according to policy        |
 | Rejected                       | Vendor has declined the request                    |
 
-A revised quotation returns to vendor review/customer approval and invalidates
-prior approval links. Payment states are tracked independently.
+A revised, not-yet-approved quotation requires approval of the new version and
+invalidates prior approval links. Payment states are tracked independently.
 
 ### 6.6 Manual WhatsApp entry
 
@@ -326,7 +349,7 @@ with the vendor** before production.
 ### 7.2 Requirements
 
 | ID     | Requirement                    | Priority | Acceptance criterion                                 |
-|--------|--------------------------------|----------|------------------------------------------------------|
+| ------ | ------------------------------ | -------- | ---------------------------------------------------- |
 | INV-01 | Set on-hand stock              | P0       | Vendor can enter tracked quantity                    |
 | INV-02 | Add replenishment              | P0       | New stock increases physical on-hand value           |
 | INV-03 | Adjust stock                   | P0       | Spoilage/corrections can be recorded with reason     |
@@ -380,7 +403,7 @@ cutoffs and unavailable days. Automated route planning is not required for POC.
 ### 8.2 Zones and illustrative fees
 
 | Price rank  | Delivery zone | Dummy fee (MUR) |
-|-------------|---------------|-----------------|
+| ----------- | ------------- | --------------- |
 | 1 - lowest  | Central       | Rs 75           |
 | 2           | North         | Rs 125          |
 | 3           | West          | Rs 150          |
@@ -394,7 +417,7 @@ each region remain unvalidated.
 ### 8.3 Illustrative schedule
 
 | Day       | Example region |
-|-----------|----------------|
+| --------- | -------------- |
 | Monday    | Central        |
 | Tuesday   | West           |
 | Wednesday | East           |
@@ -407,7 +430,7 @@ Orders submitted after a cutoff must be offered the next eligible slot instead.
 ### 8.4 Requirements
 
 | ID     | Requirement           | Priority | Acceptance criterion                            |
-|--------|-----------------------|----------|-------------------------------------------------|
+| ------ | --------------------- | -------- | ----------------------------------------------- |
 | DEL-01 | Manage five zones     | P0       | Central, North, West, East, South exist         |
 | DEL-02 | Edit zone fees        | P0       | Vendor can change fees per zone                 |
 | DEL-03 | Set offered dates     | P0       | Vendor can configure recurring region days      |
@@ -422,9 +445,10 @@ Orders submitted after a cutoff must be offered the next eligible slot instead.
 
 Customers provide zone, locality, delivery address/landmark and contact number.
 Map pin selection is optional later. If a customer is unavailable, the vendor
-records an unsuccessful delivery and arranges a new plan manually. Existing
-confirmed delivery charges/dates cannot be silently altered by later settings
-changes; rescheduling requires a communicated update.
+records a private follow-up note and arranges a new plan manually. P0 does not
+introduce a separate Failed Delivery state. Existing confirmed delivery charges/dates
+cannot be silently altered by settings changes; changing accepted terms requires
+cancellation/review and a newly approved request.
 
 ## 9. Pricing, Payments, and Documents
 
@@ -438,7 +462,7 @@ Client-visible totals are only estimates until vendor quotation approval.
 ### 9.2 Illustrative order total
 
 | Line item          | Quantity   | Dummy unit price | Amount       |
-|--------------------|------------|------------------|--------------|
+| ------------------ | ---------- | ---------------- | ------------ |
 | Chicken breast     | 2 kg       | Rs 475/kg        | Rs 950       |
 | Chicken drumsticks | 2 kg       | Rs 290/kg        | Rs 580       |
 | Chicken wings      | 2 kg       | Rs 220/kg        | Rs 440       |
@@ -453,7 +477,7 @@ remain an immutable historical snapshot even if catalogue prices later change.
 ### 9.3 Payment methods and statuses
 
 | Method           | POC handling                                                           |
-|------------------|------------------------------------------------------------------------|
+| ---------------- | ---------------------------------------------------------------------- |
 | Cash on delivery | Vendor records when cash is received                                   |
 | MCB Juice        | Display configured instructions; vendor manually verifies receipt      |
 | Bank transfer    | Display configured details/reference; vendor manually verifies receipt |
@@ -465,7 +489,7 @@ transfers or screenshots do not constitute independent proof of payment.
 ### 9.4 Requirements
 
 | ID     | Requirement               | Priority | Acceptance criterion                        |
-|--------|---------------------------|----------|---------------------------------------------|
+| ------ | ------------------------- | -------- | ------------------------------------------- |
 | PAY-01 | Configure methods         | P0       | Vendor can enable/disable supported methods |
 | PAY-02 | Select method             | P0       | Customer chooses an enabled option          |
 | PAY-03 | Show instructions         | P0       | Vendor-approved instructions are visible    |
@@ -495,7 +519,7 @@ live integrated service.
 ### 10.2 Requirements
 
 | ID     | Requirement                  | Priority | Acceptance criterion                            |
-|--------|------------------------------|----------|-------------------------------------------------|
+| ------ | ---------------------------- | -------- | ----------------------------------------------- |
 | NOT-01 | Flag pending vendor orders   | P0       | New orders are visible in dashboard             |
 | NOT-02 | Generate approval links      | P0       | Latest quote has a customer-specific link       |
 | NOT-03 | Manual WhatsApp share        | P0       | Vendor can copy/share link and summary          |
@@ -517,7 +541,7 @@ version/identity checks.
 ### 11.1 Customer storefront journey
 
 | Step | Customer action                       | System response                                        |
-|------|---------------------------------------|--------------------------------------------------------|
+| ---- | ------------------------------------- | ------------------------------------------------------ |
 | 1    | Opens storefront link                 | Shows products available to order                      |
 | 2    | Selects category/product              | Displays options and current illustrative prices       |
 | 3    | Configures weight, cuts and packaging | Updates package count and price estimate               |
@@ -532,7 +556,7 @@ version/identity checks.
 ### 11.2 Vendor journey
 
 | Step | Vendor action                   | System response                                 |
-|------|---------------------------------|-------------------------------------------------|
+| ---- | ------------------------------- | ----------------------------------------------- |
 | 1    | Signs into dashboard            | Displays orders requiring attention             |
 | 2    | Opens Pending Review request    | Shows customer, products, cutting and packaging |
 | 3    | Checks stock and edits proposal | Recalculates quotation as needed                |
@@ -551,12 +575,12 @@ selects products, quantities, packaging, customer contact and zone, issues the
 quote and sends the link. After confirmation, the manual order flows through the
 same pipeline. Its origin is recorded to assess adoption of the storefront.
 
-## 12. Screen Inventory
+## 12. Implemented Screen Inventory
 
 ### 12.1 Customer screens
 
 | ID    | Screen                 | Primary contents                                             |
-|-------|------------------------|--------------------------------------------------------------|
+| ----- | ---------------------- | ------------------------------------------------------------ |
 | C-S01 | Home / Catalogue       | Categories, available product cards, basic delivery guidance |
 | C-S02 | Category               | Category product listing, price and availability             |
 | C-S03 | Product details        | Weight, cut, package and notes configuration                 |
@@ -570,7 +594,7 @@ same pipeline. Its origin is recorded to assess adoption of the storefront.
 ### 12.2 Vendor screens
 
 | ID    | Screen             | Primary contents                                           |
-|-------|--------------------|------------------------------------------------------------|
+| ----- | ------------------ | ---------------------------------------------------------- |
 | V-S01 | Login              | Vendor authentication                                      |
 | V-S02 | Dashboard overview | Pending orders, delivery queue, stock warnings             |
 | V-S03 | Orders             | Searchable/filterable order list                           |
@@ -582,8 +606,11 @@ same pipeline. Its origin is recorded to assess adoption of the storefront.
 | V-S09 | Delivery settings  | Zone fees, days, cutoffs and exceptions                    |
 | V-S10 | Payment settings   | Accepted methods and vendor payment instructions           |
 
-All 19 screens are implemented in the P0 apps. Visual identity follows the approved
-brand specification; responsive screenshots are listed in `docs/verification.md`.
+All nine customer and ten vendor screen requirements are implemented. The
+[demo guide](demo-guide.md#screen-map) maps them to routes; app READMEs and the
+[verification record](verification.md) show the working interfaces. Shared branding,
+Big Shoulders/Inter, responsive layouts and error/loading states are implemented.
+The earlier design concepts remain historical references.
 
 ## 13. Conceptual Data and Business Rules
 
@@ -594,14 +621,18 @@ Inventory Item; Inventory Movement; Inventory Reservation; Order; Order Item;
 Quotation; Order Confirmation; Delivery Zone; Delivery Schedule; Payment Record;
 Notification/Communication Event.
 
-These entities explain *what must be represented*, not how database tables
-should be named. A complete Supabase schema, access policies and server function
-contracts will be designed during technical planning.
+These entities explain _what must be represented_, not literal table names.
+The implemented schema, RLS and transaction functions are in
+`supabase/migrations/202610160001_poc.sql`; [architecture.md](architecture.md)
+maps the actual tables and server boundaries. There are no customer accounts:
+contact details and requested lines are order snapshots, and quote lines/accepted
+terms are immutable snapshots. Delivery grouping uses those agreed order terms.
+[ADR-0004](decisions/0004-transactional-poc.md) records the implementation decisions.
 
 ### 13.2 Non-negotiable business rules
 
 | Code  | Rule                                                                    |
-|-------|-------------------------------------------------------------------------|
+| ----- | ----------------------------------------------------------------------- |
 | BR-01 | Only one vendor manages all POC orders                                  |
 | BR-02 | Catalogue can add raw-meat products without source-code changes         |
 | BR-03 | Server is authoritative for price and eligibility checks                |
@@ -621,7 +652,7 @@ contracts will be designed during technical planning.
 ## 14. Edge Cases and Error Handling
 
 | Situation                              | Required behavior                                                 |
-|----------------------------------------|-------------------------------------------------------------------|
+| -------------------------------------- | ----------------------------------------------------------------- |
 | Stock depletes during browsing         | Revalidate during review/confirmation; explain unavailable amount |
 | Two customers confirm last stock       | Only reservations within physical availability succeed            |
 | Invalid packaging remainder            | Explain remainder or request compatible quantity                  |
@@ -630,7 +661,7 @@ contracts will be designed during technical planning.
 | Customer cancels before preparation    | Release reservation according to cancellation policy              |
 | Customer cancels after preparation     | Vendor manual review; do not restore prepared meat automatically  |
 | Delivery date becomes unavailable      | Vendor proposes new date; customer is informed                    |
-| Customer not present on delivery       | Mark unsuccessful delivery and arrange follow-up manually         |
+| Customer not present on delivery       | Record a private follow-up note and arrange next steps manually   |
 | Payment screenshot is submitted        | Do not automatically set Paid                                     |
 | WhatsApp manual sharing fails          | Keep link available for copying/retry                             |
 | Connection drops during a state update | Safe retry with no duplicate stock transaction                    |
@@ -649,7 +680,7 @@ Numerical performance targets are to be established once working prototypes exis
 ### 15.2 Security and data protection
 
 | ID     | Requirement                                                         |
-|--------|---------------------------------------------------------------------|
+| ------ | ------------------------------------------------------------------- |
 | SEC-01 | Vendor dashboard requires authentication                            |
 | SEC-02 | Customers cannot access other customers' private records            |
 | SEC-03 | All privileged changes require server-side authorization            |
@@ -680,7 +711,7 @@ food-safety advice and does not assert that production compliance is complete.
 ### 16.1 Dummy product prices
 
 | Product            | Category | Illustrative MUR price per kg |
-|--------------------|----------|-------------------------------|
+| ------------------ | -------- | ----------------------------- |
 | Whole chicken      | Chicken  | Rs 235                        |
 | Chicken breast     | Chicken  | Rs 475                        |
 | Chicken drumsticks | Chicken  | Rs 290                        |
@@ -698,7 +729,7 @@ different pricing for a fixed pack.
 ### 16.2 Assumptions to validate
 
 | Topic            | POC assumption                           | Vendor clarification needed             |
-|------------------|------------------------------------------|-----------------------------------------|
+| ---------------- | ---------------------------------------- | --------------------------------------- |
 | Inventory        | Vendor maintains meat stock              | Replenishment sources and frequency     |
 | Stock units      | Mostly kilograms                         | Piece-based and package-based tracking  |
 | Cutting          | Separate cuts and cut-style instructions | Allowed combinations and yield policies |
@@ -749,28 +780,25 @@ live map tracking are **not** required for these scenarios.
 
 ## 18. Product Roadmap and Project Stages
 
-| Stage                    | Focus                                                           | Output                                        | Status                |
-|--------------------------|-----------------------------------------------------------------|-----------------------------------------------|-----------------------|
-| 1 - Ideation             | Identify current WhatsApp workflow and opportunity              | Completed vision and assumptions              | Done                  |
-| 2 - Requirements         | Record functional rules and demo scenarios                      | This PRD v1.0                                 | Done                  |
-| 3 - UX planning          | Journeys, navigation, screen details and error states           | User flows and wireframes                     | Done                  |
-| 4 - Visual design        | Brand direction, palette, typography and components             | High-fidelity UI designs                      | Done                  |
-| 5 - Technical planning   | Supabase schema, Next.js boundaries, auth and service contracts | Architecture document and implementation plan | Done (ADRs 0001-0004) |
-| 6 - POC development      | Incremental core workflows and tests                            | Working customer + vendor web apps            | Done (local)          |
-| 7 - Vendor demonstration | Show real flow using dummy data                                 | Feedback and approval decision                | Next                  |
-| 8 - Production readiness | Validated real prices, legal and payment/WhatsApp processes     | Launch plan for approved business             | Not started           |
+| Stage                    | Current status                 | Evidence / next output                                      |
+| ------------------------ | ------------------------------ | ----------------------------------------------------------- |
+| 1 - Ideation             | Completed                      | Single-vendor WhatsApp workflow and assumptions recorded    |
+| 2 - Requirements         | Completed baseline             | PRD v1.0, with current implementation context               |
+| 3 - UX planning          | Implemented                    | Nine customer and ten vendor screens; current UX guide      |
+| 4 - Visual design        | Implemented for P0             | Original SVG identity, shared theme/fonts and responsive UI |
+| 5 - Technical planning   | Implemented                    | ADR-0004, schema, Auth/RLS and server contracts             |
+| 6 - POC development      | Implemented and locally tested | Eight demo scenarios and dated verification evidence        |
+| 7 - Vendor demonstration | Pending vendor walkthrough     | Feedback, validated business values and approval decisions  |
+| 8 - Production readiness | Future scoped work             | Operational, security, legal and hosting readiness review   |
 
-### Delivery milestones (all complete in the local POC)
+### Delivered implementation milestones
 
-1. Catalogue and customizable product selection.
-2. Cart and customer order request.
-3. Vendor review and manual order entry.
-4. Secure versioned quotations and customer approvals.
-5. Physical inventory, reservations, replenishment and alerts.
-6. Vendor-controlled zone/date delivery grouping.
-7. Payment tracking, quotations and order document output (printable quotation/status
-   page; formal tax invoices remain out of scope).
-8. End-to-end QA against eight acceptance scenarios.
+Catalogue/configuration, cart/requests, vendor review/manual entry, versioned
+quotations/approval, stock accounting, delivery grouping and manual payment tracking
+are implemented. Document output is a printable quotation/status summary, not a
+production fiscal invoice. The [milestone ledger](../Laviann-Codex-Handoff-v2/MILESTONE-ACCEPTANCE-TRACKER.md)
+maps A-F to observed evidence, while [the demo guide](demo-guide.md) maps all eight
+acceptance scenarios. P1/P2 ideas are not automatically included in P0 completion.
 
 ## 19. Outstanding Decisions and Change Control
 
@@ -780,13 +808,18 @@ payment methods, real prices, tax obligations and address granularity. Changes
 to those choices should be documented, reviewed for effects on orders and
 inventory, and reflected in UX and test criteria.
 
-**Current position (18 October 2026):** All P0 milestones are implemented and
-verified against a local Supabase stack (`docs/verification.md`). Next: demonstrate
-the POC to the vendor and validate the assumptions in section 16.2, then plan an
-approved hosted staging setup. Photo upload, Realtime, customer accounts, payment
-provider and WhatsApp API integrations remain outside the POC.
+**Next product session:** Walk the real vendor through the completed sample-data
+journey, record feedback on the assumptions above, and agree the next changes.
+Product-photo upload, Realtime, customer accounts, payment-provider and WhatsApp API
+integrations remain outside the POC.
+Follow-up work includes additional browser/physical-device and screen-reader testing,
+owner recovery/MFA, retention, backups, monitoring, hosting and launch policies.
+Do not infer production approval from local POC completion. New development follows
+`AGENTS.md`: isolated worktrees and feature branches, required checks, PRs to `main`,
+and owner approval before merge.
 
 ---
 
-**Laviann - PRD v1.0.** Prepared for initial vendor discussion and internal
-product planning. Dummy values and unvalidated assumptions are clearly labeled.
+**Laviann - PRD v1.0.** Requirements baseline dated 14 October 2026; implementation
+context updated 18 October 2026. Dummy values and unvalidated assumptions remain
+clearly labelled. The PDF presentation copy is generated from this Markdown source.

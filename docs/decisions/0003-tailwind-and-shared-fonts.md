@@ -1,5 +1,10 @@
 # ADR-0003: Tailwind v4 and shared font loading
 
+> **Current context — 18 October 2026:** this shared styling/font decision is
+> implemented in `main` and used by the completed P0 screens. Scaffold-only wording
+> below describes the original decision scope, not an unfinished implementation.
+> See [architecture](../architecture.md) and [verification](../verification.md).
+
 - **Status:** Accepted
 - **Date:** 2026-10-16
 - **Scope:** Complete customer/vendor styling scaffolding; no product screens

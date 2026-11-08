@@ -55,8 +55,8 @@ Laviann/
 ├── packages/shared/     # @laviann/shared: theme, UI, types and static images
 │   ├── src/{theme,ui,domain,server,types}/
 │   └── assets/images/branding/
-├── supabase/            # Versioned migration, demo seed, local config
-├── tests/               # Unit, actual-database and browser checks
+├── supabase/            # Versioned migration, demo seed, local config (README)
+├── tests/               # Unit, actual-database and browser checks (README)
 ├── docs/                # PRD, ADRs, setup/demo/verification/security, design and UX
 ├── scripts/             # asset sync, local setup, commit-msg and audit scripts
 ├── .husky/
@@ -218,6 +218,8 @@ Never commit `.env.local`, `.env.test.local`, token secrets or real customer dat
 
 - [PRD - editable](docs/PRD.md) - product requirements and demo acceptance criteria.
 - [PRD - PDF](docs/Laviann-PRD-v1.0.pdf) - formatted vendor-pitch document.
+- [Architecture](docs/architecture.md) - implemented apps, endpoints, data map and order lifecycle.
+- [Database guide](supabase/README.md) and [test guide](tests/README.md) - schema changes, guarantees and test isolation.
 - [Agent guide](AGENTS.md) - instructions for any coding assistant/provider.
 - [Contributing](CONTRIBUTING.md) - quality gates and collaboration guidance.
 - [Commit conventions](docs/commit-conventions.md) - commit grammar and examples.

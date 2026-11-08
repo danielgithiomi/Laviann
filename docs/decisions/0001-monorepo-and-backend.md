@@ -1,6 +1,12 @@
 # ADR-0001: Bun + Turborepo + two Next.js apps + Supabase
 
-- **Status:** Accepted; implementation details recorded in ADR-0002 to ADR-0004
+> **Current context — 18 October 2026:** this decision is implemented in `main`.
+> The original rationale below is retained; scaffold-only restrictions and pending
+> domain/font work describe its historical starting point. [ADR-0003](0003-tailwind-and-shared-fonts.md)
+> and [ADR-0004](0004-transactional-poc.md) record the implemented follow-up decisions.
+> See [architecture](../architecture.md) and [verification](../verification.md) for current context.
+
+- **Status:** Accepted; implemented stack, with transactional details in ADR-0004
 - **Date:** 2026-10-14
 - **Product:** Laviann
 

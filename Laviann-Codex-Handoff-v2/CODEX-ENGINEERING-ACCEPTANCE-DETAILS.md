@@ -1,5 +1,14 @@
 # Laviann - Detailed Engineering Contracts, UX Behavior, and Acceptance Matrix
 
+> **Archived build instructions — completed P0, context updated 18 October 2026.**
+> The text below records the original development request, not a new task or current
+> implementation status. The foundation and complete P0 are now merged into `main`.
+> Follow the current [root AGENTS.md](../AGENTS.md), [architecture](../docs/architecture.md),
+> [PRD](../docs/PRD.md) and [milestone evidence](MILESTONE-ACCEPTANCE-TRACKER.md).
+> The root Git policy supersedes older branch-base advice below: new task worktrees
+> and branches start from current `origin/main`, PRs target `main`, and merging needs
+> owner approval. Do not rebuild the POC or stop at Phase A because of this archive.
+
 **Applies to:** Existing Laviann repository; customer Next.js app, vendor Next.js app, shared Bun workspace, and
 Supabase-backed proof of concept. Read with `CODEX-MASTER-DEVELOPMENT-PROMPT.md`, `BRAND-AND-UX-SPEC.md`, and the
 repository's current `docs/PRD.md`. Do not implement this as a separate project.
