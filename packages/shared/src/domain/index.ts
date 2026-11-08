@@ -124,12 +124,15 @@ export const quoteSchema = estimateSchema.extend({
     approved_at: z.string().nullable(),
 });
 export const eventSchema = z.object({ id: uuid, kind: z.string(), note: z.string(), created_at: z.string() });
+// Incoming requests are strict, but stored snapshots may hold keys the server ignored
+// (e.g. client totals). Strip them on read so one row cannot break the vendor data load.
+export const storedRequestSchema = requestSchema.strip();
 export const orderSchema = z.object({
     id: uuid,
     reference: z.string(),
     status: z.enum(orderStatuses),
     origin: z.enum(['website', 'vendor_entered']),
-    request: requestSchema,
+    request: storedRequestSchema,
     estimate: estimateSchema,
     payment_status: z.enum(paymentStatuses),
     created_at: z.string(),
