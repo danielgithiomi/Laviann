@@ -20,8 +20,10 @@ const existing = existsSync('.env.test.local')
       )
     : {};
 const secret = existing.SERVER_TOKEN_SECRET || randomBytes(32).toString('hex');
+
+const email = existing.TEST_VENDOR_EMAIL || 'owner@laviann.test';
 const password = existing.TEST_VENDOR_PASSWORD || randomBytes(18).toString('hex');
-const email = 'owner@laviann.test';
+
 const client = createClient(status.API_URL, status.SERVICE_ROLE_KEY);
 const { data: list, error: listError } = await client.auth.admin.listUsers();
 if (listError) throw new Error('Local Auth is not ready.');

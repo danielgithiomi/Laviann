@@ -9,9 +9,7 @@ import { catalogSchema } from '../domain';
 import { demoCatalog } from '../domain/demo';
 
 export function configured(): boolean {
-    const isConfigured = Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL);
-    console.log('isConfigured:', isConfigured);
-    return isConfigured;
+    return Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL);
 }
 function publicConfig() {
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
