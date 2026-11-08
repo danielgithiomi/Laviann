@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     robots: { index: false, follow: false },
     referrer: 'no-referrer',
 };
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="en" className={fontVariables} style={themeVariables}>
             <body>
