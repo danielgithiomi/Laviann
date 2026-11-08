@@ -9,6 +9,7 @@ import {
     priceLine,
     quoteChanges,
     requestSchema,
+    storedRequestSchema,
 } from '../../packages/shared/src/domain';
 const catalog = demoCatalog(new Date('2026-10-16T08:00:00Z'));
 const breast = catalog.products[1]!;
@@ -77,6 +78,19 @@ describe('PRD money, customization and schedules', () => {
     });
     test('malformed customer details and trusted-total injection fail', () => {
         expect(requestSchema.safeParse({ total_cents: 1, items: [line] }).success).toBe(false);
+    });
+    test('stored requests drop ignored client totals instead of failing the vendor load', () => {
+        const stored = {
+            idempotency_key: crypto.randomUUID(),
+            contact: { name: 'Demo Customer', phone: '+230 5123 4567', locality: 'Grand Baie', address: '1 Demo Road' },
+            zone_id: catalog.zones[1]!.id,
+            date: '2026-10-22',
+            payment_method: 'cash_on_delivery',
+            items: [line],
+        };
+        const tampered = { ...stored, total_cents: 1, fee_cents: 1 };
+        expect(requestSchema.safeParse(tampered).success).toBe(false);
+        expect(storedRequestSchema.parse(tampered)).toEqual(requestSchema.parse(stored));
     });
 });
 
