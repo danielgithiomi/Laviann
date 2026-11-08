@@ -30,7 +30,7 @@
         "test:browser": "playwright test",
         "db:start": "supabase start",
         "db:reset": "supabase db reset",
-        "db:types": "supabase gen types typescript --local > packages/shared/src/types/database.ts"
+        "db:types": "supabase gen types typescript > packages/shared/src/types/database.ts && prettier --write packages/shared/src/types/database.ts"
     },
     "devDependencies": {
         "husky": "^9.1.7",
@@ -39,6 +39,6 @@
         "typescript": "^6.0.3",
         "@playwright/test": "^1.56.0",
         "@axe-core/playwright": "^4.10.2",
-        "supabase": "^2.0.0"
+        "supabase": "^3.0.0"
     }
 }
