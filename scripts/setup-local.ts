@@ -56,4 +56,4 @@ writeFileSync(
     `${common}TEST_DB_URL=${status.DB_URL}\nTEST_VENDOR_EMAIL=${email}\nTEST_VENDOR_PASSWORD=${password}\n`,
 );
 chmodSync('.env.test.local', 0o600);
-console.log('Local Supabase configured for both apps. Demo owner credentials are in ignored .env.test.local (mode 600).');
+console.log('Local Supabase configured for both apps. Demo owner credentials are in .env.test.local (mode 600).');
