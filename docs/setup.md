@@ -15,12 +15,29 @@ labelled demo catalogue data. Local cart configuration works; order submission,
 authentication and vendor saves require the database. No fake successful mutation
 is shown. Once a backend URL is set, failures show an error instead of fixture data.
 
+## Working in another worktree
+
+Follow [CONTRIBUTING.md](../CONTRIBUTING.md#git-worktrees-and-pull-requests) for branch
+creation and PRs to `main`. Install dependencies in that worktree. Ignored app
+`.env.local` and root `.env.test.local` files are not copied by Git; never commit them
+or paste their contents into docs or a PR.
+
+Worktrees isolate source files, **not** the default Docker project `laviann`
+or ports 54321/54322. Check for an existing running stack/demo before setup. A
+read-only preview requires no database reset. For backend work, deliberately use
+the intended disposable test stack; coordinate any reset or reprovisioning so it
+cannot destroy a demo's orders or invalidate another worktree's owner credentials.
+`setup-local.ts` is for that local stack and is not a hosted deployment tool.
+
+For future schema changes, add a forward migration, apply it to the disposable
+stack and regenerate types. See [supabase/README.md](../supabase/README.md).
+
 ## Real local database
 
 Prerequisites: Docker running, Bun, Node 22+, Git and `psql` on PATH. The pinned
 Supabase CLI is installed from `bun.lock`. On macOS, Homebrew's `libpq` includes
 `psql`; on Ubuntu use `postgresql-client`. This stack uses 54321/54322 and project ID
-`laviann-poc`; check for port conflicts before starting it. Leave other projects'
+`laviann`; check for port conflicts before starting it. Leave other projects'
 containers and databases alone.
 
 ```sh
@@ -36,11 +53,11 @@ The migration creates schema, transactions, RLS and explicit function grants. Th
 seed provides Chicken and Beef, eight sample products, five regional fees, sample
 weekly dates, stock and manual payment instructions. It contains no real customers
 or merchant credentials. Global signup is disabled. The email provider stays enabled so the provisioned
-owner can sign in; `auth.email.enable_signup=false` would disable that provider. `setup-local.ts` creates a local Auth
+owner can sign in; `[auth.email] enabled = false` would disable that provider. `setup-local.ts` creates a local Auth
 user, binds that UUID in `vendor_admins`, and writes mode-600, Git-ignored app
 `.env.local` files plus `.env.test.local`. The script refuses non-loopback databases.
-It does not print keys or passwords. It reuses the local test secret/password on
-reruns; reset/reprovision if the owner password is changed independently.
+It does not print keys or passwords. It reuses the local test secret, owner email and
+password on reruns; reset/reprovision if the owner password is changed independently.
 
 Open `apps/customer` at `http://localhost:3000` and the vendor login at
 `http://localhost:3001/login`. The fake owner email and random password are in
@@ -87,7 +104,7 @@ change such as disabling signup, restart only this Supabase project to reload Au
 
 Builds self-host Big Shoulders and Inter using `next/font`; the initial build needs
 Google Fonts connectivity. No database is required to build the read-only preview.
-The authoring machine used Bun 1.3.6; the repository/CI remains pinned to 1.4.3.
+The original verification machine used Bun 1.3.6; the repository/CI is pinned to 1.4.3.
 
 ## Hosted setup requires a separate approved deployment
 

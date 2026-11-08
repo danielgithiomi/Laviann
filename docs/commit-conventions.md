@@ -26,11 +26,11 @@ feat(packaging): support custom 500g portions
 Branch: feature/custom-packaging
 ```
 
-Normal usage can still be a one-line Git command:
+In the isolated task worktree created with [the contribution workflow](../CONTRIBUTING.md#git-worktrees-and-pull-requests),
+commit normally. This example assumes its branch is already `feature/custom-packaging`:
 
 ```sh
-git switch -c feature/custom-packaging
-git add .
+git add <changed-files>
 git commit -m "feat(packaging): support custom 500g portions"
 ```
 
@@ -39,19 +39,19 @@ stored commit. You **do not** have to type the footer for each commit.
 
 ## Allowed change types
 
-| Type | Used for |
-|---|---|
-| `feat` | New functionality |
-| `fix` | Bug fixes |
-| `docs` | Documentation changes |
+| Type       | Used for                                 |
+| ---------- | ---------------------------------------- |
+| `feat`     | New functionality                        |
+| `fix`      | Bug fixes                                |
+| `docs`     | Documentation changes                    |
 | `refactor` | Restructure code without behavior change |
-| `test` | Test additions or corrections |
-| `chore` | Maintenance, tooling, and housekeeping |
-| `build` | Build tooling and dependencies |
-| `ci` | CI workflow updates |
-| `perf` | Performance improvements |
-| `style` | Formatting only, no runtime change |
-| `revert` | Reverts to an earlier change |
+| `test`     | Test additions or corrections            |
+| `chore`    | Maintenance, tooling, and housekeeping   |
+| `build`    | Build tooling and dependencies           |
+| `ci`       | CI workflow updates                      |
+| `perf`     | Performance improvements                 |
+| `style`    | Formatting only, no runtime change       |
+| `revert`   | Reverts to an earlier change             |
 
 Use `fix`, not `bug` or `bugfix`, for a bug correction.
 
@@ -110,7 +110,9 @@ Branch: feature/quote-versioning
 ## Special Git commits
 
 Git-generated merge and revert messages are permitted without the branch trailer.
-Normal commits on `main` still require `Branch: main`, automatically generated.
+The validator also recognizes `Branch: main`, but development policy requires
+changes on a task branch and a reviewed PR to `main`; this is not permission to
+develop directly on `main`.
 In a detached HEAD state, normal commits are rejected because no branch exists.
 Git `--amend` preserves the previous commit message; ensure the `Branch:`
 trailer still matches the current branch when amending from another branch.
@@ -125,4 +127,5 @@ trailer still matches the current branch when amending from another branch.
 
 Hooks validate **local commits before they can be pushed**; they do not by
 themselves prevent someone bypassing hooks or pushing through another machine.
-When GitHub is connected, require passing checks and protect the main branch.
+GitHub Actions runs the repository checks on pushes and PRs. Passing checks do
+not authorize an automatic merge; follow the owner-approval policy in [AGENTS.md](../AGENTS.md#git-workflow).

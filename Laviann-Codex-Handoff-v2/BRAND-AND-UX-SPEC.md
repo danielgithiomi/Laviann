@@ -1,5 +1,12 @@
 # Laviann - approved visual design specification (v1.0)
 
+> **Implementation context — 18 October 2026:** this P0 identity is implemented.
+> Original SVG assets live in `packages/shared/assets/images/branding`, fonts and
+> colors in shared runtime source, and current screenshots in `docs/screenshots`.
+> The muted color below is updated to `#52675D` after contrast testing. Other
+> imperative text records the original design brief. Use [the current design guide](../docs/design/README.md)
+> and [verification](../docs/verification.md) for actual state and limitations.
+
 Status: Approved visual direction for implementation. This document supersedes older logo, tagline, and typography
 proposals. It does not override the product rules in `docs/PRD.md`.
 
@@ -30,7 +37,7 @@ proposals. It does not override the product rules in `docs/PRD.md`.
 ## Approved colors - authoritative values already in shared source
 
 | Semantic purpose                   | Token/code          | Hex       |
-|------------------------------------|---------------------|-----------|
+| ---------------------------------- | ------------------- | --------- |
 | Deep Forest / primary              | `primary`           | `#12382F` |
 | Deep Forest variation              | `primaryStrong`     | `#17483B` |
 | Sage                               | `secondary`         | `#AFC799` |
@@ -38,7 +45,7 @@ proposals. It does not override the product rules in `docs/PRD.md`.
 | Ivory canvas                       | `background`        | `#F4F7F3` |
 | White surface                      | `surface`           | `#FFFFFF` |
 | Main text                          | `text`              | `#263D35` |
-| Muted text                         | `muted`             | `#687A73` |
+| Muted text                         | `muted`             | `#52675D` |
 | Border                             | `border`            | `#DCE5DE` |
 | Warm terracotta / secondary accent | `accent`            | `#C76B50` |
 | Warning background                 | `warningBackground` | `#F9EBE4` |
@@ -84,11 +91,11 @@ never make the brand logo red to match a status color.
 ## Reference precedence
 
 1. `references/approved/Laviann-approved-visual-board.png` - most recent **approved** visual hierarchy and small
-   monochrome meat accent. This is a raster *reference*, not a complete UI asset or exact product specification.
+   monochrome meat accent. This is a raster _reference_, not a complete UI asset or exact product specification.
 2. This `BRAND-AND-UX-SPEC.md` - precise branding, typography, and accessibility instructions.
 3. `docs/PRD.md` and accepted ADRs in repository - behavior, payment, pricing, products, architecture and security. PRD
    wins over inaccurate placeholder text in any mockup.
-4. `references/legacy-layouts/*.svg` - earlier editable *layout studies* to help fill screen-flow gaps. Their **old leaf
+4. `references/legacy-layouts/*.svg` - earlier editable _layout studies_ to help fill screen-flow gaps. Their **old leaf
    logos, sample prices, dates, payment icons and any extra product categories are NOT authoritative**.
 
 ## Critical corrections to generated concept art
@@ -118,7 +125,7 @@ and are Git-ignored.
 ## Acceptance checklist - visual phase
 
 - [ ] Primary, inverted, and icon-only SVG logos all use one color per logo version; steak symbol is restrained and
-  recognizable at small sizes.
+      recognizable at small sizes.
 - [ ] Exact approved tagline appears in brand lockups; no 'Fresh Meat. Your Way.' or leaf logos remain in new UI.
 - [ ] Both apps render from shared color/typography tokens and Tailwind utilities; no duplicate color palettes.
 - [ ] Customer mobile, customer desktop, vendor desktop, vendor mobile are visually coherent.

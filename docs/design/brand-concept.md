@@ -1,65 +1,61 @@
-# Laviann - Visual Identity Exploration, Concept A
+# Laviann implemented P0 visual identity
 
-**Status:** Exploratory, v0.1, superseded. The approved brand is in
-`Laviann-Codex-Handoff-v2/BRAND-AND-UX-SPEC.md`; runtime colours live in
-`packages/shared/src/theme/colors.ts`.
+**Updated 18 October 2026.** This file replaces the earlier Concept A proposals with
+the visual direction used by the implemented POC. The filename is retained for
+existing links. Implementation approval is not merchant approval or trademark clearance.
 
-## Concept name: Modern Fresh Market
+## Identity
 
-Laviann is a single-vendor raw-meat ordering platform. The intended brand feeling is
-**fresh, trustworthy, confident and approachable**, with a touch of premium quality.
-The palette extends the deep green used in the v1.0 PRD presentation into customer
-commerce and vendor administration. It is intentionally *not* a restaurant palette.
+The brand is fresh, confident and approachable for a single raw-meat vendor in Mauritius.
+The original **LAVIANN** SVG wordmark has a very small, monochrome steak-cut accent
+above the I. The compact icon is a simple **L**. The exact tagline is
+**Quality Meats, Greater Meals.** No leaf, red steak, restaurant cutlery or cooked-food motif.
 
-### Proposed colors
+Canonical files live in `packages/shared/assets/images/branding`: `wordmark.svg`,
+`wordmark-white.svg`, `lockup.svg`, `lockup-white.svg`, `icon.svg` and `icon-white.svg`.
+These are real vector assets, not crops from the reference board. Both apps use
+`icon.svg` as the favicon in light mode and `icon-white.svg` in dark mode.
 
-| Token | Hex | Usage |
-|---|---|---|
-| Brand / Deep Forest | `#12382F` | Logo, primary CTA, navigation |
-| Brand / Green | `#17483B` | Hero and selected accents |
-| Brand / Sage | `#AFC799` | Accent, selection, supporting panels |
-| Brand / Sage Pale | `#EBF1E8` | Tinted panels and subtle states |
-| Canvas / Ivory | `#F4F7F3` | Backgrounds |
-| Text / Dark | `#263D35` | Body copy and headings |
-| Text / Muted | `#687A73` | Secondary copy, metadata |
-| Outline / Light | `#DCE5DE` | Hairlines and input borders |
-| Accent / Terracotta | `#C76B50` | Selective emphasis, low-stock warning |
-| Surface / White | `#FFFFFF` | Cards and form surfaces |
+## Runtime palette
 
-**Accessibility:** Validate every text/background combination with a contrast checker
-when translating concepts into code. Muted-text usage at small sizes may need darker
-tones to reach WCAG AA, and selected states must also include labels or icons.
+The table describes `packages/shared/src/theme/colors.ts`; edit that source when
+changing the application and update this guide to match.
 
-### Typography (proposals)
+| Token               | Hex       | Purpose                                        |
+| ------------------- | --------- | ---------------------------------------------- |
+| `primary`           | `#12382F` | Wordmark, primary controls and navigation      |
+| `primaryStrong`     | `#17483B` | Forest variation                               |
+| `secondary`         | `#AFC799` | Sage accents and supporting panels             |
+| `secondaryPale`     | `#EBF1E8` | Subtle tinted surfaces                         |
+| `background`        | `#F4F7F3` | Ivory canvas                                   |
+| `surface`           | `#FFFFFF` | Cards and fields                               |
+| `text`              | `#263D35` | Main text                                      |
+| `muted`             | `#52675D` | Secondary text, darkened after contrast checks |
+| `border`            | `#DCE5DE` | Borders and dividers                           |
+| `accent`            | `#C76B50` | Restrained terracotta emphasis                 |
+| `warningBackground` | `#F9EBE4` | Warning surfaces                               |
 
-- **Inter:** UI controls, navigation, forms, tables, prices.
-- **Manrope:** Editorial/marketing headings and product storytelling, subject to visual review.
-- For first screens, use Inter throughout when consistency is more valuable than font pairing.
-- Do not ship font files in the design pack; use properly licensed sources when building the application.
+Theme variables and Tailwind utilities derive from shared source. Do not introduce
+separate palettes in each app. Recheck contrast when a token or its background changes;
+color alone must not communicate an order/payment state.
 
-### Shape and layout
+## Typography and layout
 
-- Corners: 12-20 px on cards; 14-16 px on touch controls; pill badges for statuses.
-- Comfortable white space, few heavy dividers.
-- Customer content: 16px mobile edge margins, prominent product information.
-- Vendor content: compact but breathable tables and status surfaces.
-- Primary actions: dark green on light backgrounds or sage on dark backgrounds.
-- Price, weight, packaging count and vendor-selected date are visually primary.
+Big Shoulders handles display headings; Inter handles body copy, controls, prices
+and operational data. Both load through `@laviann/shared/fonts`; role mappings and
+fallbacks are shared. Manrope was an early proposal and is not the application font.
 
-### Photography direction (future)
+Customer pages prioritize readable weights, prices, package counts and offered delivery
+dates on mobile. Vendor pages use a forest sidebar and operational summaries on desktop,
+with usable navigation and cards at mobile widths. Focus rings, errors, loading and
+empty states are part of the interface. [Verification](../verification.md) records
+Chromium/axe and viewport evidence; it is not full accessibility certification.
 
-The current vectors are illustrative placeholders, **not real meat product images**.
-For the real brand use photographs of the vendor's actual inventory on uncluttered,
-neutral backgrounds. Show raw, safely handled cuts only. The UI should not imply
-processed or cooked products.
+## Product imagery and history
 
-### Logo status
+P0 uses original, explicitly labelled SVG raw-chicken/beef illustrations. Actual merchant
+photography and uploads remain future work. Do not imply the artwork shows real stock.
 
-The concept `laviann.` wordmark and circular L symbol are temporary; no final logo
-has been commissioned, selected or approved. They are safe to modify in Figma.
-
-### Figma handoff
-
-Use `docs/design/figma-import/*.svg`; see `docs/design/FIGMA-IMPORT.md`. Imported SVG
-artwork is editable as vector content, but it is **not** a native `.fig` file and
-does not automatically create Figma auto-layout, reusable components or prototypes.
+The older `figma-import` vectors, PNG previews and `tokens.json` remain exploratory
+history. Use [current screenshots](../verification.md#responsive-accessibility-and-visual-evidence)
+for visual comparison and [the UX guide](../ux/Laviann-UX-Plan-v0.1.md) for current flow.

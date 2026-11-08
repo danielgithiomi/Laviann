@@ -1,57 +1,71 @@
 # Laviann implementation acceptance tracker
 
-> Codex: copy this into the repository's development documentation or maintain an equivalent issue/PR tracker. Update
-> status based on **observed evidence**, never on intent or mockup similarity. Use `not started`, `in progress`, `tested`,
-> `blocked`, or `preview only`; provide PR/commit/test references where available.
+**Context updated 8 November 2026.** A–F are implemented; the evidence below was
+executed locally on **17 October 2026**, with the initial implementation's GitHub
+checks also passing. Later CI runs on `main` (most recently 8 November 2026) also pass. This is evidence of a working local P0, not merchant approval
+or production certification. See [verification](../docs/verification.md) for exact
+results and limitations. Revalidate affected behavior for future changes.
 
-| Milestone             | Required result                                                                                                                                | Status | Evidence / blockers                                                                                                                    |
-|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------|--------|----------------------------------------------------------------------------------------------------------------------------------------|
-| A - Brand/design      | Original monochrome SVG logo with small steak-cut detail; tagline, shared theme, responsive customer/vendor views, honest demo fixtures        | tested | Wordmark/lockup/icon SVGs in `packages/shared/assets/images/branding`; 73 responsive/Axe checks (`docs/screenshots/verification.json`) |
-| B - Backend           | Versioned Supabase schema/seed, RLS, vendor owner Auth, guest capability-link boundaries, trusted price/inventory functions                    | tested | `supabase/migrations/202610160001_poc.sql`, ADR-0004; 17 integration tests (RLS, auth, transactions)                                   |
-| C - Customer requests | Real configurable catalogue, weights/portions/cart, zone/date checkout, pending review requests, idempotency                                   | tested | Browser journey + SQL request tests; `docs/demo-guide.md`                                                                              |
-| D - Quote workflow    | Vendor review/manual WhatsApp entry, current versioned quote, secure share/approval, supersession and transaction                              | tested | Browser v1/v2 supersession + SQL capability tests                                                                                      |
-| E - Operations        | On-hand/reserved/available stock, low-stock warnings, correct stock movements, delivery scheduling/fulfillment, manual payment tracking        | tested | Inventory, delivery, payment and settings browser/SQL tests                                                                            |
-| F - QA/demo           | Eight baseline scenarios, security/concurrency tests, accessibility/responsive screenshots, operational runbook and truthful integration notes | tested | `docs/verification.md`, `docs/demo-guide.md`, `docs/setup.md`, `docs/security.md`                                                      |
+## Delivery milestones
 
-## Mandatory eight PRD demo scenarios
+| Milestone             | Status                      | Implemented result and evidence                                                                                                                       |
+| --------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A - Brand/design      | Tested                      | Original SVG identity, exact tagline, shared theme/fonts, nine customer and ten vendor screens; asset/theme tests and responsive screenshots          |
+| B - Backend           | Tested                      | Supabase schema/seed, owner Auth, RLS, guest capabilities and trusted functions; 17 real database tests / 97 assertions                               |
+| C - Customer requests | Tested                      | Product configuration, cart, zone/date checkout, trusted estimates and idempotent requests; domain/database tests and browser journey                 |
+| D - Quote workflow    | Tested                      | Vendor/manual entry, immutable versions, manual sharing, current approval and revocation; browser and transaction tests                               |
+| E - Operations        | Tested                      | Stock accounting, warnings, adjustments, delivery settings/fulfillment and separate manual payment; database and browser/settings tests               |
+| F - QA/demo           | Tested within stated limits | Eight scenarios, concurrency/security checks, Chromium/axe/viewport evidence, setup/demo/security guides; additional browsers and launch work pending |
 
-| Scenario            | Input / action                                                              | Exact expected outcome                                                                        | Status | Test/evidence                                              |
-|---------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|--------|------------------------------------------------------------|
-| A: Website request  | Customer selects 2kg breast + 2kg drumsticks + 2kg wings, 500g packs, North | 12 packs; product Rs1,970 + delivery Rs125 = **Rs2,095**; `pending_review`, no reserved stock | tested | `journey.spec.ts` + SQL six-kilo test                      |
-| B: Vendor quotation | Vendor reviews above request and issues versioned quote                     | Current quote recorded, `awaiting_customer_confirmation`, secure approval link available      | tested | `journey.spec.ts`; integration quote tests                 |
-| C: Current approval | Customer approves the newest valid quote                                    | Atomic revalidation and reservation; `confirmed`, correct quote version stored                | tested | Browser approval + SQL duplicate/concurrent approval tests |
-| D: Fulfillment      | Vendor prepares, marks ready, dispatches, delivers                          | Allowed status sequence, correct one-time physical stock movement                             | tested | Browser stages + SQL balance/duplicate preparation tests   |
-| E: Manual WhatsApp  | Vendor enters raw-meat order from WhatsApp and manually shares quote        | Same secure pipeline; `vendor_entered` origin                                                 | tested | Browser manual order + SQL origin check                    |
-| F: Low stock        | Target 50kg, available falls to 5kg                                         | 10% warning visible, threshold editable and no false duplicate alerts                         | tested | Seed wings 5 kg / 50 kg target; inventory tests            |
-| G: Concurrency      | Two distinct customers race to reserve final stock                          | Never oversells, exactly one eligible reservation if only one fits                            | tested | Integration race with two real database clients            |
-| H: Quote revision   | Vendor issues v2 of an already issued quote                                 | v1 link rejected; only current v2 may be approved                                             | tested | Browser + SQL tests reject v1, approve v2                  |
+## Eight PRD scenarios
 
-## Cross-cutting proof points
+| Scenario             | Observed result                                                                                                           | Evidence                                    |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| A - Website request  | 2 kg each breast/drumsticks/wings; twelve 500 g packs; Rs 1,970 + North Rs 125 = Rs 2,095; Pending Review, no reservation | Domain + database tests and browser journey |
+| B - Vendor quotation | Current version stored, awaiting customer confirmation, private approval link                                             | Database and browser journey                |
+| C - Current approval | Atomic revalidation/reservation, Confirmed, exact approved version                                                        | Database and browser journey                |
+| D - Fulfillment      | Valid progression, one-time stock deduction, independent payment                                                          | Database and browser journey                |
+| E - Manual WhatsApp  | `vendor_entered` request follows the same approval/fulfillment pipeline                                                   | Database and browser journey                |
+| F - Low stock        | 5 kg available against 50 kg target triggers the 10% warning; target adjustable                                           | Seed, database tests and inventory screen   |
+| G - Concurrency      | Two approvals compete for final stock; only the fitting reservation succeeds                                              | Real database race and rollback tests       |
+| H - Quote revision   | v1 rejected after v2 issuance; only current v2 can approve                                                                | Database and browser journey                |
 
-- [x] Customer app works at 320px/390px mobile and ~1440px desktop.
-- [x] Vendor dashboard works at 390px mobile and ~1440px desktop; tables become usable cards.
-- [x] All editable product prices, delivery fees, schedule/cutoffs and payment methods are vendor configuration, not
-  frozen mock data.
-- [x] Anonymous customer cannot access another customer's private order or address.
-- [x] Service-role keys never reach a browser, public endpoint or checked-in file.
-- [x] No instant paid/confirmed status on customer request submission.
-- [x] Accepted quote history, stock accounting and payment status remain auditable.
-- [x] No unsupported card-payment, automated WhatsApp, native app or multi-vendor features.
-- [x] Same-name nested brand image files overwrite generated public images on `predev`/`prebuild` with no watcher.
-- [ ] Existing Husky/GitHub Actions checks pass; additional tests and screenshots documented. (Local hooks/checks pass
-  and evidence is documented; remote CI results are unconfirmed here.)
-- [x] Real merchant values, tax/legal requirements and live payment integrations clearly marked pending validation.
+[Scenario walkthrough and route map](../docs/demo-guide.md) ·
+[Domain tests](../tests/unit/domain.test.ts) ·
+[Database tests](../tests/integration/workflow.test.ts) ·
+[Browser journey](../tests/browser/journey.spec.ts) ·
+[Settings journey](../tests/browser/vendor-settings.spec.ts).
 
-## Reproducibility
+## Cross-cutting evidence
 
-- Repository branch/base: `main` (P0 merged via PRs #1–#4, latest `1471b70`)
-- Feature branch (es)/PR (s): `chore/shared-foundation`, `feat/complete-poc`, `from-ai/initial-development`; PRs #1–#4
-- Bun / Node / Turbo versions: repo/CI Bun 1.4.3, Node 24, Turbo 2.x; verified locally on Bun 1.3.6 / Node 25.9.0
-- Supabase mode: `local` (project `laviann-poc`); no hosted project
-- Test commands run and results: see `docs/verification.md` (17 Oct 2026); `check` and `test:unit` re-run on `main` 18
-  Oct 2026
-- Unit/integration/E2E status: 9 unit, 17 integration, 3 browser passed on 17 Oct; integration/browser not re-run since
-  the PR #4 SQL reformat
-- Known blockers/unverified assumptions: real prices, zones, schedules, yields, tax/legal and payment processes need
-  vendor validation (PRD §16.2)
-- Next step: re-run integration/browser suites, demonstrate to the vendor, then plan approved hosted staging
+- Customer 320/390/768/1440 px and vendor 390/768/1440 px: 73 viewport/axe checks
+  across 21 states, plus three product-editor viewport/axe checks. No detected
+  document overflow or scanned WCAG A/AA violations in those runs.
+- Anonymous/non-owner access, capability scoping/expiry, stale versions, server
+  pricing, safe retries, stock races and payment independence tested against real SQL.
+- Both configured builds and unconfigured preview behavior checked. Preview mutations
+  fail visibly; no fake successful orders/payments. Browser bundles scanned for secrets.
+- Six image-copy and two theme tests passed; nested overwrite/no-deletion/no-watcher
+  policy preserved. Unit tests: 9 passed / 28 assertions. Browser tests: 3 passed.
+- Normal lint/typecheck/build and commit-policy checks passed. Screenshot examples
+  use fake details and exclude full private links and credentials.
+
+## Reproducibility and remaining work
+
+- Original verification branch: `feat/complete-poc`, final handover commit `63bdc76`,
+  originally based on `chore/shared-foundation` at `466f169`.
+- Merged baseline: foundation PR #2 (`563cb08`), POC PR #3 (`dec0c33`) and
+  Supabase/handoff PR #4 (`1471b70`), followed by maintenance PRs #5–#10
+  (READMEs, Next.js 16.4.5, password toggle, favicon, Supabase CLI 3.0.0, aliases).
+- Latest re-check, 8 November 2026: the [`main` CI run at `cf4ea5d`](https://github.com/danielgithiomi/Laviann/actions/runs/42477380550)
+  passed the integration and browser jobs, and the integration suite passed locally
+  on Supabase CLI 3.0.0. See [verification](../docs/verification.md).
+- Original local verification runtime: Bun 1.3.6, Node 25.9.0, Supabase CLI 2.121.0.
+  Repository/CI pins Bun 1.4.3 and Node 24. Check manifests/lockfile for current versions.
+- Backend: isolated local project `laviann` (formerly `laviann-poc`), API 54321/database 54322. No hosted merchant
+  project or live payment/message provider was exercised. [Setup](../docs/setup.md).
+- Pending: vendor business-policy validation; Safari/Firefox, physical-device and
+  screen-reader testing; owner recovery/MFA, retention, backups, monitoring,
+  compliance and separately approved deployment.
+- Next product step: a vendor walkthrough and scoped follow-up changes. New tasks
+  follow [AGENTS.md](../AGENTS.md#git-workflow) with PRs targeting `main` and owner approval.

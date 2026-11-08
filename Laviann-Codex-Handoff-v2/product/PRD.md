@@ -1,5 +1,11 @@
 # Laviann - Product Requirements Document
 
+> **Archived planning snapshot.** This preserves the 14 October 2026 requirements
+> baseline, not current implementation status. The local P0 is complete. Use the
+> [current PRD](../../docs/PRD.md), [architecture](../../docs/architecture.md) and
+> [dated verification](../../docs/verification.md) for new work. The current PRD
+> is the sole editable requirements source; do not maintain two competing versions.
+
 **Version:** 1.0  
 **Date:** 14 October 2026  
 **Status:** Initial planning baseline - vendor assumptions require validation  

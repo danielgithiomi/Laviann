@@ -1,14 +1,32 @@
 # POC verification and review handover
 
-Verified locally on **17 October 2026** on `feat/complete-poc` (commit `63bdc76`),
-based on `chore/shared-foundation` at `466f169`. Both branches have since been
-reviewed and merged to `main` (PRs #1–#3). Nothing was deployed.
+The results below were executed locally on **17 October 2026** on
+`feat/complete-poc` (final handover commit `63bdc76`), originally based on
+`chore/shared-foundation` at `466f169`. They remain dated evidence, not a claim that
+every later change has rerun the same checks.
 
-**Since this run (18 October 2026):** PR #4 reformatted
-`supabase/migrations/202610160001_poc.sql` and `supabase/seed.sql` for readability.
-On `main`, `bun run check` and `bun run test:unit` (9 passed) were re-run and pass.
-`test:integration` and `test:browser` have **not** been re-run against the
-reformatted SQL; repeat them (see [setup](setup.md)) before relying on this evidence.
+**Repository update — 18 October 2026:** `main` now includes the shared foundation
+([PR #2](https://github.com/danielgithiomi/Laviann/pull/2), `563cb08`), completed POC
+([PR #3](https://github.com/danielgithiomi/Laviann/pull/3), `dec0c33`) and subsequent
+Supabase refactor/handoff addition ([PR #4](https://github.com/danielgithiomi/Laviann/pull/4),
+`1471b70`). The customer, vendor and shared-package source at that baseline matches
+the source used for the screenshots below. New changes branch from current `main`
+and follow the [current Git workflow](../AGENTS.md#git-workflow).
+
+**Later changes — 8 November 2026:** PRs #5–#10 added the app READMEs and renamed
+the local Supabase project to `laviann` (#5), upgraded Next.js to 16.4.5 (#6), added
+a password visibility toggle and fixed the vendor login headline spacing (#7), switched
+both favicons to the theme-aware brand icon (#8), upgraded the Supabase CLI to 3.0.0
+(#9) and added vendor import aliases (#10). On the CLI 3.0.0 local stack,
+`bun run test:integration` passed again (17 tests, 97 assertions). The GitHub Actions
+[run for `main` at `cf4ea5d`](https://github.com/danielgithiomi/Laviann/actions/runs/42477380550)
+passed both jobs, including the integration suite and the full browser workflow. The
+screenshots below still date from 17 October, so the vendor login image does not show
+the password toggle.
+
+The initial implementation's [push workflow](https://github.com/danielgithiomi/Laviann/actions/runs/39036707785)
+and [PR workflow](https://github.com/danielgithiomi/Laviann/actions/runs/39037022533)
+also passed. Inspect each new PR's own results; these links are historical runs.
 
 ## Executed checks
 
@@ -31,7 +49,8 @@ Actual command summaries are preserved in [verification-output.txt](verification
 Local runtime: Bun 1.3.6, Node 25.9.0, Supabase CLI 2.121.0. Repository and CI
 versions remain Bun 1.4.3 / Node 24. Local apps used ports **3100 / 3101** because
 3000 was already occupied; normal development defaults remain **3000 / 3001**.
-The isolated database project is `laviann-poc`, API 54321 and database 54322.
+The isolated database project was `laviann-poc` (renamed `laviann` in PR #5), API
+54321 and database 54322.
 
 The GitHub workflow now runs the unit, database and browser suites. Its remote
 result is separate from these local results and must be checked on the PR.
