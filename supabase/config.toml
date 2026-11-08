@@ -218,9 +218,10 @@ web3 = 30
 # secret = ""
 
 [auth.email]
-# Keep the email/password provider enabled. The global auth.enable_signup=false
+# Keep the email/password provider enabled. The global auth.enable_signup = false
 # above blocks self-registration while allowing the provisioned owner to sign in.
-enable_signup = true
+# Setting enabled = false here would also block the owner from signing in.
+enabled = true
 # If enabled, a user will be required to confirm any email change on both the old, and new email
 # addresses. If disabled, only the new email is required to confirm.
 double_confirm_changes = true
@@ -257,8 +258,8 @@ otp_expiry = 3600
 # content_path = "./supabase/templates/password_changed_notification.html"
 
 [auth.sms]
-# Allow/disallow new user signups via SMS to your project.
-enable_signup = false
+# Enable/disable phone sign-in. Laviann does not use SMS auth.
+enabled = false
 # If enabled, users need to confirm their phone number before signing in.
 enable_confirmations = false
 # Template for sending OTP to users
