@@ -104,7 +104,7 @@ change such as disabling signup, restart only this Supabase project to reload Au
 
 Builds self-host Big Shoulders and Inter using `next/font`; the initial build needs
 Google Fonts connectivity. No database is required to build the read-only preview.
-The original verification machine used Bun 1.3.6; the repository/CI is pinned to 1.4.3.
+The original verification machine used Bun 1.3.6; the repository and CI are pinned to 1.3.14.
 
 ## Hosted setup requires a separate approved deployment
 

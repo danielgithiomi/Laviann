@@ -70,7 +70,7 @@ Laviann/
 ## Prerequisites
 
 - macOS or another supported development OS
-- Bun 1.4.x (https://bun.com/docs/installation)
+- Bun 1.3.14, as pinned in `package.json` (https://bun.com/docs/installation)
 - Node.js 22+ (Next.js development / tools)
 - Git
 - Docker and PostgreSQL client (`psql`) for the local database tests
