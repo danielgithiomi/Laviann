@@ -2,7 +2,7 @@
     "name": "laviann",
     "version": "0.1.0",
     "private": true,
-    "packageManager": "bun@1.4.3",
+    "packageManager": "bun@1.3.14",
     "engines": {
         "node": ">=22.0.0"
     },
@@ -29,6 +29,8 @@
         "test:integration": "bun test tests/integration",
         "test:browser": "playwright test",
         "db:start": "supabase start",
+        "db:stop": "supabase stop",
+        "db:destroy": "supabase stop --no-backup",
         "db:reset": "supabase db reset",
         "db:types": "supabase gen types typescript > packages/shared/src/types/database.ts && prettier --write packages/shared/src/types/database.ts"
     },
@@ -39,6 +41,6 @@
         "typescript": "^6.0.3",
         "@playwright/test": "^1.56.0",
         "@axe-core/playwright": "^4.10.2",
-        "supabase": "^3.0.0"
+        "supabase": "^3.1.0"
     }
 }

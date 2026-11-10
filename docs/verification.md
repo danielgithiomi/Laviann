@@ -47,7 +47,7 @@ Actual command summaries are preserved in [verification-output.txt](verification
 | Browser bundle credential scan  | 41 production browser JavaScript files checked; neither the actual local service key nor the private HMAC secret appeared.                                                                            |
 
 Local runtime: Bun 1.3.6, Node 25.9.0, Supabase CLI 2.121.0. Repository and CI
-versions remain Bun 1.4.3 / Node 24. Local apps used ports **3100 / 3101** because
+versions were then Bun 1.4.3 / Node 24 (Bun is now pinned to 1.3.14). Local apps used ports **3100 / 3101** because
 3000 was already occupied; normal development defaults remain **3000 / 3001**.
 The isolated database project was `laviann-poc` (renamed `laviann` in PR #5), API
 54321 and database 54322.

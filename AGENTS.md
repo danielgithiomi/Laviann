@@ -226,6 +226,9 @@ Laviann/
 - `bun run test:unit` - domain calculations and validation.
 - `bun run test:integration` - local Supabase auth, RLS, transaction and race tests.
 - `bun run test:browser` - real guest/vendor journey, responsive and accessibility checks.
+- `bun run db:start` / `bun run db:stop` - start or stop this project's local Supabase
+  containers; stopping keeps the data volumes.
+- `bun run db:destroy` - stop the local stack and **delete its data volumes**; destructive.
 - `bun run db:types` - regenerate the database contract after applying migrations.
 - Never bypass hooks with `--no-verify` merely to make a commit pass.
 
