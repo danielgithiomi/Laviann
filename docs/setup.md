@@ -120,8 +120,20 @@ forwarded client-IP header before enabling `TRUST_PROXY_IP`; otherwise rate limi
 remain shared. Establish an owner recovery process, backups and merchant policies
 before using real orders. These deployment steps were not executed.
 
-To stop only this local stack without discarding its saved volumes:
+To stop only this local stack without discarding its saved volumes (restart it later
+with `bun run db:start`; the data is still there):
 
 ```sh
-bunx supabase stop
+bun run db:stop
 ```
+
+To stop this stack **and permanently delete its data volumes** (orders, Auth users,
+stock), use the destructive variant. The next `bun run db:start` creates a fresh
+database from the migration and seed, so rerun `bun scripts/setup-local.ts` afterwards:
+
+```sh
+bun run db:destroy
+```
+
+Both commands affect only this project's containers. Other projects' Supabase stacks
+and Docker images are left alone.
